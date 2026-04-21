@@ -1,0 +1,268 @@
+package codigo.ventanas;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import java.awt.Dimension;
+import javax.swing.JToolBar;
+import java.awt.FlowLayout;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import java.awt.Color;
+import javax.swing.JButton;
+import java.awt.Font;
+import java.awt.Toolkit;
+import java.awt.Cursor;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseEvent;
+import javax.swing.Timer;
+
+import codigo.paneles.*;
+import codigo.paneles.paneles_vehiculos.*;
+
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class menu extends JFrame implements MouseListener, ActionListener {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private JPanel menu_bar;
+	private JPanel menu_panel;
+	private JPanel menu_barra_2;
+	private JPanel menu_barra_1;
+	private JToolBar barra_1;
+	private JToolBar barra_2;
+	private JLabel lblLogoMenu;
+	private JButton btnVehiculos;
+	private JButton btnNoticias;
+	private JButton btnSobreNosotros;
+	private JLabel lblUsuarioIcono;
+	private JPanel panelMenu_barra_1;
+	private JScrollPane contenido;
+	private Vehiculos panelVehiculos = new Vehiculos();
+	private Inicio panelInicio = new Inicio();
+	private Noticias panelNoticias = new Noticias();
+	private SobreNosotros panelSobreNosotros = new SobreNosotros();
+	
+	private Ferrari849Testarrosa paginaFerrari849Testarrosa = new Ferrari849Testarrosa();
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					menu frame = new menu();
+					frame.setLocationRelativeTo(null);
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	
+	private void mostrarPanel(JPanel panel) {
+		panel.setSize(790, 460);
+		panel.setLocation(0, 0);
+		
+		contenido.setViewportView(panel);
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public menu() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(menu.class.getResource("/recursos/imagenes/imagenes_ventana/logo.png")));
+		setTitle("Ferrari");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 836, 500);
+		contentPane = new JPanel();
+		contentPane.setBackground(Color.BLACK);
+		contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
+		setContentPane(contentPane);
+		contentPane.setLayout(new BorderLayout(0, 0));
+		
+		menu_bar = new JPanel();
+		menu_bar.setBorder(new EmptyBorder(0, 0, 0, 0));
+		menu_bar.setBackground(Color.BLACK);
+		contentPane.add(menu_bar, BorderLayout.NORTH);
+		
+		menu_panel = new JPanel();
+		menu_panel.setBackground(Color.BLACK);
+		menu_panel.setPreferredSize(new Dimension(800, 80));
+		menu_bar.add(menu_panel);
+		menu_panel.setLayout(new GridLayout(2, 1, 0, 0));
+		
+		menu_barra_1 = new JPanel();
+		menu_barra_1.setBackground(Color.BLACK);
+		menu_panel.add(menu_barra_1);
+		menu_barra_1.setLayout(new BorderLayout(0, 0));
+		
+		lblUsuarioIcono = new JLabel("");
+		lblUsuarioIcono.addMouseListener(this);
+		lblUsuarioIcono.setIcon(new ImageIcon(menu.class.getResource("/recursos/imagenes/imagenes_menu/usuario_icono_rend.png")));
+		lblUsuarioIcono.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		lblUsuarioIcono.setPreferredSize(new Dimension(30, 30));
+		lblUsuarioIcono.setForeground(new Color(255, 255, 255));
+		menu_barra_1.add(lblUsuarioIcono, BorderLayout.EAST);
+		
+		panelMenu_barra_1 = new JPanel();
+		panelMenu_barra_1.setBackground(Color.BLACK);
+		menu_barra_1.add(panelMenu_barra_1, BorderLayout.CENTER);
+		
+		barra_1 = new JToolBar();
+		panelMenu_barra_1.add(barra_1);
+		barra_1.setBorder(new EmptyBorder(2, 0, 2, 0));
+		barra_1.setFloatable(false);
+		barra_1.setBackground(Color.BLACK);
+		
+		lblLogoMenu = new JLabel("");
+		lblLogoMenu.addMouseListener(this);
+		lblLogoMenu.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		lblLogoMenu.setIcon(new ImageIcon(menu.class.getResource("/recursos/imagenes/imagenes_menu/menu_logo.jpg")));
+		lblLogoMenu.setPreferredSize(new Dimension(30, 30));
+		barra_1.add(lblLogoMenu);
+		
+		menu_barra_2 = new JPanel();
+		menu_barra_2.setBackground(Color.BLACK);
+		menu_panel.add(menu_barra_2);
+		menu_barra_2.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		barra_2 = new JToolBar();
+		barra_2.setBorder(new EmptyBorder(2, 0, 2, 0));
+		barra_2.setBackground(Color.BLACK);
+		barra_2.setFloatable(false);
+		menu_barra_2.add(barra_2);
+		
+		btnVehiculos = new JButton("Vehículos");
+		btnVehiculos.addActionListener(this);
+		btnVehiculos.addMouseListener(this);
+		btnVehiculos.setFocusPainted(false);
+		btnVehiculos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnVehiculos.setContentAreaFilled(false);
+		btnVehiculos.setBackground(Color.BLACK);
+		btnVehiculos.setForeground(Color.WHITE);
+		btnVehiculos.setBorder(new EmptyBorder(5, 20, 5, 20));
+		btnVehiculos.setFont(new Font("Roboto ExtraBold", Font.BOLD, 12));
+		barra_2.add(btnVehiculos);
+		
+		btnNoticias = new JButton("Noticias");
+		btnNoticias.addActionListener(this);
+		btnNoticias.setFocusPainted(false);
+		btnNoticias.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnNoticias.setContentAreaFilled(false);
+		btnNoticias.setBackground(Color.BLACK);
+		btnNoticias.setForeground(Color.WHITE);
+		btnNoticias.setBorder(new EmptyBorder(5, 20, 5, 20));
+		btnNoticias.setFont(new Font("Roboto ExtraBold", Font.BOLD, 12));
+		barra_2.add(btnNoticias);
+		
+		btnSobreNosotros = new JButton("Sobre nosotros");
+		btnSobreNosotros.addActionListener(this);
+		btnSobreNosotros.setFocusPainted(false);
+		btnSobreNosotros.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnSobreNosotros.setContentAreaFilled(false);
+		btnSobreNosotros.setBackground(Color.BLACK);
+		btnSobreNosotros.setForeground(Color.WHITE);
+		btnSobreNosotros.setBorder(new EmptyBorder(5, 20, 5, 20));
+		btnSobreNosotros.setFont(new Font("Roboto ExtraBold", Font.BOLD, 12));
+		barra_2.add(btnSobreNosotros);
+		
+		contenido = new JScrollPane();
+		contenido.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+		contenido.setBorder(new EmptyBorder(0, 0, 0, 0));
+		contenido.getVerticalScrollBar().setUnitIncrement(30);
+		contenido.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		contenido.setPreferredSize(new Dimension(810, 361));
+		contentPane.add(contenido, BorderLayout.CENTER);
+		
+		mostrarPanel(panelInicio);
+		
+	}
+
+	public void mouseClicked(MouseEvent e) {
+		if (e.getSource() == lblUsuarioIcono) {
+			mouseClickedLblUsuarioIcono(e);
+		}
+		if (e.getSource() == btnVehiculos) {
+			mouseClickedBtnVehiculos(e);
+		}
+		if (e.getSource() == lblLogoMenu) {
+			mouseClickedLblLogoMenu(e);
+		}
+	}
+	public void mouseEntered(MouseEvent e) {
+	}
+	public void mouseExited(MouseEvent e) {
+	}
+	public void mousePressed(MouseEvent e) {
+	}
+	public void mouseReleased(MouseEvent e) {
+	}
+	protected void mouseClickedLblLogoMenu(MouseEvent e) {
+		mostrarPanel(panelInicio);
+	}
+	protected void mouseClickedBtnVehiculos(MouseEvent e) {
+	}
+	protected void mouseClickedLblUsuarioIcono(MouseEvent e) {
+		
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnSobreNosotros) {
+			actionPerformedBtnSobreNosotros(e);
+		}
+		if (e.getSource() == btnNoticias) {
+			actionPerformedBtnNoticias(e);
+		}
+		if (e.getSource() == btnVehiculos) {
+			actionPerformedBtnVehiculos(e);
+		}
+	}
+	protected void actionPerformedBtnVehiculos(ActionEvent e) {
+		mostrarPanel(panelVehiculos);
+		
+		
+		Timer timer = new Timer(200, new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (panelVehiculos.botonPresionado == true) {
+					switch(panelVehiculos.indicadorCocheSeleccionado) {
+					case 1: break;
+					case 2: mostrarPanel(paginaFerrari849Testarrosa);
+					case 3: break;
+					case 4: break;
+					case 5: break; 
+					case 6: break;
+					case 7: break;
+					case 8: break;
+					case 9: break;
+					case 10: break;
+					}
+					
+					panelVehiculos.botonPresionado = false;
+				}
+			}
+		});
+		
+		timer.setRepeats(true);
+		timer.start();
+	}
+	protected void actionPerformedBtnNoticias(ActionEvent e) {
+		mostrarPanel(panelNoticias);
+	}
+	protected void actionPerformedBtnSobreNosotros(ActionEvent e) {
+		mostrarPanel(panelSobreNosotros);
+	}
+}
