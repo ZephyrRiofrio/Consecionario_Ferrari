@@ -24,6 +24,7 @@ public class panel_presentacion_1 extends JPanel {
 	 * Create the panel.
 	 */
 	public panel_presentacion_1() {
+		setPreferredSize(new Dimension(782, 252));
 		setBorder(null);
 		setBackground(new Color(0, 0, 0));
 		setLayout(new BorderLayout(0, 0));
@@ -40,7 +41,7 @@ public class panel_presentacion_1 extends JPanel {
 		};
 		contenido.setBorder(null);
 		contenido.setBackground(new Color(0, 0, 0));
-		contenido.setPreferredSize(new Dimension(792, 252));
+		contenido.setPreferredSize(new Dimension(790, 252));
 		
 		
 		add(contenido);
