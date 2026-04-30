@@ -56,7 +56,7 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 	
 	private Ferrari296GTB paginaFerrari296GTB = new Ferrari296GTB();
 	private Ferrari12CilindriSpider paginaFerrari12CilindriSpider = new Ferrari12CilindriSpider();
-	private Ferrari849Testarrosa paginaFerrari849Testarrosa = new Ferrari849Testarrosa();
+	private Ferrari849Testarossa paginaFerrari849Testarrosa = new Ferrari849Testarossa();
 
 	/**
 	 * Launch the application.
@@ -86,10 +86,11 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 	 * Create the frame.
 	 */
 	public menu() {
+		setPreferredSize(new Dimension(790, 500));
 		setIconImage(Toolkit.getDefaultToolkit().getImage(menu.class.getResource("/recursos/imagenes/imagenes_ventana/logo.png")));
 		setTitle("Ferrari");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 836, 500);
+		setBounds(100, 100, 790, 500);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.BLACK);
 		contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
