@@ -54,6 +54,7 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 	private Noticias panelNoticias = new Noticias();
 	private SobreNosotros panelSobreNosotros = new SobreNosotros();
 	
+	private Ferrari12CilindriSpider paginaFerrari12CilindriSpider = new Ferrari12CilindriSpider();
 	private Ferrari849Testarrosa paginaFerrari849Testarrosa = new Ferrari849Testarrosa();
 
 	/**
@@ -240,12 +241,12 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 				if (panelVehiculos.botonPresionado == true) {
 					switch(panelVehiculos.indicadorCocheSeleccionado) {
 					case 1: break;
-					case 2: mostrarPanel(paginaFerrari849Testarrosa);
+					case 2: mostrarPanel(paginaFerrari849Testarrosa); break;
 					case 3: break;
 					case 4: break;
 					case 5: break; 
 					case 6: break;
-					case 7: break;
+					case 7: mostrarPanel(paginaFerrari12CilindriSpider); break;
 					case 8: break;
 					case 9: break;
 					case 10: break;
