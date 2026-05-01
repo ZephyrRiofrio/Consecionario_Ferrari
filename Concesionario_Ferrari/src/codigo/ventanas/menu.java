@@ -56,6 +56,7 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 
 	private Vehiculos panelVehiculos = new Vehiculos();
 	private Inicio panelInicio = new Inicio();
+	private VentasVehiculos panelVentas = new VentasVehiculos();
 	private Noticias panelNoticias = new Noticias();
 	private SobreNosotros panelSobreNosotros = new SobreNosotros();
 	
@@ -316,7 +317,7 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		timer.start();
 	}
 	protected void actionPerformedBtnNoticias(ActionEvent e) {
-		mostrarPanel(panelNoticias);
+		mostrarPanel(panelVentas);
 	}
 	protected void actionPerformedBtnSobreNosotros(ActionEvent e) {
 		mostrarPanel(panelSobreNosotros);
