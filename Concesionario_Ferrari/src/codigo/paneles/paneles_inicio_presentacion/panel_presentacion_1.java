@@ -49,25 +49,25 @@ public class panel_presentacion_1 extends JPanel {
 		
 		lblTituloPagina = new JLabel("Deporte");
 		lblTituloPagina.setForeground(new Color(255, 255, 255));
-		lblTituloPagina.setFont(new Font("Roboto Light", Font.PLAIN, 16));
-		lblTituloPagina.setBounds(386, 123, 59, 31);
+		lblTituloPagina.setFont(new Font("Ferrari Sans", Font.PLAIN, 13));
+		lblTituloPagina.setBounds(376, 123, 71, 31);
 		contenido.add(lblTituloPagina);
 		
 		lblInformacionPagina = new JLabel("SCUDERIA FERRARI");
 		lblInformacionPagina.setForeground(new Color(255, 255, 255));
-		lblInformacionPagina.setFont(new Font("Roboto SemiBold", Font.PLAIN, 20));
-		lblInformacionPagina.setBounds(322, 154, 188, 31);
+		lblInformacionPagina.setFont(new Font("Ferrari Sans", Font.BOLD, 20));
+		lblInformacionPagina.setBounds(284, 154, 256, 31);
 		contenido.add(lblInformacionPagina);
 		
 		lblDescubrir = new JLabel("DESCUBRIR");
 		lblDescubrir.setForeground(new Color(255, 255, 255));
-		lblDescubrir.setFont(new Font("Roboto ExtraLight", Font.PLAIN, 14));
-		lblDescubrir.setBounds(358, 195, 87, 31);
+		lblDescubrir.setFont(new Font("Ferrari Sans", Font.PLAIN, 11));
+		lblDescubrir.setBounds(355, 195, 87, 31);
 		contenido.add(lblDescubrir);
 		
 		lblFlecha = new JLabel("");
 		lblFlecha.setIcon(new ImageIcon(panel_presentacion_1.class.getResource("/recursos/imagenes/imagenes_inicio/flecha_presentacion_rend.png")));
-		lblFlecha.setBounds(443, 195, 31, 31);
+		lblFlecha.setBounds(444, 195, 31, 31);
 		contenido.add(lblFlecha);
 	}
 }

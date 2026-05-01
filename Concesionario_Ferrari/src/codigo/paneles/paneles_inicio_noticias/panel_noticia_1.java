@@ -8,6 +8,7 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
+import java.awt.Dimension;
 
 public class panel_noticia_1 extends JPanel {
 
@@ -23,6 +24,7 @@ public class panel_noticia_1 extends JPanel {
 	 * Create the panel.
 	 */
 	public panel_noticia_1() {
+		setSize(new Dimension(790, 252));
 		setLayout(new BorderLayout(0, 0));
 		
 		contenido = new JPanel();
@@ -51,7 +53,7 @@ public class panel_noticia_1 extends JPanel {
 		
 		lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setIcon(new ImageIcon(panel_noticia_1.class.getResource("/recursos/imagenes/imagenes_inicio/noticias_carrusel_1_rend.jpg")));
-		lblNewLabel_2.setBounds(74, 11, 204, 230);
+		lblNewLabel_2.setBounds(103, 10, 204, 230);
 		imagen_articulo.add(lblNewLabel_2);
 
 	}
