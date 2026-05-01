@@ -342,6 +342,7 @@ public class Vehiculos extends JPanel implements MouseListener {
 		if (indicador == 0) {
 			panelAuto.setVisible(true);
 			indicador = 1;
+			this.indicadorCocheSeleccionado = 8;
 		}
 		
 		lblFerrariNombre.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_15_rend.jpg")));
@@ -453,6 +454,7 @@ public class Vehiculos extends JPanel implements MouseListener {
 		if (indicador == 0) {
 			panelAuto.setVisible(true);
 			indicador = 1;
+			this.indicadorCocheSeleccionado = 9;
 		}
 		
 		lblFerrariNombre.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_17_rend.jpg")));
