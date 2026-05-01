@@ -8,6 +8,7 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
+import java.awt.Dimension;
 
 public class panel_noticia_3 extends JPanel {
 
@@ -23,6 +24,7 @@ public class panel_noticia_3 extends JPanel {
 	 * Create the panel.
 	 */
 	public panel_noticia_3() {
+		setPreferredSize(new Dimension(790, 252));
 		setLayout(new BorderLayout(0, 0));
 		
 		contenido = new JPanel();

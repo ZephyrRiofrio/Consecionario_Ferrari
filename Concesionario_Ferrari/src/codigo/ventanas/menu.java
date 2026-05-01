@@ -48,7 +48,6 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 	private JButton btnNoticias;
 	private JButton btnSobreNosotros;
 	private JButton btnMantenimiento;
-	private JLabel lblUsuarioIcono;
 	private JPanel panelMenu_barra_1;
 	private JScrollPane contenido;
 	
@@ -135,21 +134,13 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		menu_panel.add(menu_barra_1);
 		menu_barra_1.setLayout(new BorderLayout(0, 0));
 		
-		lblUsuarioIcono = new JLabel("");
-		lblUsuarioIcono.addMouseListener(this);
-		lblUsuarioIcono.setIcon(new ImageIcon(menu.class.getResource("/recursos/imagenes/imagenes_menu/usuario_icono_rend.png")));
-		lblUsuarioIcono.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		lblUsuarioIcono.setPreferredSize(new Dimension(30, 30));
-		lblUsuarioIcono.setForeground(new Color(255, 255, 255));
-		menu_barra_1.add(lblUsuarioIcono, BorderLayout.EAST);
-		
 		panelMenu_barra_1 = new JPanel();
 		panelMenu_barra_1.setBackground(Color.BLACK);
 		menu_barra_1.add(panelMenu_barra_1, BorderLayout.CENTER);
 		
 		barra_1 = new JToolBar();
 		panelMenu_barra_1.add(barra_1);
-		barra_1.setBorder(new EmptyBorder(2, 0, 2, 0));
+		barra_1.setBorder(new EmptyBorder(2, 0, 2, 75));
 		barra_1.setFloatable(false);
 		barra_1.setBackground(Color.BLACK);
 		
@@ -187,7 +178,7 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		btnVehiculos.setBackground(Color.BLACK);
 		btnVehiculos.setForeground(Color.WHITE);
 		btnVehiculos.setBorder(new EmptyBorder(5, 20, 5, 20));
-		btnVehiculos.setFont(new Font("Roboto ExtraBold", Font.BOLD, 12));
+		btnVehiculos.setFont(new Font("Ferrari Sans", Font.PLAIN, 12));
 		barra_2.add(btnVehiculos);
 		
 		btnNoticias = new JButton("Noticias");
@@ -198,7 +189,7 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		btnNoticias.setBackground(Color.BLACK);
 		btnNoticias.setForeground(Color.WHITE);
 		btnNoticias.setBorder(new EmptyBorder(5, 20, 5, 20));
-		btnNoticias.setFont(new Font("Roboto ExtraBold", Font.BOLD, 12));
+		btnNoticias.setFont(new Font("Ferrari Sans", Font.PLAIN, 12));
 		barra_2.add(btnNoticias);
 		
 		btnSobreNosotros = new JButton("Sobre nosotros");
@@ -209,7 +200,7 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		btnSobreNosotros.setBackground(Color.BLACK);
 		btnSobreNosotros.setForeground(Color.WHITE);
 		btnSobreNosotros.setBorder(new EmptyBorder(5, 20, 5, 20));
-		btnSobreNosotros.setFont(new Font("Roboto ExtraBold", Font.BOLD, 12));
+		btnSobreNosotros.setFont(new Font("Ferrari Sans", Font.PLAIN, 12));
 		barra_2.add(btnSobreNosotros);
 		
 		btnMantenimiento = new JButton("Mantenimiento");
@@ -251,9 +242,6 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		if (e.getSource() == lblCerrarSesion) {
 			mouseClickedLblCerrarSesion(e);
 		}
-		if (e.getSource() == lblUsuarioIcono) {
-			mouseClickedLblUsuarioIcono(e);
-		}
 		if (e.getSource() == btnVehiculos) {
 			mouseClickedBtnVehiculos(e);
 		}
@@ -273,9 +261,6 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		mostrarPanel(panelInicio);
 	}
 	protected void mouseClickedBtnVehiculos(MouseEvent e) {
-	}
-	protected void mouseClickedLblUsuarioIcono(MouseEvent e) {
-		
 	}
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == btnSobreNosotros) {

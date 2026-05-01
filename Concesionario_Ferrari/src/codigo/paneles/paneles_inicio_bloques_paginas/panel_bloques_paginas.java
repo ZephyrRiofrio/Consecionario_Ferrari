@@ -9,6 +9,7 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.Graphics;
 import javax.swing.ImageIcon;
+import java.awt.Dimension;
 
 public class panel_bloques_paginas extends JPanel {
 
@@ -29,6 +30,7 @@ public class panel_bloques_paginas extends JPanel {
 	 * Create the panel.
 	 */
 	public panel_bloques_paginas() {
+		setPreferredSize(new Dimension(790, 252));
 		setBackground(new Color(252, 252, 252));
 		setLayout(new BorderLayout(0, 0));
 		
@@ -53,20 +55,20 @@ public class panel_bloques_paginas extends JPanel {
 		
 		lblScuderiaFerrari = new JLabel("Scuderia Ferrari");
 		lblScuderiaFerrari.setForeground(Color.WHITE);
-		lblScuderiaFerrari.setFont(new Font("Roboto Light", Font.PLAIN, 16));
-		lblScuderiaFerrari.setBounds(151, 123, 110, 31);
+		lblScuderiaFerrari.setFont(new Font("Ferrari Sans", Font.PLAIN, 13));
+		lblScuderiaFerrari.setBounds(128, 129, 137, 31);
 		bloque_scudFerra.add(lblScuderiaFerrari);
 		
 		lblReplica = new JLabel("REPLICA 2026");
 		lblReplica.setForeground(Color.WHITE);
-		lblReplica.setFont(new Font("Roboto SemiBold", Font.PLAIN, 20));
-		lblReplica.setBounds(139, 155, 136, 31);
+		lblReplica.setFont(new Font("Ferrari Sans", Font.BOLD, 20));
+		lblReplica.setBounds(105, 155, 199, 31);
 		bloque_scudFerra.add(lblReplica);
 		
 		lblDescubrir = new JLabel("DESCUBRIR");
 		lblDescubrir.setForeground(Color.WHITE);
-		lblDescubrir.setFont(new Font("Roboto ExtraLight", Font.PLAIN, 14));
-		lblDescubrir.setBounds(149, 196, 78, 31);
+		lblDescubrir.setFont(new Font("Ferrari Sans", Font.PLAIN, 11));
+		lblDescubrir.setBounds(136, 196, 84, 31);
 		bloque_scudFerra.add(lblDescubrir);
 		
 		lblFlecha = new JLabel("");
@@ -91,25 +93,25 @@ public class panel_bloques_paginas extends JPanel {
 		
 		lblDeportivos = new JLabel("Deportivos");
 		lblDeportivos.setForeground(Color.WHITE);
-		lblDeportivos.setFont(new Font("Roboto Light", Font.PLAIN, 16));
-		lblDeportivos.setBounds(152, 122, 76, 31);
+		lblDeportivos.setFont(new Font("Ferrari Sans", Font.PLAIN, 13));
+		lblDeportivos.setBounds(143, 129, 100, 31);
 		bloque_Deportivos.add(lblDeportivos);
 		
 		lblNuevosModelos = new JLabel("NUEVOS MODELOS\r\n");
 		lblNuevosModelos.setForeground(Color.WHITE);
-		lblNuevosModelos.setFont(new Font("Roboto SemiBold", Font.PLAIN, 20));
-		lblNuevosModelos.setBounds(110, 154, 175, 31);
+		lblNuevosModelos.setFont(new Font("Ferrari Sans", Font.BOLD, 20));
+		lblNuevosModelos.setBounds(73, 155, 250, 31);
 		bloque_Deportivos.add(lblNuevosModelos);
 		
 		lblDescubrir_1 = new JLabel("DESCUBRIR");
 		lblDescubrir_1.setForeground(Color.WHITE);
-		lblDescubrir_1.setFont(new Font("Roboto ExtraLight", Font.PLAIN, 14));
-		lblDescubrir_1.setBounds(140, 195, 88, 31);
+		lblDescubrir_1.setFont(new Font("Ferrari Sans", Font.PLAIN, 11));
+		lblDescubrir_1.setBounds(133, 195, 88, 31);
 		bloque_Deportivos.add(lblDescubrir_1);
 		
 		lblFlecha_1 = new JLabel("");
 		lblFlecha_1.setIcon(new ImageIcon(panel_bloques_paginas.class.getResource("/recursos/imagenes/imagenes_inicio/flecha_presentacion_rend.png")));
-		lblFlecha_1.setBounds(220, 195, 31, 31);
+		lblFlecha_1.setBounds(229, 195, 31, 31);
 		bloque_Deportivos.add(lblFlecha_1);
 
 	}
