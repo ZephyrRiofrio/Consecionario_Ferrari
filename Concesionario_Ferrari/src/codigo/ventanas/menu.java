@@ -35,6 +35,7 @@ import java.awt.event.ActionEvent;
 public class menu extends JFrame implements MouseListener, ActionListener {
 
 	private static final long serialVersionUID = 1L;
+	public boolean esVisible = true;
 	private JPanel contentPane;
 	private JPanel menu_bar;
 	private JPanel menu_panel;
@@ -46,20 +47,20 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 	private JButton btnVehiculos;
 	private JButton btnNoticias;
 	private JButton btnSobreNosotros;
+	private JButton btnMantenimiento;
 	private JLabel lblUsuarioIcono;
 	private JPanel panelMenu_barra_1;
 	private JScrollPane contenido;
+	
+	private boolean esAdmin = false;
+
 	private Vehiculos panelVehiculos = new Vehiculos();
 	private Inicio panelInicio = new Inicio();
-	private SobreNosotros panelNoticias = new SobreNosotros();
+	private Noticias panelNoticias = new Noticias();
 	private SobreNosotros panelSobreNosotros = new SobreNosotros();
 	
-	private Ferrari296GTB paginaFerrari296GTB = new Ferrari296GTB();
-	private Ferrari12Cilindri paginaFerrari12Cilindri = new Ferrari12Cilindri();
-	private Ferrari12CilindriSpider paginaFerrari12CilindriSpider = new Ferrari12CilindriSpider();
 	private Ferrari849Testarossa paginaFerrari849Testarrosa = new Ferrari849Testarossa();
-	private FerrariPurosangue paginaFerrariPurosangue = new FerrariPurosangue();
-	private FerrariAmalfi paginaFerrariAmalfi = new FerrariAmalfi();
+	private JLabel lblCerrarSesion;
 
 	/**
 	 * Launch the application.
@@ -84,16 +85,24 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		
 		contenido.setViewportView(panel);
 	}
-
+	
+	public void modificarEsAdmin(boolean esAdmin) {
+		this.esAdmin = esAdmin;
+	}
+	
+	public void modificarEsVisible(boolean esVisible) {
+		this.esVisible = esVisible;
+	}
+	
 	/**
 	 * Create the frame.
 	 */
 	public menu() {
-		setPreferredSize(new Dimension(790, 500));
+		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(menu.class.getResource("/recursos/imagenes/imagenes_ventana/logo.png")));
 		setTitle("Ferrari");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 790, 500);
+		setBounds(100, 100, 836, 500);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.BLACK);
 		contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
@@ -141,6 +150,13 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		lblLogoMenu.setPreferredSize(new Dimension(30, 30));
 		barra_1.add(lblLogoMenu);
 		
+		lblCerrarSesion = new JLabel("New label");
+		lblCerrarSesion.addMouseListener(this);
+		lblCerrarSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		lblCerrarSesion.setIcon(new ImageIcon(menu.class.getResource("/recursos/imagenes/imagenes_menu/flecha_presentacion_2.png")));
+		lblCerrarSesion.setPreferredSize(new Dimension(30, 30));
+		menu_barra_1.add(lblCerrarSesion, BorderLayout.WEST);
+		
 		menu_barra_2 = new JPanel();
 		menu_barra_2.setBackground(Color.BLACK);
 		menu_panel.add(menu_barra_2);
@@ -186,6 +202,29 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		btnSobreNosotros.setFont(new Font("Roboto ExtraBold", Font.BOLD, 12));
 		barra_2.add(btnSobreNosotros);
 		
+		btnMantenimiento = new JButton("Mantenimiento");
+		btnMantenimiento.addActionListener(this);
+		btnMantenimiento.setFocusPainted(false);
+		btnMantenimiento.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnMantenimiento.setContentAreaFilled(false);
+		btnMantenimiento.setBackground(Color.BLACK);
+		btnMantenimiento.setForeground(Color.WHITE);
+		btnMantenimiento.setBorder(new EmptyBorder(5, 20, 5, 20));
+		btnMantenimiento.setFont(new Font("Roboto ExtraBold", Font.BOLD, 12));
+		
+		Timer timer = new Timer(50, new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (esAdmin) {
+					barra_2.add(btnMantenimiento);
+					((Timer) e.getSource()).stop();
+				}
+			}
+		});
+		
+		timer.setRepeats(true);
+		timer.start();
+		
 		contenido = new JScrollPane();
 		contenido.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 		contenido.setBorder(new EmptyBorder(0, 0, 0, 0));
@@ -199,6 +238,9 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 	}
 
 	public void mouseClicked(MouseEvent e) {
+		if (e.getSource() == lblCerrarSesion) {
+			mouseClickedLblCerrarSesion(e);
+		}
 		if (e.getSource() == lblUsuarioIcono) {
 			mouseClickedLblUsuarioIcono(e);
 		}
@@ -246,14 +288,14 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 				if (panelVehiculos.botonPresionado == true) {
 					switch(panelVehiculos.indicadorCocheSeleccionado) {
 					case 1: break;
-					case 2: mostrarPanel(paginaFerrari849Testarrosa); break;
+					case 2: mostrarPanel(paginaFerrari849Testarrosa);
 					case 3: break;
-					case 4: mostrarPanel(paginaFerrari296GTB); break;
+					case 4: break;
 					case 5: break; 
-					case 6: mostrarPanel(paginaFerrari12Cilindri); break;
-					case 7: mostrarPanel(paginaFerrari12CilindriSpider); break;
-					case 8: mostrarPanel(paginaFerrariPurosangue); break;
-					case 9: mostrarPanel(paginaFerrariAmalfi); break;
+					case 6: break;
+					case 7: break;
+					case 8: break;
+					case 9: break;
 					case 10: break;
 					}
 					
@@ -270,5 +312,9 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 	}
 	protected void actionPerformedBtnSobreNosotros(ActionEvent e) {
 		mostrarPanel(panelSobreNosotros);
+	}
+	protected void mouseClickedLblCerrarSesion(MouseEvent e) {
+		this.esVisible = false;
+		this.setVisible(false);
 	}
 }
