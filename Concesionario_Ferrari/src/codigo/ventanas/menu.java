@@ -70,18 +70,21 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 	private FerrariAmalfi paginaFerrariAmalfi = new FerrariAmalfi();
 	private FerrariPurosangue paginaFerrariPurosangue = new FerrariPurosangue();
 	
+	private Acceso ventanaAcceso;
 	private JLabel lblCerrarSesion;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		Acceso ventanaAcceso = new Acceso();
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					menu frame = new menu();
+					ventanaAcceso.setVisible(true);
+					menu frame = new menu(ventanaAcceso);
 					frame.setLocationRelativeTo(null);
-					frame.setVisible(true);
+					frame.setVisible(false);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -100,14 +103,15 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		this.esAdmin = esAdmin;
 	}
 	
-	public void modificarEsVisible(boolean esVisible) {
-		this.esVisible = esVisible;
+	public void modificarVisible(boolean esVisible) {
+		this.setVisible(esVisible);
 	}
 	
 	/**
 	 * Create the frame.
 	 */
-	public menu() {
+	public menu(Acceso acceso) {
+		this.ventanaAcceso = acceso;
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(menu.class.getResource("/recursos/imagenes/imagenes_ventana/logo.png")));
 		setTitle("Ferrari");
@@ -214,6 +218,7 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		btnMantenimiento.setBorder(new EmptyBorder(5, 20, 5, 20));
 		btnMantenimiento.setFont(new Font("Ferrari Sans", Font.PLAIN, 12));
 		
+		
 		Timer timer = new Timer(50, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -237,6 +242,18 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		
 		mostrarPanel(panelInicio);
 		
+		Timer timerAcceso = new Timer(50, new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (ventanaAcceso.acceso) {
+					modificarVisible(true);
+					ventanaAcceso.setVisible(false);
+				}
+			}
+		});
+		
+		timerAcceso.setRepeats(true);
+		timerAcceso.start();
 	}
 
 	public void mouseClicked(MouseEvent e) {
@@ -315,7 +332,8 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		mostrarPanel(panelMantenimiento);
 	}
 	protected void mouseClickedLblCerrarSesion(MouseEvent e) {
-		this.esVisible = false;
 		this.setVisible(false);
+		ventanaAcceso.setVisible(true);
+		ventanaAcceso.modificarAcceso(false);
 	}
 }

@@ -27,12 +27,14 @@ public class Acceso extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JPanel panelSeccion;
-	private menu menu_frame = new menu();
 	private Iniciar_sesion panelIniciar = new Iniciar_sesion(this);
 	private Registrarse panelRegistrar = new Registrarse(this);
 	private JPanel panelImagen;
 	private JLabel lblImagen;
 	private Random rand = new Random();
+	
+	// Indicador que detecta algún acceso a la plataforma
+	public boolean acceso = false;
 	
 	// Indicador que detecta si se ha ingresado como administrador
 	public boolean esAdmin = false;
@@ -105,13 +107,6 @@ public class Acceso extends JFrame {
 		panelSeccion.repaint();
 	}
 	
-	private void accederMenu() {
-		menu_frame.setLocationRelativeTo(null);
-		menu_frame.setVisible(true);
-		
-		this.setVisible(false);
-	}
-	
 	public void modificarEsAdmin(boolean esAdmin) {
 		this.esAdmin = esAdmin;
 	}
@@ -126,8 +121,8 @@ public class Acceso extends JFrame {
 		this.contraseniaUsuario2 = contrasenia;
 	}
 	
-	private void modificarVisibilidadVentana(boolean visible) {
-		this.setVisible(visible);
+	public void modificarAcceso(boolean acceso) {
+		this.acceso = acceso;
 	}
 	
 	/**
@@ -161,31 +156,14 @@ public class Acceso extends JFrame {
 		
 		mostrarPanel(panelIniciar);
 		
-		Timer timerCerrarSesion = new Timer(50, new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (!(menu_frame.esVisible)) {
-					modificarVisibilidadVentana(true);
-					mostrarPanel(panelIniciar);
-					
-					((Timer) e.getSource()).stop();
-				}
-			}
-		});
-		
-		timerCerrarSesion.setRepeats(true);
-		
 		Timer timerRegistro = new Timer(50, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (panelRegistrar.obtenerAcceso()) {
 					panelRegistrar.modificarIniciarSesion(false);
 					panelRegistrar.modificarAcceso(false);
-					menu_frame.modificarEsAdmin(esAdmin);
-					menu_frame.modificarEsVisible(true);
 					panelRegistrar.vaciarDatos();
-					timerCerrarSesion.start();
-					accederMenu();
+					modificarAcceso(true);
 				} else if (panelRegistrar.obtenerIniciarSesion()) {
 					panelRegistrar.modificarIniciarSesion(false);
 					modificarTitulo("Iniciar sesión");
@@ -201,11 +179,8 @@ public class Acceso extends JFrame {
 				if (panelIniciar.obtenerAcceso()) {
 					panelIniciar.modificarRegistro(false);
 					panelIniciar.modificarAcceso(false);
-					menu_frame.modificarEsAdmin(esAdmin);
-					menu_frame.modificarEsVisible(true);
 					panelIniciar.vaciarDatos();
-					timerCerrarSesion.start();
-					accederMenu();
+					modificarAcceso(true);
 				} else if (panelIniciar.obtenerRegistro()) {
 					panelIniciar.modificarRegistro(false);
 					modificarTitulo("Registrarse");
