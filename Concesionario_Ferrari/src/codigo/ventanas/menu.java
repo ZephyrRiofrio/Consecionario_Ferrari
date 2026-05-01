@@ -58,6 +58,7 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 	private VentasVehiculos panelVentas = new VentasVehiculos();
 	private Noticias panelNoticias = new Noticias();
 	private SobreNosotros panelSobreNosotros = new SobreNosotros();
+	private Mantenimiento panelMantenimiento = new Mantenimiento();
 	
 	private Ferrari_Luce paginaFerrariLuce = new Ferrari_Luce();
 	private Ferrari12Cilindri paginaFerrari12Cilindri = new Ferrari12Cilindri();
@@ -211,7 +212,7 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		btnMantenimiento.setBackground(Color.BLACK);
 		btnMantenimiento.setForeground(Color.WHITE);
 		btnMantenimiento.setBorder(new EmptyBorder(5, 20, 5, 20));
-		btnMantenimiento.setFont(new Font("Roboto ExtraBold", Font.BOLD, 12));
+		btnMantenimiento.setFont(new Font("Ferrari Sans", Font.PLAIN, 12));
 		
 		Timer timer = new Timer(50, new ActionListener() {
 			@Override
@@ -272,6 +273,9 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		if (e.getSource() == btnVehiculos) {
 			actionPerformedBtnVehiculos(e);
 		}
+		if (e.getSource() == btnMantenimiento) {
+			actionPerformedBtnMantenimiento(e);
+		}
 	}
 	protected void actionPerformedBtnVehiculos(ActionEvent e) {
 		mostrarPanel(panelVehiculos);
@@ -306,6 +310,9 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 	}
 	protected void actionPerformedBtnSobreNosotros(ActionEvent e) {
 		mostrarPanel(panelSobreNosotros);
+	}
+	protected void actionPerformedBtnMantenimiento(ActionEvent e) {
+		mostrarPanel(panelMantenimiento);
 	}
 	protected void mouseClickedLblCerrarSesion(MouseEvent e) {
 		this.esVisible = false;

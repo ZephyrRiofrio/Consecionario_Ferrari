@@ -231,13 +231,13 @@ public class Registrarse extends JPanel implements MouseListener, KeyListener, A
 		lblCargaCorreo = new JLabel("");
 		lblCargaCorreo.setFocusable(false);
 		lblCargaCorreo.setVisible(false);
-		lblCargaCorreo.setIcon(new ImageIcon(Registrarse.class.getResource("/recursos/gifs/gifs_iniciar_sesion/circulo_de_carga_rend.gif")));
+		lblCargaCorreo.setIcon(new ImageIcon(Registrarse.class.getResource("/recursos/gifs/gifs_login/circulo_de_carga_rend.gif")));
 		lblCargaCorreo.setBounds(336, 142, 20, 20);
 		formularioRegistro.add(lblCargaCorreo);
 		
 		lblCargaContrasenia = new JLabel("");
 		lblCargaContrasenia.setVisible(false);
-		lblCargaContrasenia.setIcon(new ImageIcon(Registrarse.class.getResource("/recursos/gifs/gifs_iniciar_sesion/circulo_de_carga_rend.gif")));
+		lblCargaContrasenia.setIcon(new ImageIcon(Registrarse.class.getResource("/recursos/gifs/gifs_login/circulo_de_carga_rend.gif")));
 		lblCargaContrasenia.setFocusable(false);
 		lblCargaContrasenia.setBounds(336, 225, 20, 20);
 		formularioRegistro.add(lblCargaContrasenia);
