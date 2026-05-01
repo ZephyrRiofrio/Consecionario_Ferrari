@@ -100,9 +100,11 @@ public class Registrarse extends JPanel implements MouseListener, KeyListener, A
 			if (ventanaAcceso.correoUsuario1.equals("")) {
 				ventanaAcceso.agregarUsuario1(correoIngre, contraseniaIngre);
 				registroHecho = true;
-			} else if (ventanaAcceso.correoUsuario2.equals("")){
-				ventanaAcceso.agregarUsuario2(correoIngre, contraseniaIngre);
-				registroHecho = true;
+			} else {
+				if (ventanaAcceso.correoUsuario2.equals("")){
+					ventanaAcceso.agregarUsuario2(correoIngre, contraseniaIngre);
+					registroHecho = true;
+				}
 			}
 			
 		} else {

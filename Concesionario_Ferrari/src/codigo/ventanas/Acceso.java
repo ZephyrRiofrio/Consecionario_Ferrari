@@ -44,11 +44,9 @@ public class Acceso extends JFrame {
 	// Datos de usuario
 	public String correoUsuario1 = "";
 	public String contraseniaUsuario1 = "";
-	public int pedidosUsuario1 = 0;
 	
 	public String correoUsuario2 = "";
 	public String contraseniaUsuario2 = "";
-	public int pedidosUsuario2 = 0;
 
 	/**
 	 * Launch the application.
