@@ -40,12 +40,16 @@ public class Vehiculos extends JPanel implements MouseListener {
 	private JLabel lblFerrariNombre;
 	private JLabel lblFerrariImg;
 	private JLabel lblDescubrirMas;
-	private int indicador=0;
+	public int indicador=0;
 	private int indicadorPanel=0;
 	
 	public int indicadorCocheSeleccionado = 0;
 	public Boolean botonPresionado = false;
 
+	public void modificarIndicador(int indicador) {
+		this.indicador = indicador;
+	}
+	
 	/**
 	 * Create the panel.
 	 */
@@ -365,6 +369,7 @@ public class Vehiculos extends JPanel implements MouseListener {
 		if (indicador == 0) {
 			panelAuto.setVisible(true);
 			indicador = 1;
+			this.indicadorCocheSeleccionado = 3;
 		}
 		
 		lblFerrariNombre.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_5_rend.jpg")));
@@ -410,6 +415,7 @@ public class Vehiculos extends JPanel implements MouseListener {
 		if (indicador == 0) {
 			panelAuto.setVisible(true);
 			indicador = 1;
+			this.indicadorCocheSeleccionado = 5;
 		}
 		
 		lblFerrariNombre.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_9_rend.jpg")));

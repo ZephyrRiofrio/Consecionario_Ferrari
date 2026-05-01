@@ -59,7 +59,16 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 	private Noticias panelNoticias = new Noticias();
 	private SobreNosotros panelSobreNosotros = new SobreNosotros();
 	
+	private Ferrari_Luce paginaFerrariLuce = new Ferrari_Luce();
+	private Ferrari12Cilindri paginaFerrari12Cilindri = new Ferrari12Cilindri();
+	private Ferrari12CilindriSpider paginaFerrari12CilindriSpider = new Ferrari12CilindriSpider();
+	private Ferrari296GTB paginaFerrari296GTB = new Ferrari296GTB();
+	private Ferrari296GTS paginaFerrari296GTS = new Ferrari296GTS();
 	private Ferrari849Testarossa paginaFerrari849Testarrosa = new Ferrari849Testarossa();
+	private Ferrari849TestarossaSpider paginaFerrari849TestarrosaSpider = new Ferrari849TestarossaSpider();
+	private FerrariAmalfi paginaFerrariAmalfi = new FerrariAmalfi();
+	private FerrariPurosangue paginaFerrariPurosangue = new FerrariPurosangue();
+	
 	private JLabel lblCerrarSesion;
 
 	/**
@@ -281,22 +290,21 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 	protected void actionPerformedBtnVehiculos(ActionEvent e) {
 		mostrarPanel(panelVehiculos);
 		
-		
 		Timer timer = new Timer(200, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (panelVehiculos.botonPresionado == true) {
 					switch(panelVehiculos.indicadorCocheSeleccionado) {
-					case 1: break;
-					case 2: mostrarPanel(paginaFerrari849Testarrosa);
-					case 3: break;
-					case 4: break;
-					case 5: break; 
-					case 6: break;
-					case 7: break;
-					case 8: break;
-					case 9: break;
-					case 10: break;
+					case 1: mostrarPanel(paginaFerrariLuce); panelVehiculos.modificarIndicador(0); break;
+					case 2: mostrarPanel(paginaFerrari849Testarrosa); panelVehiculos.modificarIndicador(0); break;
+					case 3: mostrarPanel(paginaFerrari849TestarrosaSpider); panelVehiculos.modificarIndicador(0); break;
+					case 4: mostrarPanel(paginaFerrari296GTB); panelVehiculos.modificarIndicador(0); break;
+					case 5: mostrarPanel(paginaFerrari296GTS); panelVehiculos.modificarIndicador(0); break; 
+					case 6: mostrarPanel(paginaFerrari12Cilindri); panelVehiculos.modificarIndicador(0); break;
+					case 7: mostrarPanel(paginaFerrari12CilindriSpider); panelVehiculos.modificarIndicador(0); break;
+					case 8: mostrarPanel(paginaFerrariPurosangue); panelVehiculos.modificarIndicador(0); break;
+					case 9: mostrarPanel(paginaFerrariAmalfi); panelVehiculos.modificarIndicador(0); break;
+					case 10: mostrarPanel(paginaFerrari849Testarrosa); panelVehiculos.modificarIndicador(0); break;
 					}
 					
 					panelVehiculos.botonPresionado = false;
