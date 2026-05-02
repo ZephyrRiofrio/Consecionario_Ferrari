@@ -431,7 +431,6 @@ public class VentasVehiculos extends JPanel implements MouseListener, ActionList
 			correo = txtCE.getText();
 			ciudad = cbxC.getSelectedItem().toString();
 			
-			cbxP.setSelectedItem(0);
 			txtNombre.setText("Nombre");
 			txtNombre.setForeground(Color. gray);
 			txtApellido.setText("Apellido");
