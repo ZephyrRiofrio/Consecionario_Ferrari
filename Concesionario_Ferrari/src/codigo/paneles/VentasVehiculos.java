@@ -75,6 +75,7 @@ public class VentasVehiculos extends JPanel implements MouseListener, ActionList
 	 */
 	public VentasVehiculos() {
 		boleta.setLocationRelativeTo(null);
+		boleta.setAlwaysOnTop(true);
 		setPreferredSize(new Dimension(790, 800));
 		setLayout(null);
 		
@@ -430,6 +431,7 @@ public class VentasVehiculos extends JPanel implements MouseListener, ActionList
 			correo = txtCE.getText();
 			ciudad = cbxC.getSelectedItem().toString();
 			
+			cbxP.setSelectedItem(0);
 			txtNombre.setText("Nombre");
 			txtNombre.setForeground(Color. gray);
 			txtApellido.setText("Apellido");
