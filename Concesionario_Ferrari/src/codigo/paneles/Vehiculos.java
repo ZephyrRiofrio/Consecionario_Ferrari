@@ -18,6 +18,7 @@ import java.awt.Cursor;
 import java.awt.Rectangle;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseAdapter;
 
 public class Vehiculos extends JPanel implements MouseListener {
 
@@ -42,12 +43,18 @@ public class Vehiculos extends JPanel implements MouseListener {
 	private JLabel lblDescubrirMas;
 	public int indicador=0;
 	private int indicadorPanel=0;
+	public boolean indicadorSolicitud = false;
 	
 	public int indicadorCocheSeleccionado = 0;
 	public Boolean botonPresionado = false;
+	private JLabel lblSolicitud;
 
 	public void modificarIndicador(int indicador) {
 		this.indicador = indicador;
+	}
+	
+	public void modificarSolicitud(boolean solicitud) {
+		this.indicadorSolicitud = solicitud;
 	}
 	
 	public void ocultarCoche(int numeroCoche) {
@@ -192,8 +199,8 @@ public class Vehiculos extends JPanel implements MouseListener {
 		lblDescubrirMas.addMouseListener(this);
 		lblDescubrirMas.setBounds(new Rectangle(5, 5, 0, 0));
 		lblDescubrirMas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		lblDescubrirMas.setBounds(143, 297, 114, 40);
-		lblDescubrirMas.setFont(new Font("Host Grotesk Medium", Font.BOLD, 11));
+		lblDescubrirMas.setBounds(60, 296, 146, 49);
+		lblDescubrirMas.setFont(new Font("Ferrari Sans", Font.BOLD, 11));
 		lblDescubrirMas.setForeground(new Color(255, 255, 255));
 		lblDescubrirMas.setBorder(new CompoundBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(255, 255, 255)), new EmptyBorder(10, 10, 10, 10)));
 		panelContenidoAuto.add(lblDescubrirMas);
@@ -209,6 +216,21 @@ public class Vehiculos extends JPanel implements MouseListener {
 		lblFerrariImg.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_2_rend.jpg")));
 		lblFerrariImg.setPreferredSize(new Dimension(400, 225));
 		panelContenidoAuto.add(lblFerrariImg);
+		
+		lblSolicitud = new JLabel("<html>\r\n<center>\r\nSOLICITAR\r\n</center>\r\n</html>");
+		lblSolicitud.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				indicadorSolicitud = true;
+			}
+		});
+		lblSolicitud.setForeground(Color.WHITE);
+		lblSolicitud.setFont(new Font("Ferrari Sans", Font.BOLD, 11));
+		lblSolicitud.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		lblSolicitud.setBounds(new Rectangle(5, 5, 0, 0));
+		lblSolicitud.setBorder(new CompoundBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(255, 255, 255)), new EmptyBorder(10, 10, 10, 10)));
+		lblSolicitud.setBounds(224, 296, 146, 49);
+		panelContenidoAuto.add(lblSolicitud);
 		
 		panel_2 = new JPanel();
 		panel_2.setBackground(new Color(0, 0, 0));

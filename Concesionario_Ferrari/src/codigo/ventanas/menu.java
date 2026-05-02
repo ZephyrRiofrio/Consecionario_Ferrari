@@ -332,7 +332,7 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 	protected void actionPerformedBtnVehiculos(ActionEvent e) {
 		mostrarPanel(panelVehiculos);
 		
-		Timer timer = new Timer(200, new ActionListener() {
+		Timer timerSaber = new Timer(50, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (panelVehiculos.botonPresionado == true) {
@@ -350,15 +350,31 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 					}
 					
 					panelVehiculos.botonPresionado = false;
+					((Timer) e.getSource()).stop();
+					
 				}
 			}
 		});
 		
-		timer.setRepeats(true);
-		timer.start();
+		timerSaber.setRepeats(true);
+		timerSaber.start();
+		
+		Timer timerSolicitud = new Timer(50, new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (panelVehiculos.indicadorSolicitud) {
+					panelVehiculos.modificarSolicitud(false);
+					mostrarPanel(panelVentas);
+					((Timer) e.getSource()).stop();
+				}
+			}
+		});
+		
+		timerSolicitud.setRepeats(true);
+		timerSolicitud.start();
 	}
 	protected void actionPerformedBtnNoticias(ActionEvent e) {
-		mostrarPanel(panelVentas);
+		mostrarPanel(panelNoticias);
 	}
 	protected void actionPerformedBtnSobreNosotros(ActionEvent e) {
 		mostrarPanel(panelSobreNosotros);
