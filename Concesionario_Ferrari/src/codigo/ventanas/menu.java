@@ -112,12 +112,13 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 	 * Create the frame.
 	 */
 	public menu(Acceso acceso) {
+		setPreferredSize(new Dimension(790, 500));
 		this.ventanaAcceso = acceso;
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(menu.class.getResource("/recursos/imagenes/imagenes_ventana/logo.png")));
 		setTitle("Ferrari");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 836, 500);
+		setBounds(100, 100, 790, 500);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.BLACK);
 		contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
@@ -131,7 +132,7 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		
 		menu_panel = new JPanel();
 		menu_panel.setBackground(Color.BLACK);
-		menu_panel.setPreferredSize(new Dimension(800, 80));
+		menu_panel.setPreferredSize(new Dimension(775, 80));
 		menu_bar.add(menu_panel);
 		menu_panel.setLayout(new GridLayout(2, 1, 0, 0));
 		
@@ -219,7 +220,7 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		btnMantenimiento.setBorder(new EmptyBorder(5, 20, 5, 20));
 		btnMantenimiento.setFont(new Font("Ferrari Sans", Font.PLAIN, 12));
 		
-		Timer timerMantenimiento = new Timer(50, new ActionListener() {
+		Timer timerMantenimiento = new Timer(5, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (panelMantenimiento.habilitar) {
@@ -245,7 +246,7 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 			}
 		});
 		
-		Timer timerAdmin = new Timer(50, new ActionListener() {
+		Timer timerAdmin = new Timer(5, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (ventanaAcceso.esAdmin) {
@@ -259,7 +260,6 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 					if (!(ventanaAcceso.correoUsuario2.equals(""))) {
 						panelMantenimiento.mostrarUsuario2(ventanaAcceso.correoUsuario2);
 					}
-					((Timer) e.getSource()).stop();
 				}
 			}
 		});
@@ -277,7 +277,7 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		
 		mostrarPanel(panelInicio);
 		
-		Timer timerAcceso = new Timer(50, new ActionListener() {
+		Timer timerAcceso = new Timer(10, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (ventanaAcceso.acceso) {

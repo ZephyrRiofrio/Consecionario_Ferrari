@@ -172,6 +172,7 @@ public class Acceso extends JFrame {
 					panelRegistrar.modificarIniciarSesion(false);
 					panelRegistrar.modificarAcceso(false);
 					panelRegistrar.vaciarDatos();
+					mostrarPanel(panelIniciar);
 					modificarAcceso(true);
 				} else if (panelRegistrar.obtenerIniciarSesion()) {
 					panelRegistrar.modificarIniciarSesion(false);
