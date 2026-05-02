@@ -55,7 +55,6 @@ public class VentasVehiculos extends JPanel implements MouseListener, ActionList
 	private JComboBox cbxC;
 	private JLabel errorCi;
 	private JLabel errorO;
-	private JTextField txtPrecio;
 	private JButton btnEnviar;
 	private JSeparator separator;
 	private JSeparator separator_1;
@@ -86,7 +85,8 @@ public class VentasVehiculos extends JPanel implements MouseListener, ActionList
 		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		lblNewLabel = new JLabel("<html><center>\r\nPor favor, completa este formulario para recibir información detallada. Un concesionario Ferrari se pondrá enseguida en<br> \r\ncontacto contigo.\r\n</center></html>");
-		lblNewLabel.setPreferredSize(new Dimension(684, 115));
+		lblNewLabel.setFont(new Font("Ferrari Sans", Font.PLAIN, 10));
+		lblNewLabel.setPreferredSize(new Dimension(745, 115));
 		panel.add(lblNewLabel);
 		
 		panel_1 = new JPanel();
@@ -100,7 +100,7 @@ public class VentasVehiculos extends JPanel implements MouseListener, ActionList
 		btnEnviar.setContentAreaFilled(false);
 		btnEnviar.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		btnEnviar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnEnviar.setFont(new Font("Host Grotesk ExtraBold", Font.BOLD, 12));
+		btnEnviar.setFont(new Font("Ferrari Sans", Font.BOLD, 12));
 		btnEnviar.setBounds(54, 0, 120, 50);
 		panel_1.add(btnEnviar);
 		
@@ -117,7 +117,7 @@ public class VentasVehiculos extends JPanel implements MouseListener, ActionList
 		txtCE.setBackground(new Color(240, 240, 240));
 		txtCE.setText("Correo electrónico");
 		txtCE.setForeground(new Color(140, 140, 140));
-		txtCE.setFont(new Font("Host Grotesk", Font.PLAIN, 14));
+		txtCE.setFont(new Font("Ferrari Sans", Font.PLAIN, 12));
 		txtCE.setBorder(null);
 		txtCE.setBounds(new Rectangle(0, 0, 0, 30));
 		txtCE.setBounds(55, 188, 691, 30);
@@ -129,7 +129,7 @@ public class VentasVehiculos extends JPanel implements MouseListener, ActionList
 		txtNombre.setOpaque(false);
 		txtNombre.setBackground(new Color(240, 240, 240));
 		txtNombre.setForeground(new Color(140, 140, 140));
-		txtNombre.setFont(new Font("Host Grotesk", Font.PLAIN, 14));
+		txtNombre.setFont(new Font("Ferrari Sans", Font.PLAIN, 12));
 		txtNombre.setText("Nombre");
 		txtNombre.setBorder(null);
 		txtNombre.setBounds(new Rectangle(0, 0, 0, 30));
@@ -143,14 +143,14 @@ public class VentasVehiculos extends JPanel implements MouseListener, ActionList
 		txtApellido.setBackground(new Color(240, 240, 240));
 		txtApellido.setText("Apellido");
 		txtApellido.setForeground(new Color(140, 140, 140));
-		txtApellido.setFont(new Font("Host Grotesk", Font.PLAIN, 14));
+		txtApellido.setFont(new Font("Ferrari Sans", Font.PLAIN, 12));
 		txtApellido.setBorder(null);
 		txtApellido.setBounds(411, 138, 335, 30);
 		PC.add(txtApellido);
 		txtApellido.setColumns(10);
 		
 		lblNewLabel_2 = new JLabel("País");
-		lblNewLabel_2.setFont(new Font("Host Grotesk", Font.PLAIN, 12));
+		lblNewLabel_2.setFont(new Font("Ferrari Sans", Font.PLAIN, 9));
 		lblNewLabel_2.setBounds(50, 72, 32, 16);
 		PC.add(lblNewLabel_2);
 		
@@ -159,17 +159,18 @@ public class VentasVehiculos extends JPanel implements MouseListener, ActionList
 		cbxP.setModel(new DefaultComboBoxModel(new String[] {"", "Perú", "Ecuador", "Colombia", "Bolivia", "Chile"}));
 		cbxP.setSelectedIndex(0);
 		cbxP.setBorder(new EmptyBorder(0, 0, 0, 0));
-		cbxP.setFont(new Font("Host Grotesk", Font.PLAIN, 14));
+		cbxP.setFont(new Font("Ferrari Sans", Font.PLAIN, 12));
 		cbxP.setBounds(50, 88, 691, 30);
 		PC.add(cbxP);
 		
 		lblNewLabel_3 = new JLabel("Prefiero que se contacten conmigo a través de");
 		lblNewLabel_3.setForeground(new Color(140, 140, 140));
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblNewLabel_3.setBounds(50, 285, 224, 14);
+		lblNewLabel_3.setFont(new Font("Ferrari Sans", Font.PLAIN, 9));
+		lblNewLabel_3.setBounds(50, 285, 274, 14);
 		PC.add(lblNewLabel_3);
 		
 		chckbxNewCheckBox = new JCheckBox("Correo electrónico");
+		chckbxNewCheckBox.setFont(new Font("Ferrari Sans", Font.PLAIN, 9));
 		chckbxNewCheckBox.setFocusPainted(false);
 		chckbxNewCheckBox.setFocusable(false);
 		chckbxNewCheckBox.setOpaque(false);
@@ -179,37 +180,42 @@ public class VentasVehiculos extends JPanel implements MouseListener, ActionList
 		PC.add(chckbxNewCheckBox);
 		
 		chckbxNewCheckBox_1 = new JCheckBox("Teléfono");
+		chckbxNewCheckBox_1.setFont(new Font("Ferrari Sans", Font.PLAIN, 9));
 		chckbxNewCheckBox_1.setContentAreaFilled(false);
 		chckbxNewCheckBox_1.setForeground(new Color(140, 140, 140));
 		chckbxNewCheckBox_1.setBounds(194, 306, 97, 23);
 		PC.add(chckbxNewCheckBox_1);
 		
 		errorP = new JLabel("Seleccione su País");
+		errorP.setFont(new Font("Ferrari Sans", Font.PLAIN, 9));
 		errorP.setVisible(false);
 		errorP.setForeground(new Color(255, 0, 0));
 		errorP.setBounds(92, 73, 145, 14);
 		PC.add(errorP);
 		
 		errorN = new JLabel("Ingrese su nombre");
+		errorN.setFont(new Font("Ferrari Sans", Font.PLAIN, 9));
 		errorN.setVisible(false);
 		errorN.setForeground(new Color(255, 0, 0));
 		errorN.setBounds(50, 122, 142, 14);
 		PC.add(errorN);
 		
 		errorA = new JLabel("Ingrese su Apellido");
+		errorA.setFont(new Font("Ferrari Sans", Font.PLAIN, 9));
 		errorA.setVisible(false);
 		errorA.setForeground(new Color(255, 0, 0));
 		errorA.setBounds(406, 122, 164, 14);
 		PC.add(errorA);
 		
 		errorCE = new JLabel("Ingrese un correo electrónico válido");
+		errorCE.setFont(new Font("Ferrari Sans", Font.PLAIN, 9));
 		errorCE.setVisible(false);
 		errorCE.setForeground(new Color(255, 0, 0));
 		errorCE.setBounds(50, 179, 241, 14);
 		PC.add(errorCE);
 		
 		lblNewLabel_8 = new JLabel("Ciudad");
-		lblNewLabel_8.setFont(new Font("Host Grotesk", Font.PLAIN, 12));
+		lblNewLabel_8.setFont(new Font("Ferrari Sans", Font.PLAIN, 9));
 		lblNewLabel_8.setBounds(50, 229, 45, 14);
 		PC.add(lblNewLabel_8);
 		
@@ -217,35 +223,30 @@ public class VentasVehiculos extends JPanel implements MouseListener, ActionList
 		cbxC.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		cbxC.setModel(new DefaultComboBoxModel(new String[] {"", "Lima", "Quito", "Bogotá", "La paz", "Santiago"}));
 		cbxC.setSelectedIndex(0);
-		cbxC.setFont(new Font("Host Grotesk", Font.PLAIN, 14));
+		cbxC.setFont(new Font("Ferrari Sans", Font.PLAIN, 12));
 		cbxC.setBorder(null);
 		cbxC.setBounds(50, 244, 335, 30);
 		PC.add(cbxC);
 		
 		errorCi = new JLabel("Seleccione su ciudad");
+		errorCi.setFont(new Font("Ferrari Sans", Font.PLAIN, 9));
 		errorCi.setVisible(false);
 		errorCi.setForeground(new Color(255, 0, 0));
 		errorCi.setBounds(105, 229, 144, 14);
 		PC.add(errorCi);
 		
 		errorO = new JLabel("Seleccione una opción");
+		errorO.setFont(new Font("Ferrari Sans", Font.PLAIN, 9));
 		errorO.setVisible(false);
 		errorO.setForeground(new Color(255, 0, 0));
 		errorO.setBounds(55, 330, 145, 14);
 		PC.add(errorO);
 		
-		txtPrecio = new JTextField();
-		txtPrecio.setEditable(false);
-		txtPrecio.setBorder(null);
-		txtPrecio.setBounds(406, 288, 335, 30);
-		PC.add(txtPrecio);
-		txtPrecio.setColumns(10);
-		
 		chckbx3 = new JCheckBox("\r\nME GUSTARÍA RECIBIR MÁS INFORMACIÓN SOBRE LAS OPCIONES DE FINANCIACIÓN");
 		chckbx3.setContentAreaFilled(false);
-		chckbx3.setBounds(50, 446, 493, 25);
+		chckbx3.setBounds(50, 446, 545, 25);
 		PC.add(chckbx3);
-		chckbx3.setFont(new Font("Host Grotesk", Font.PLAIN, 12));
+		chckbx3.setFont(new Font("Ferrari Sans", Font.PLAIN, 10));
 		
 		separator = new JSeparator();
 		separator.setForeground(new Color(0, 0, 0));
@@ -263,18 +264,21 @@ public class VentasVehiculos extends JPanel implements MouseListener, ActionList
 		PC.add(separator_3);
 		
 		errorN2 = new JLabel("Ingrese un nombre válido");
+		errorN2.setFont(new Font("Ferrari Sans", Font.PLAIN, 9));
 		errorN2.setVisible(false);
 		errorN2.setForeground(new Color(255, 0, 0));
 		errorN2.setBounds(50, 122, 187, 14);
 		PC.add(errorN2);
 		
 		errorA2 = new JLabel("Ingrese un apellido válido");
+		errorA2.setFont(new Font("Ferrari Sans", Font.PLAIN, 9));
 		errorA2.setVisible(false);
 		errorA2.setForeground(new Color(255, 0, 0));
 		errorA2.setBounds(406, 122, 199, 14);
 		PC.add(errorA2);
 		
 		errorCE2 = new JLabel("Ingrese su correo electrónico");
+		errorCE2.setFont(new Font("Ferrari Sans", Font.PLAIN, 9));
 		errorCE2.setVisible(false);
 		errorCE2.setForeground(new Color(255, 0, 0));
 		errorCE2.setBounds(50, 179, 224, 14);
