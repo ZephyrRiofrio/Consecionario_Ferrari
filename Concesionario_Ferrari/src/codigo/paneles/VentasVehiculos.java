@@ -24,7 +24,12 @@ import java.awt.event.MouseEvent;
 import java.awt.FlowLayout;
 import javax.swing.JSeparator;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+
+import codigo.ventanas.Boleta;
 
 public class VentasVehiculos extends JPanel implements MouseListener, ActionListener {
 
@@ -34,9 +39,8 @@ public class VentasVehiculos extends JPanel implements MouseListener, ActionList
 	private JPanel PC;
 	private JLabel lblNewLabel;
 	private JCheckBox chckbx3;
-	private JTextField txtCorreoElectrnico;
+	private JTextField txtCE;
 	private JTextField txtNombre;
-	private JTextField txtTelfono;
 	private JTextField txtApellido;
 	private JLabel lblNewLabel_2;
 	private JComboBox cbxP;
@@ -50,37 +54,38 @@ public class VentasVehiculos extends JPanel implements MouseListener, ActionList
 	private JLabel lblNewLabel_8;
 	private JComboBox cbxC;
 	private JLabel errorCi;
-	private JLabel errorT;
 	private JLabel errorO;
 	private JTextField txtPrecio;
 	private JButton btnEnviar;
 	private JSeparator separator;
 	private JSeparator separator_1;
-	private JSeparator separator_2;
 	private JSeparator separator_3;
 	
 	String nombre, apellido, correo, telf;
-	int pais, ciudad;
+	String pais, ciudad;
 	private JLabel errorN2;
 	private JLabel errorA2;
 	private JLabel errorCE2;
-	private JLabel errorT2;
+	
+	Boleta boleta = new Boleta();
+	
 
 	/**
 	 * Create the panel.
 	 */
 	public VentasVehiculos() {
+		boleta.setLocationRelativeTo(null);
 		setPreferredSize(new Dimension(790, 800));
 		setLayout(null);
 		
 		panel = new JPanel();
-		panel.setBounds(0, 0, 790, 100);
+		panel.setBounds(0, 0, 790, 120);
 		panel.setPreferredSize(new Dimension(10, 100));
 		add(panel);
 		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		lblNewLabel = new JLabel("<html><center>\r\nPor favor, completa este formulario para recibir información detallada. Un concesionario Ferrari se pondrá enseguida en<br> \r\ncontacto contigo.\r\n</center></html>");
-		lblNewLabel.setPreferredSize(new Dimension(684, 95));
+		lblNewLabel.setPreferredSize(new Dimension(684, 115));
 		panel.add(lblNewLabel);
 		
 		panel_1 = new JPanel();
@@ -95,7 +100,7 @@ public class VentasVehiculos extends JPanel implements MouseListener, ActionList
 		btnEnviar.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		btnEnviar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnEnviar.setFont(new Font("Host Grotesk ExtraBold", Font.BOLD, 12));
-		btnEnviar.setBounds(54, 35, 120, 50);
+		btnEnviar.setBounds(54, 0, 120, 50);
 		panel_1.add(btnEnviar);
 		
 		PC = new JPanel();
@@ -105,18 +110,18 @@ public class VentasVehiculos extends JPanel implements MouseListener, ActionList
 		add(PC);
 		PC.setLayout(null);
 		
-		txtCorreoElectrnico = new JTextField();
-		txtCorreoElectrnico.addMouseListener(this);
-		txtCorreoElectrnico.setOpaque(false);
-		txtCorreoElectrnico.setBackground(new Color(240, 240, 240));
-		txtCorreoElectrnico.setText(" Correo electrónico");
-		txtCorreoElectrnico.setForeground(new Color(140, 140, 140));
-		txtCorreoElectrnico.setFont(new Font("Host Grotesk", Font.PLAIN, 14));
-		txtCorreoElectrnico.setBorder(null);
-		txtCorreoElectrnico.setBounds(new Rectangle(0, 0, 0, 30));
-		txtCorreoElectrnico.setBounds(50, 188, 691, 30);
-		PC.add(txtCorreoElectrnico);
-		txtCorreoElectrnico.setColumns(10);
+		txtCE = new JTextField();
+		txtCE.addMouseListener(this);
+		txtCE.setOpaque(false);
+		txtCE.setBackground(new Color(240, 240, 240));
+		txtCE.setText("Correo electrónico");
+		txtCE.setForeground(new Color(140, 140, 140));
+		txtCE.setFont(new Font("Host Grotesk", Font.PLAIN, 14));
+		txtCE.setBorder(null);
+		txtCE.setBounds(new Rectangle(0, 0, 0, 30));
+		txtCE.setBounds(55, 188, 691, 30);
+		PC.add(txtCE);
+		txtCE.setColumns(10);
 		
 		txtNombre = new JTextField();
 		txtNombre.addMouseListener(this);
@@ -124,35 +129,22 @@ public class VentasVehiculos extends JPanel implements MouseListener, ActionList
 		txtNombre.setBackground(new Color(240, 240, 240));
 		txtNombre.setForeground(new Color(140, 140, 140));
 		txtNombre.setFont(new Font("Host Grotesk", Font.PLAIN, 14));
-		txtNombre.setText(" Nombre");
+		txtNombre.setText("Nombre");
 		txtNombre.setBorder(null);
 		txtNombre.setBounds(new Rectangle(0, 0, 0, 30));
-		txtNombre.setBounds(50, 138, 335, 30);
+		txtNombre.setBounds(55, 138, 335, 30);
 		PC.add(txtNombre);
 		txtNombre.setColumns(10);
-		
-		txtTelfono = new JTextField();
-		txtTelfono.addMouseListener(this);
-		txtTelfono.setOpaque(false);
-		txtTelfono.setBackground(new Color(240, 240, 240));
-		txtTelfono.setText(" Teléfono");
-		txtTelfono.setForeground(new Color(140, 140, 140));
-		txtTelfono.setFont(new Font("Host Grotesk", Font.PLAIN, 14));
-		txtTelfono.setBorder(null);
-		txtTelfono.setBounds(new Rectangle(0, 0, 0, 30));
-		txtTelfono.setBounds(50, 238, 691, 30);
-		PC.add(txtTelfono);
-		txtTelfono.setColumns(10);
 		
 		txtApellido = new JTextField();
 		txtApellido.addMouseListener(this);
 		txtApellido.setOpaque(false);
 		txtApellido.setBackground(new Color(240, 240, 240));
-		txtApellido.setText(" Apellido");
+		txtApellido.setText("Apellido");
 		txtApellido.setForeground(new Color(140, 140, 140));
 		txtApellido.setFont(new Font("Host Grotesk", Font.PLAIN, 14));
 		txtApellido.setBorder(null);
-		txtApellido.setBounds(406, 138, 335, 30);
+		txtApellido.setBounds(411, 138, 335, 30);
 		PC.add(txtApellido);
 		txtApellido.setColumns(10);
 		
@@ -164,6 +156,7 @@ public class VentasVehiculos extends JPanel implements MouseListener, ActionList
 		cbxP = new JComboBox();
 		cbxP.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		cbxP.setModel(new DefaultComboBoxModel(new String[] {"", "Perú", "Ecuador", "Colombia", "Bolivia", "Chile"}));
+		cbxP.setSelectedIndex(0);
 		cbxP.setBorder(new EmptyBorder(0, 0, 0, 0));
 		cbxP.setFont(new Font("Host Grotesk", Font.PLAIN, 14));
 		cbxP.setBounds(50, 88, 691, 30);
@@ -172,7 +165,7 @@ public class VentasVehiculos extends JPanel implements MouseListener, ActionList
 		lblNewLabel_3 = new JLabel("Prefiero que se contacten conmigo a través de");
 		lblNewLabel_3.setForeground(new Color(140, 140, 140));
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblNewLabel_3.setBounds(50, 329, 224, 14);
+		lblNewLabel_3.setBounds(50, 285, 224, 14);
 		PC.add(lblNewLabel_3);
 		
 		chckbxNewCheckBox = new JCheckBox("Correo electrónico");
@@ -181,13 +174,13 @@ public class VentasVehiculos extends JPanel implements MouseListener, ActionList
 		chckbxNewCheckBox.setOpaque(false);
 		chckbxNewCheckBox.setContentAreaFilled(false);
 		chckbxNewCheckBox.setForeground(new Color(140, 140, 140));
-		chckbxNewCheckBox.setBounds(50, 350, 142, 23);
+		chckbxNewCheckBox.setBounds(50, 306, 142, 23);
 		PC.add(chckbxNewCheckBox);
 		
 		chckbxNewCheckBox_1 = new JCheckBox("Teléfono");
 		chckbxNewCheckBox_1.setContentAreaFilled(false);
 		chckbxNewCheckBox_1.setForeground(new Color(140, 140, 140));
-		chckbxNewCheckBox_1.setBounds(194, 350, 97, 23);
+		chckbxNewCheckBox_1.setBounds(194, 306, 97, 23);
 		PC.add(chckbxNewCheckBox_1);
 		
 		errorP = new JLabel("Seleccione su País");
@@ -216,33 +209,28 @@ public class VentasVehiculos extends JPanel implements MouseListener, ActionList
 		
 		lblNewLabel_8 = new JLabel("Ciudad");
 		lblNewLabel_8.setFont(new Font("Host Grotesk", Font.PLAIN, 12));
-		lblNewLabel_8.setBounds(50, 273, 45, 14);
+		lblNewLabel_8.setBounds(50, 229, 45, 14);
 		PC.add(lblNewLabel_8);
 		
 		cbxC = new JComboBox();
 		cbxC.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		cbxC.setModel(new DefaultComboBoxModel(new String[] {"", "Lima", "Quito", "Bogotá", "La paz", "Santiago"}));
+		cbxC.setSelectedIndex(0);
 		cbxC.setFont(new Font("Host Grotesk", Font.PLAIN, 14));
 		cbxC.setBorder(null);
-		cbxC.setBounds(50, 288, 335, 30);
+		cbxC.setBounds(50, 244, 335, 30);
 		PC.add(cbxC);
 		
 		errorCi = new JLabel("Seleccione su ciudad");
 		errorCi.setVisible(false);
 		errorCi.setForeground(new Color(255, 0, 0));
-		errorCi.setBounds(105, 273, 144, 14);
+		errorCi.setBounds(105, 229, 144, 14);
 		PC.add(errorCi);
-		
-		errorT = new JLabel("Ingrese un teléfono válido");
-		errorT.setVisible(false);
-		errorT.setForeground(new Color(255, 0, 0));
-		errorT.setBounds(50, 223, 199, 14);
-		PC.add(errorT);
 		
 		errorO = new JLabel("Seleccione una opción");
 		errorO.setVisible(false);
 		errorO.setForeground(new Color(255, 0, 0));
-		errorO.setBounds(55, 374, 145, 14);
+		errorO.setBounds(55, 330, 145, 14);
 		PC.add(errorO);
 		
 		txtPrecio = new JTextField();
@@ -254,7 +242,7 @@ public class VentasVehiculos extends JPanel implements MouseListener, ActionList
 		
 		chckbx3 = new JCheckBox("\r\nME GUSTARÍA RECIBIR MÁS INFORMACIÓN SOBRE LAS OPCIONES DE FINANCIACIÓN");
 		chckbx3.setContentAreaFilled(false);
-		chckbx3.setBounds(50, 468, 493, 25);
+		chckbx3.setBounds(50, 446, 493, 25);
 		PC.add(chckbx3);
 		chckbx3.setFont(new Font("Host Grotesk", Font.PLAIN, 12));
 		
@@ -267,11 +255,6 @@ public class VentasVehiculos extends JPanel implements MouseListener, ActionList
 		separator_1.setForeground(new Color(0, 0, 0));
 		separator_1.setBounds(406, 165, 335, 2);
 		PC.add(separator_1);
-		
-		separator_2 = new JSeparator();
-		separator_2.setForeground(new Color(0, 0, 0));
-		separator_2.setBounds(50, 264, 691, 2);
-		PC.add(separator_2);
 		
 		separator_3 = new JSeparator();
 		separator_3.setForeground(new Color(0, 0, 0));
@@ -295,64 +278,76 @@ public class VentasVehiculos extends JPanel implements MouseListener, ActionList
 		errorCE2.setForeground(new Color(255, 0, 0));
 		errorCE2.setBounds(50, 179, 224, 14);
 		PC.add(errorCE2);
-		
-		errorT2 = new JLabel("Ingrese un número telefónico");
-		errorT2.setVisible(false);
-		errorT2.setForeground(new Color(255, 0, 0));
-		errorT2.setBounds(50, 223, 199, 14);
-		PC.add(errorT2);
-		
-		validacion();
-		leer();
-		dctos();
-		proceso();
-		salida();
-		borrarD();
-
+	
+		txtNombre.addKeyListener(new KeyAdapter() {
+		    @Override
+		    public void keyTyped(KeyEvent e) {
+		        txtKey(e);
+		    }
+		});
+		txtApellido.addKeyListener(new KeyAdapter() {
+		    @Override
+		    public void keyTyped(KeyEvent e) {
+		        txtKey(e);
+		    }
+		});
 	}
-	private boolean validacion() {
-		if (cbxP.getSelectedIndex() == 0) {
-			errorP.setVisible(true);
-			return false;
-		}
-		if(txtNombre.getText().isEmpty() || txtNombre.getText() == "Nombre" ) {
-			errorN.setVisible(true);
-			return false;
-		}
-		if(txtApellido.getText().isEmpty() || txtApellido.getText() == "Apellido" ) {
-			errorA.setVisible(true);
-			return false;
-		}
-		if (txtTelfono.getText().length() != 9) {
-		    errorT.setVisible(true);
-		    return false;
-		}
-		if (cbxC.getSelectedIndex() == 0) {
-			errorCi.setVisible(true);
-			return false;
+	
+	private boolean txtKey(java.awt.event.KeyEvent e) {
+		if (!(Character.isLetter(e.getKeyChar())) && !(e.getKeyChar() == KeyEvent.VK_SPACE)) {
+			e.consume();
 		}
 		return true;
 	}
-	private void leer() {
-		// TODO Auto-generated method stub
+	private boolean validacion() {
+		boolean datosValidos = true;
 		
-	}
-	private void dctos() {
-		// TODO Auto-generated method stub
+		if (cbxP.getSelectedIndex() == 0) {
+			errorP.setVisible(true);
+			datosValidos = false;
+		} else {
+			errorP.setVisible(false);
+		}
 		
-	}
-	private void proceso() {
-		// TODO Auto-generated method stub
+		if(txtNombre.getText().trim().length() == 0) {
+			errorN.setVisible(true);
+			errorN2.setVisible(false);
+			datosValidos = false;
+		} else if (txtNombre.getText().equals("Nombre")) {
+			errorN2.setVisible(true);
+			errorN.setVisible(false);
+			datosValidos = false;
+		}else {
+			errorN.setVisible(false);
+			errorN2.setVisible(false);
+		}
+		if(txtCE.getText().trim().length() == 0 || txtCE.getText().equals("Correo electrónico")) {
+			errorCE2.setVisible(true);
+			errorCE.setVisible(false);
+			datosValidos = false;
+		}else if (!(txtCE.getText().contains("@gmail.com"))){
+			errorCE.setVisible(true);
+			errorCE2.setVisible(false);
+			datosValidos = false;
+		}else {
+			errorCE2.setVisible(false);
+			errorCE.setVisible(false);
+		}
 		
-	}
-	private void salida() {
-		// TODO Auto-generated method stub
+		if(txtApellido.getText().trim().length() == 0 || txtApellido.getText().equals("Apellido")) {
+			errorA.setVisible(true);
+			datosValidos = false;
+		} else {
+			errorA.setVisible(false);
+		}
 		
-	}
-	
-	private void borrarD() {
-		// TODO Auto-generated method stub
-		
+		if (cbxC.getSelectedIndex() == 0) {
+			errorCi.setVisible(true);
+			datosValidos = false;
+		} else {
+			errorCi.setVisible(false);
+		}
+		return datosValidos;
 	}
 	
 	public void mouseClicked(MouseEvent e) {
@@ -362,10 +357,7 @@ public class VentasVehiculos extends JPanel implements MouseListener, ActionList
 	public void mouseExited(MouseEvent e) {
 	}
 	public void mousePressed(MouseEvent e) {
-		if (e.getSource() == txtTelfono) {
-			mousePressedTxtTelfono(e);
-		}
-		if (e.getSource() == txtCorreoElectrnico) {
+		if (e.getSource() == txtCE) {
 			mousePressedTxtCorreoElectrnico(e);
 		}
 		if (e.getSource() == txtApellido) {
@@ -378,20 +370,52 @@ public class VentasVehiculos extends JPanel implements MouseListener, ActionList
 	public void mouseReleased(MouseEvent e) {
 	}
 	protected void mousePressedTxtNombre(MouseEvent e) {
-		txtNombre.setText("");
+		if (txtNombre.getText().equals("Nombre")) {
+			txtNombre.setText("");
+		}
+		
+		if (txtApellido.getText().isEmpty()) {
+			txtApellido.setText("Apellido");
+			txtApellido.setForeground(Color.gray);
+		}
+		if (txtCE.getText().isEmpty()) {
+			txtCE.setText("Correo electrónico");
+			txtCE.setForeground(Color.gray);
+		}
+		
 		txtNombre.setForeground(Color.black);
 	}
+	
 	protected void mousePressedTxtApellido(MouseEvent e) {
-		txtApellido.setText("");
+		if (txtApellido.getText().equals("Apellido")) {
+			txtApellido.setText("");
+		}
+		
+		if (txtNombre.getText().isEmpty()) {
+			txtNombre.setText("Nombre");
+			txtNombre.setForeground(Color.gray);
+		}
+		if (txtCE.getText().isEmpty()) {
+			txtCE.setText("Correo electrónico");
+			txtCE.setForeground(Color.gray);
+		}
 		txtApellido.setForeground(Color.black);
 	}
+	
 	protected void mousePressedTxtCorreoElectrnico(MouseEvent e) {
-		txtCorreoElectrnico.setText("");
-		txtCorreoElectrnico.setForeground(Color.black);
-	}
-	protected void mousePressedTxtTelfono(MouseEvent e) {
-		txtTelfono.setText("");
-		txtTelfono.setForeground(Color.black);
+		if (txtCE.getText().equals("Correo electrónico")) {
+			txtCE.setText("");
+		}
+		
+		if (txtNombre.getText().isEmpty()) {
+			txtNombre.setText("Nombre");
+			txtNombre.setForeground(Color.gray);
+		}
+		if (txtApellido.getText().isEmpty()) {
+			txtApellido.setText("Apellido");
+			txtApellido.setForeground(Color.gray);
+		}
+		txtCE.setForeground(Color.black);
 	}
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == btnEnviar) {
@@ -399,6 +423,23 @@ public class VentasVehiculos extends JPanel implements MouseListener, ActionList
 		}
 	}
 	protected void actionPerformedBtnEnviar(ActionEvent e) {
-		validacion();
+		if (validacion()) {
+			pais = cbxP.getSelectedItem().toString();
+			nombre = txtNombre.getText();
+			apellido = txtApellido.getText();
+			correo = txtCE.getText();
+			ciudad = cbxC.getSelectedItem().toString();
+			
+			txtNombre.setText("Nombre");
+			txtNombre.setForeground(Color. gray);
+			txtApellido.setText("Apellido");
+			txtApellido.setForeground(Color. gray);
+			txtCE.setText("Correo electrónico");
+			txtCE.setForeground(Color. gray);
+			cbxC.setSelectedIndex(0);
+			
+			boleta.agregarDatos(pais, nombre + " " + apellido, correo, ciudad);
+			boleta.setVisible(true);
+		}
 	}
 }

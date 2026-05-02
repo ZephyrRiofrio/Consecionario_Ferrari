@@ -1451,7 +1451,7 @@ public class Ferrari_Luce extends JPanel implements MouseListener {
 	/**
 	 * @wbp.factory
 	*/
-	private JPanel ponerImg(String nameImg, int posX, int posY ) {
+	private JPanel ponerImg(String nameImg, int posX, int posY) {
 		return new JPanel() {
 			private Image imagen = new ImageIcon(this.getClass().getResource(nameImg)).getImage();
 			
