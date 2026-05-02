@@ -262,13 +262,13 @@ public class Iniciar_sesion extends JPanel implements ActionListener, MouseListe
 		lblCargaCorreo = new JLabel("");
 		lblCargaCorreo.setVisible(false);
 		lblCargaCorreo.setFocusable(false);
-		lblCargaCorreo.setIcon(new ImageIcon(Iniciar_sesion.class.getResource("/recursos/gifs/gifs_iniciar_sesion/circulo_de_carga_rend.gif")));
+		lblCargaCorreo.setIcon(new ImageIcon(Iniciar_sesion.class.getResource("/recursos/gifs/gifs_login/circulo_de_carga_rend.gif")));
 		lblCargaCorreo.setBounds(336, 142, 20, 20);
 		formularioInicioSesion.add(lblCargaCorreo);
 		
 		lblCargaContrasenia = new JLabel("");
 		lblCargaContrasenia.setVisible(false);
-		lblCargaContrasenia.setIcon(new ImageIcon(Iniciar_sesion.class.getResource("/recursos/gifs/gifs_iniciar_sesion/circulo_de_carga_rend.gif")));
+		lblCargaContrasenia.setIcon(new ImageIcon(Iniciar_sesion.class.getResource("/recursos/gifs/gifs_login/circulo_de_carga_rend.gif")));
 		lblCargaContrasenia.setFocusable(false);
 		lblCargaContrasenia.setBounds(336, 225, 20, 20);
 		formularioInicioSesion.add(lblCargaContrasenia);

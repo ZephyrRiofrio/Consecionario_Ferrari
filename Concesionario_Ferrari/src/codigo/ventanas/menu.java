@@ -58,6 +58,7 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 	private VentasVehiculos panelVentas = new VentasVehiculos();
 	private Noticias panelNoticias = new Noticias();
 	private SobreNosotros panelSobreNosotros = new SobreNosotros();
+	private Mantenimiento panelMantenimiento = new Mantenimiento();
 	
 	private Ferrari_Luce paginaFerrariLuce = new Ferrari_Luce();
 	private Ferrari12Cilindri paginaFerrari12Cilindri = new Ferrari12Cilindri();
@@ -69,18 +70,22 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 	private FerrariAmalfi paginaFerrariAmalfi = new FerrariAmalfi();
 	private FerrariPurosangue paginaFerrariPurosangue = new FerrariPurosangue();
 	
+	private Acceso ventanaAcceso;
 	private JLabel lblCerrarSesion;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		Acceso ventanaAcceso = new Acceso();
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					menu frame = new menu();
+					ventanaAcceso.setVisible(true);
+					ventanaAcceso.setLocationRelativeTo(null);
+					menu frame = new menu(ventanaAcceso);
 					frame.setLocationRelativeTo(null);
-					frame.setVisible(true);
+					frame.setVisible(false);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -99,14 +104,15 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		this.esAdmin = esAdmin;
 	}
 	
-	public void modificarEsVisible(boolean esVisible) {
-		this.esVisible = esVisible;
+	public void modificarVisible(boolean esVisible) {
+		this.setVisible(esVisible);
 	}
 	
 	/**
 	 * Create the frame.
 	 */
-	public menu() {
+	public menu(Acceso acceso) {
+		this.ventanaAcceso = acceso;
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(menu.class.getResource("/recursos/imagenes/imagenes_ventana/logo.png")));
 		setTitle("Ferrari");
@@ -211,20 +217,55 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		btnMantenimiento.setBackground(Color.BLACK);
 		btnMantenimiento.setForeground(Color.WHITE);
 		btnMantenimiento.setBorder(new EmptyBorder(5, 20, 5, 20));
-		btnMantenimiento.setFont(new Font("Roboto ExtraBold", Font.BOLD, 12));
+		btnMantenimiento.setFont(new Font("Ferrari Sans", Font.PLAIN, 12));
 		
-		Timer timer = new Timer(50, new ActionListener() {
+		Timer timerMantenimiento = new Timer(50, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (esAdmin) {
+				if (panelMantenimiento.habilitar) {
+					panelMantenimiento.modificarHabilitar(false);
+					panelVehiculos.mostrarCoche(panelMantenimiento.numeroCocheSeleccionado);
+				}
+				
+				if (panelMantenimiento.ocultar) {
+					panelMantenimiento.modificarOcultar(false);
+					panelVehiculos.ocultarCoche(panelMantenimiento.numeroCocheSeleccionado);
+				}
+				
+				if (panelMantenimiento.borrar) {
+					panelMantenimiento.modificarBorrar(false);
+					
+					switch (panelMantenimiento.numeroUsuarioSeleccionado) {
+					case 1: ventanaAcceso.borrarUsuario1(); break;
+					case 2: ventanaAcceso.borrarUsuario2(); break;
+					}
+					
+					panelMantenimiento.modificarUsuarioSeleccionado(0);
+				}
+			}
+		});
+		
+		Timer timerAdmin = new Timer(50, new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (ventanaAcceso.esAdmin) {
 					barra_2.add(btnMantenimiento);
+					timerMantenimiento.start();
+					
+					if (!(ventanaAcceso.correoUsuario1.equals(""))) {
+						panelMantenimiento.mostrarUsuario1(ventanaAcceso.correoUsuario1);
+					}
+					
+					if (!(ventanaAcceso.correoUsuario2.equals(""))) {
+						panelMantenimiento.mostrarUsuario2(ventanaAcceso.correoUsuario2);
+					}
 					((Timer) e.getSource()).stop();
 				}
 			}
 		});
 		
-		timer.setRepeats(true);
-		timer.start();
+		timerAdmin.setRepeats(true);
+		timerAdmin.start();
 		
 		contenido = new JScrollPane();
 		contenido.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
@@ -236,6 +277,18 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		
 		mostrarPanel(panelInicio);
 		
+		Timer timerAcceso = new Timer(50, new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (ventanaAcceso.acceso) {
+					modificarVisible(true);
+					ventanaAcceso.setVisible(false);
+				}
+			}
+		});
+		
+		timerAcceso.setRepeats(true);
+		timerAcceso.start();
 	}
 
 	public void mouseClicked(MouseEvent e) {
@@ -272,6 +325,9 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		if (e.getSource() == btnVehiculos) {
 			actionPerformedBtnVehiculos(e);
 		}
+		if (e.getSource() == btnMantenimiento) {
+			actionPerformedBtnMantenimiento(e);
+		}
 	}
 	protected void actionPerformedBtnVehiculos(ActionEvent e) {
 		mostrarPanel(panelVehiculos);
@@ -307,8 +363,17 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 	protected void actionPerformedBtnSobreNosotros(ActionEvent e) {
 		mostrarPanel(panelSobreNosotros);
 	}
+	protected void actionPerformedBtnMantenimiento(ActionEvent e) {
+		mostrarPanel(panelMantenimiento);
+	}
 	protected void mouseClickedLblCerrarSesion(MouseEvent e) {
-		this.esVisible = false;
+		mostrarPanel(panelInicio);
 		this.setVisible(false);
+		ventanaAcceso.setVisible(true);
+		ventanaAcceso.modificarAcceso(false);
+		if (ventanaAcceso.esAdmin) {
+			ventanaAcceso.modificarEsAdmin(false);
+			barra_2.remove(btnMantenimiento);
+		}
 	}
 }
