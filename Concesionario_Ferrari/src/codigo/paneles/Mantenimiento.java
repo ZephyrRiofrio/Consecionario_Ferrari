@@ -14,6 +14,10 @@ import java.awt.Cursor;
 import java.awt.Font;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Mantenimiento extends JPanel {
 
@@ -28,8 +32,8 @@ public class Mantenimiento extends JPanel {
 	private JLabel lblFerrariLuce;
 	private JLabel lbl849Testarossa;
 	private JLabel lbl849TestarossaSpider;
-	private JLabel lbl296gtb;
-	private JLabel lbl296gts;
+	private JLabel lbl296GTB;
+	private JLabel lbl296GTS;
 	private JLabel lblFerrari12Cilindri;
 	private JLabel lblFerrari12CilindriSpider;
 	private JLabel lblFerrariPurosangre;
@@ -51,9 +55,55 @@ public class Mantenimiento extends JPanel {
 	private JPanel panelUsuario2;
 	private JLabel lblUsuario2;
 	private JLabel lblCorreo2;
-	private JButton btnOcultar_1;
+	private JButton btnBorrar;
 	private JLabel lblNewLabel_4;
-
+	
+	public boolean ocultar = false;
+	public boolean habilitar = false;
+	public boolean borrar = false;
+	public int numeroCocheSeleccionado = 0;
+	public int numeroUsuarioSeleccionado = 0;
+	
+	private void modificarCocheSeleccionado(int numero) {
+		this.numeroCocheSeleccionado = numero;
+	}
+	
+	public void modificarUsuarioSeleccionado(int numero) {
+		this.numeroUsuarioSeleccionado = numero;
+	}
+	
+	public void modificarOcultar(boolean ocultar) {
+		this.ocultar = ocultar;
+	}
+	
+	public void modificarHabilitar(boolean habilitar) {
+		this.habilitar = habilitar;
+	}
+	
+	public void modificarBorrar(boolean borrar) {
+		this.borrar = borrar;
+	}
+	
+	public void mostrarUsuario1(String correo) {
+		this.panelUsuario1.setBackground(Color.WHITE);
+		this.lblCorreo1.setText(correo);
+	}
+	
+	public void mostrarUsuario2(String correo) {
+		this.panelUsuario2.setBackground(Color.WHITE);
+		this.lblCorreo2.setText(correo);
+	}
+	
+	public void borrarUsuario1() {
+		this.panelUsuario1.setBackground(new Color(128, 128, 128));
+		this.lblCorreo1.setText("");
+	}
+	
+	public void borrarUsuario2() {
+		this.panelUsuario2.setBackground(new Color(128, 128, 128));
+		this.lblCorreo2.setText("");
+	}
+	
 	/**
 	 * Create the panel.
 	 */
@@ -108,6 +158,26 @@ public class Mantenimiento extends JPanel {
 		panelModelos.setLayout(new BoxLayout(panelModelos, BoxLayout.Y_AXIS));
 		
 		lblFerrariLuce = new JLabel("Ferrari  Luce");
+		lblFerrariLuce.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				lblFerrari12CilindriSpider.setForeground(new Color(162, 162, 162));
+				lblFerrariAmalfiSpider.setForeground(new Color(162, 162, 162));
+				lblFerrariPurosangre.setForeground(new Color(162, 162, 162));
+				lbl849TestarossaSpider.setForeground(new Color(162, 162, 162));
+				lbl849Testarossa.setForeground(new Color(162, 162, 162));
+				lbl296GTS.setForeground(new Color(162, 162, 162));
+				lblFerrari12Cilindri.setForeground(new Color(162, 162, 162));
+				lblFerrariAmalfi.setForeground(new Color(162, 162, 162));
+				lbl296GTB.setForeground(new Color(162, 162, 162));
+				
+				lblFerrariLuce.setForeground(new Color(255, 255, 255));
+				
+				lblFerrariNombre.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_1_rend.jpeg")));
+				
+				modificarCocheSeleccionado(1);
+			}
+		});
 		lblFerrariLuce.setForeground(new Color(162, 162, 162));
 		lblFerrariLuce.setFont(new Font("Host Grotesk SemiBold", Font.BOLD, 11));
 		lblFerrariLuce.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -115,6 +185,26 @@ public class Mantenimiento extends JPanel {
 		panelModelos.add(lblFerrariLuce);
 		
 		lbl849Testarossa = new JLabel("849 Testarossa");
+		lbl849Testarossa.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				lblFerrari12CilindriSpider.setForeground(new Color(162, 162, 162));
+				lblFerrariAmalfiSpider.setForeground(new Color(162, 162, 162));
+				lblFerrariPurosangre.setForeground(new Color(162, 162, 162));
+				lbl849TestarossaSpider.setForeground(new Color(162, 162, 162));
+				lbl296GTS.setForeground(new Color(162, 162, 162));
+				lblFerrari12Cilindri.setForeground(new Color(162, 162, 162));
+				lblFerrariAmalfi.setForeground(new Color(162, 162, 162));
+				lblFerrariLuce.setForeground(new Color(162, 162, 162));
+				lbl296GTB.setForeground(new Color(162, 162, 162));
+				
+				lbl849Testarossa.setForeground(new Color(255, 255, 255));
+				
+				lblFerrariNombre.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_3_rend.jpg")));
+				
+				modificarCocheSeleccionado(2);
+			}
+		});
 		lbl849Testarossa.setForeground(new Color(162, 162, 162));
 		lbl849Testarossa.setFont(new Font("Host Grotesk SemiBold", Font.BOLD, 11));
 		lbl849Testarossa.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -122,27 +212,107 @@ public class Mantenimiento extends JPanel {
 		panelModelos.add(lbl849Testarossa);
 		
 		lbl849TestarossaSpider = new JLabel("849 Testarossa Spider");
+		lbl849TestarossaSpider.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				lblFerrari12CilindriSpider.setForeground(new Color(162, 162, 162));
+				lblFerrariAmalfiSpider.setForeground(new Color(162, 162, 162));
+				lblFerrariPurosangre.setForeground(new Color(162, 162, 162));
+				lbl849Testarossa.setForeground(new Color(162, 162, 162));
+				lbl296GTS.setForeground(new Color(162, 162, 162));
+				lblFerrari12Cilindri.setForeground(new Color(162, 162, 162));
+				lblFerrariAmalfi.setForeground(new Color(162, 162, 162));
+				lblFerrariLuce.setForeground(new Color(162, 162, 162));
+				lbl296GTB.setForeground(new Color(162, 162, 162));
+				
+				lbl849TestarossaSpider.setForeground(new Color(255, 255, 255));
+				
+				lblFerrariNombre.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_5_rend.jpg")));
+				
+				modificarCocheSeleccionado(3);
+			}
+		});
 		lbl849TestarossaSpider.setForeground(new Color(162, 162, 162));
 		lbl849TestarossaSpider.setFont(new Font("Host Grotesk SemiBold", Font.BOLD, 11));
 		lbl849TestarossaSpider.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lbl849TestarossaSpider.setBorder(new EmptyBorder(0, 0, 10, 0));
 		panelModelos.add(lbl849TestarossaSpider);
 		
-		lbl296gtb = new JLabel("296 GTB");
-		lbl296gtb.setForeground(new Color(162, 162, 162));
-		lbl296gtb.setFont(new Font("Host Grotesk SemiBold", Font.BOLD, 11));
-		lbl296gtb.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		lbl296gtb.setBorder(new EmptyBorder(0, 0, 10, 0));
-		panelModelos.add(lbl296gtb);
+		lbl296GTB = new JLabel("296 GTB");
+		lbl296GTB.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				lblFerrari12CilindriSpider.setForeground(new Color(162, 162, 162));
+				lblFerrariAmalfiSpider.setForeground(new Color(162, 162, 162));
+				lblFerrariPurosangre.setForeground(new Color(162, 162, 162));
+				lbl849TestarossaSpider.setForeground(new Color(162, 162, 162));
+				lbl849Testarossa.setForeground(new Color(162, 162, 162));
+				lbl296GTS.setForeground(new Color(162, 162, 162));
+				lblFerrari12Cilindri.setForeground(new Color(162, 162, 162));
+				lblFerrariAmalfi.setForeground(new Color(162, 162, 162));
+				lblFerrariLuce.setForeground(new Color(162, 162, 162));
+				
+				lbl296GTB.setForeground(new Color(255, 255, 255));
+				
+				lblFerrariNombre.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_7_rend.jpg")));
+				
+				modificarCocheSeleccionado(4);
+			}
+		});
+		lbl296GTB.setForeground(new Color(162, 162, 162));
+		lbl296GTB.setFont(new Font("Host Grotesk SemiBold", Font.BOLD, 11));
+		lbl296GTB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		lbl296GTB.setBorder(new EmptyBorder(0, 0, 10, 0));
+		panelModelos.add(lbl296GTB);
 		
-		lbl296gts = new JLabel("296 GTS");
-		lbl296gts.setForeground(new Color(162, 162, 162));
-		lbl296gts.setFont(new Font("Host Grotesk SemiBold", Font.BOLD, 11));
-		lbl296gts.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		lbl296gts.setBorder(new EmptyBorder(0, 0, 10, 0));
-		panelModelos.add(lbl296gts);
+		lbl296GTS = new JLabel("296 GTS");
+		lbl296GTS.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				lblFerrari12CilindriSpider.setForeground(new Color(162, 162, 162));
+				lblFerrariAmalfiSpider.setForeground(new Color(162, 162, 162));
+				lblFerrariPurosangre.setForeground(new Color(162, 162, 162));
+				lbl849TestarossaSpider.setForeground(new Color(162, 162, 162));
+				lbl849Testarossa.setForeground(new Color(162, 162, 162));
+				lblFerrariAmalfi.setForeground(new Color(162, 162, 162));
+				lblFerrariLuce.setForeground(new Color(162, 162, 162));
+				lbl296GTB.setForeground(new Color(162, 162, 162));
+				lblFerrari12Cilindri.setForeground(new Color(162, 162, 162));
+				
+				lbl296GTS.setForeground(new Color(255, 255, 255));
+				
+				lblFerrariNombre.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_9_rend.jpg")));
+				
+				modificarCocheSeleccionado(5);
+			}
+		});
+		lbl296GTS.setForeground(new Color(162, 162, 162));
+		lbl296GTS.setFont(new Font("Host Grotesk SemiBold", Font.BOLD, 11));
+		lbl296GTS.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		lbl296GTS.setBorder(new EmptyBorder(0, 0, 10, 0));
+		panelModelos.add(lbl296GTS);
 		
 		lblFerrari12Cilindri = new JLabel("Ferrari 12 Cilindri");
+		lblFerrari12Cilindri.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				lblFerrari12CilindriSpider.setForeground(new Color(162, 162, 162));
+				lblFerrariAmalfiSpider.setForeground(new Color(162, 162, 162));
+				lblFerrariPurosangre.setForeground(new Color(162, 162, 162));
+				lbl849TestarossaSpider.setForeground(new Color(162, 162, 162));
+				lbl849Testarossa.setForeground(new Color(162, 162, 162));
+				lbl296GTS.setForeground(new Color(162, 162, 162));
+				lblFerrariAmalfi.setForeground(new Color(162, 162, 162));
+				lblFerrariLuce.setForeground(new Color(162, 162, 162));
+				lbl296GTB.setForeground(new Color(162, 162, 162));
+				
+				lblFerrari12Cilindri.setForeground(new Color(255, 255, 255));
+				
+				lblFerrariNombre.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_11_rend.jpg")));
+				
+				modificarCocheSeleccionado(6);
+			}
+		});
 		lblFerrari12Cilindri.setForeground(new Color(162, 162, 162));
 		lblFerrari12Cilindri.setFont(new Font("Host Grotesk SemiBold", Font.BOLD, 11));
 		lblFerrari12Cilindri.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -150,6 +320,26 @@ public class Mantenimiento extends JPanel {
 		panelModelos.add(lblFerrari12Cilindri);
 		
 		lblFerrari12CilindriSpider = new JLabel("Ferrari 12 Cilindri Spider");
+		lblFerrari12CilindriSpider.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				lblFerrariAmalfiSpider.setForeground(new Color(162, 162, 162));
+				lblFerrariPurosangre.setForeground(new Color(162, 162, 162));
+				lbl849TestarossaSpider.setForeground(new Color(162, 162, 162));
+				lbl849Testarossa.setForeground(new Color(162, 162, 162));
+				lbl296GTS.setForeground(new Color(162, 162, 162));
+				lblFerrari12Cilindri.setForeground(new Color(162, 162, 162));
+				lblFerrariAmalfi.setForeground(new Color(162, 162, 162));
+				lblFerrariLuce.setForeground(new Color(162, 162, 162));
+				lbl296GTB.setForeground(new Color(162, 162, 162));
+				
+				lblFerrari12CilindriSpider.setForeground(new Color(255, 255, 255));
+				
+				lblFerrariNombre.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_13_rend.jpg")));
+				
+				modificarCocheSeleccionado(7);
+			}
+		});
 		lblFerrari12CilindriSpider.setForeground(new Color(162, 162, 162));
 		lblFerrari12CilindriSpider.setFont(new Font("Host Grotesk SemiBold", Font.BOLD, 11));
 		lblFerrari12CilindriSpider.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -157,6 +347,26 @@ public class Mantenimiento extends JPanel {
 		panelModelos.add(lblFerrari12CilindriSpider);
 		
 		lblFerrariPurosangre = new JLabel("Ferrari Purosangre");
+		lblFerrariPurosangre.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				lblFerrari12CilindriSpider.setForeground(new Color(162, 162, 162));
+				lblFerrariAmalfiSpider.setForeground(new Color(162, 162, 162));
+				lbl849TestarossaSpider.setForeground(new Color(162, 162, 162));
+				lbl849Testarossa.setForeground(new Color(162, 162, 162));
+				lbl296GTS.setForeground(new Color(162, 162, 162));
+				lblFerrari12Cilindri.setForeground(new Color(162, 162, 162));
+				lblFerrariAmalfi.setForeground(new Color(162, 162, 162));
+				lblFerrariLuce.setForeground(new Color(162, 162, 162));
+				lbl296GTB.setForeground(new Color(162, 162, 162));
+				
+				lblFerrariPurosangre.setForeground(new Color(255, 255, 255));
+				
+				lblFerrariNombre.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_15_rend.jpg")));
+				
+				modificarCocheSeleccionado(8);
+			}
+		});
 		lblFerrariPurosangre.setForeground(new Color(162, 162, 162));
 		lblFerrariPurosangre.setFont(new Font("Host Grotesk SemiBold", Font.BOLD, 11));
 		lblFerrariPurosangre.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -164,6 +374,26 @@ public class Mantenimiento extends JPanel {
 		panelModelos.add(lblFerrariPurosangre);
 		
 		lblFerrariAmalfi = new JLabel("Ferrari Amalfi");
+		lblFerrariAmalfi.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				lblFerrari12CilindriSpider.setForeground(new Color(162, 162, 162));
+				lblFerrariAmalfiSpider.setForeground(new Color(162, 162, 162));
+				lblFerrariPurosangre.setForeground(new Color(162, 162, 162));
+				lbl849TestarossaSpider.setForeground(new Color(162, 162, 162));
+				lbl849Testarossa.setForeground(new Color(162, 162, 162));
+				lbl296GTS.setForeground(new Color(162, 162, 162));
+				lblFerrari12Cilindri.setForeground(new Color(162, 162, 162));
+				lblFerrariLuce.setForeground(new Color(162, 162, 162));
+				lbl296GTB.setForeground(new Color(162, 162, 162));
+				
+				lblFerrariAmalfi.setForeground(new Color(255, 255, 255));
+				
+				lblFerrariNombre.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_17_rend.jpg")));
+				
+				modificarCocheSeleccionado(9);
+			}
+		});
 		lblFerrariAmalfi.setForeground(new Color(162, 162, 162));
 		lblFerrariAmalfi.setFont(new Font("Host Grotesk SemiBold", Font.BOLD, 11));
 		lblFerrariAmalfi.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -171,9 +401,15 @@ public class Mantenimiento extends JPanel {
 		panelModelos.add(lblFerrariAmalfi);
 		
 		lblFerrariAmalfiSpider = new JLabel("Ferrari Amalfi Spider");
+		lblFerrariAmalfiSpider.setVisible(false);
+		lblFerrariAmalfiSpider.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		lblFerrariAmalfiSpider.setForeground(new Color(162, 162, 162));
 		lblFerrariAmalfiSpider.setFont(new Font("Host Grotesk SemiBold", Font.BOLD, 11));
-		lblFerrariAmalfiSpider.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		lblFerrariAmalfiSpider.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		lblFerrariAmalfiSpider.setBorder(new EmptyBorder(0, 0, 10, 0));
 		panelModelos.add(lblFerrariAmalfiSpider);
 		
@@ -189,6 +425,11 @@ public class Mantenimiento extends JPanel {
 		panelVistaAccion.add(lblFerrariNombre);
 		
 		btnNewButton = new JButton("Habilitar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				modificarHabilitar(true);
+			}
+		});
 		btnNewButton.setForeground(new Color(0, 0, 0));
 		btnNewButton.setBorder(null);
 		btnNewButton.setBackground(new Color(226, 232, 26));
@@ -197,6 +438,11 @@ public class Mantenimiento extends JPanel {
 		panelVistaAccion.add(btnNewButton);
 		
 		btnOcultar = new JButton("Ocultar");
+		btnOcultar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				modificarOcultar(true);
+			}
+		});
 		btnOcultar.setForeground(new Color(255, 255, 255));
 		btnOcultar.setBorder(null);
 		btnOcultar.setBackground(new Color(228, 29, 34));
@@ -214,13 +460,36 @@ public class Mantenimiento extends JPanel {
 		panelAdminUsuarios.add(panelAccion);
 		panelAccion.setLayout(null);
 		
-		btnOcultar_1 = new JButton("Ocultar");
-		btnOcultar_1.setForeground(Color.WHITE);
-		btnOcultar_1.setFont(new Font("Ferrari Sans", Font.PLAIN, 15));
-		btnOcultar_1.setBorder(null);
-		btnOcultar_1.setBackground(new Color(228, 29, 34));
-		btnOcultar_1.setBounds(64, 44, 146, 35);
-		panelAccion.add(btnOcultar_1);
+		btnBorrar = new JButton("Borrar");
+		btnBorrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnBorrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				switch(numeroUsuarioSeleccionado) {
+				case 1:
+					if (!(lblCorreo1.getText().equals(""))) {
+						borrarUsuario1();
+						modificarBorrar(true);
+						modificarUsuarioSeleccionado(1);
+					}
+					break;
+					
+				case 2:
+					if (!(lblCorreo2.getText().equals(""))) {
+						borrarUsuario2();
+						modificarBorrar(true);
+						modificarUsuarioSeleccionado(2);
+					}
+					break;
+				}
+			}
+		});
+		btnBorrar.setForeground(Color.WHITE);
+		btnBorrar.setFont(new Font("Ferrari Sans", Font.PLAIN, 15));
+		btnBorrar.setBorder(null);
+		btnBorrar.setBackground(new Color(228, 29, 34));
+		btnBorrar.setBounds(64, 44, 146, 35);
+		panelAccion.add(btnBorrar);
 		
 		lblNewLabel_4 = new JLabel("<html>\r\n¡Advertencia! Al borrar una cuenta<br>\r\nes imposible recuperarla <br>\r\n</html>");
 		lblNewLabel_4.setForeground(new Color(255, 0, 0));
@@ -234,6 +503,16 @@ public class Mantenimiento extends JPanel {
 		panelUsuarios.setLayout(null);
 		
 		panelUsuario1 = new JPanel();
+		panelUsuario1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (!(lblUsuario1.getText().equals(""))) {
+					modificarUsuarioSeleccionado(1);
+				}
+			}
+		});
+		panelUsuario1.setBackground(new Color(128, 128, 128));
+		panelUsuario1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panelUsuario1.setBounds(26, 44, 210, 73);
 		panelUsuarios.add(panelUsuario1);
 		panelUsuario1.setLayout(null);
@@ -249,6 +528,16 @@ public class Mantenimiento extends JPanel {
 		panelUsuario1.add(lblCorreo1);
 		
 		panelUsuario2 = new JPanel();
+		panelUsuario2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (!(lblUsuario2.getText().equals(""))) {
+					modificarUsuarioSeleccionado(2);
+				}
+			}
+		});
+		panelUsuario2.setBackground(new Color(128, 128, 128));
+		panelUsuario2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panelUsuario2.setLayout(null);
 		panelUsuario2.setBounds(26, 167, 210, 73);
 		panelUsuarios.add(panelUsuario2);

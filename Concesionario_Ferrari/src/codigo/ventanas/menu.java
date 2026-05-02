@@ -82,6 +82,7 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 			public void run() {
 				try {
 					ventanaAcceso.setVisible(true);
+					ventanaAcceso.setLocationRelativeTo(null);
 					menu frame = new menu(ventanaAcceso);
 					frame.setLocationRelativeTo(null);
 					frame.setVisible(false);
@@ -218,19 +219,53 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		btnMantenimiento.setBorder(new EmptyBorder(5, 20, 5, 20));
 		btnMantenimiento.setFont(new Font("Ferrari Sans", Font.PLAIN, 12));
 		
-		
-		Timer timer = new Timer(50, new ActionListener() {
+		Timer timerMantenimiento = new Timer(50, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (esAdmin) {
+				if (panelMantenimiento.habilitar) {
+					panelMantenimiento.modificarHabilitar(false);
+					panelVehiculos.mostrarCoche(panelMantenimiento.numeroCocheSeleccionado);
+				}
+				
+				if (panelMantenimiento.ocultar) {
+					panelMantenimiento.modificarOcultar(false);
+					panelVehiculos.ocultarCoche(panelMantenimiento.numeroCocheSeleccionado);
+				}
+				
+				if (panelMantenimiento.borrar) {
+					panelMantenimiento.modificarBorrar(false);
+					
+					switch (panelMantenimiento.numeroUsuarioSeleccionado) {
+					case 1: ventanaAcceso.borrarUsuario1(); break;
+					case 2: ventanaAcceso.borrarUsuario2(); break;
+					}
+					
+					panelMantenimiento.modificarUsuarioSeleccionado(0);
+				}
+			}
+		});
+		
+		Timer timerAdmin = new Timer(50, new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (ventanaAcceso.esAdmin) {
 					barra_2.add(btnMantenimiento);
+					timerMantenimiento.start();
+					
+					if (!(ventanaAcceso.correoUsuario1.equals(""))) {
+						panelMantenimiento.mostrarUsuario1(ventanaAcceso.correoUsuario1);
+					}
+					
+					if (!(ventanaAcceso.correoUsuario2.equals(""))) {
+						panelMantenimiento.mostrarUsuario2(ventanaAcceso.correoUsuario2);
+					}
 					((Timer) e.getSource()).stop();
 				}
 			}
 		});
 		
-		timer.setRepeats(true);
-		timer.start();
+		timerAdmin.setRepeats(true);
+		timerAdmin.start();
 		
 		contenido = new JScrollPane();
 		contenido.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
@@ -332,8 +367,13 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		mostrarPanel(panelMantenimiento);
 	}
 	protected void mouseClickedLblCerrarSesion(MouseEvent e) {
+		mostrarPanel(panelInicio);
 		this.setVisible(false);
 		ventanaAcceso.setVisible(true);
 		ventanaAcceso.modificarAcceso(false);
+		if (ventanaAcceso.esAdmin) {
+			ventanaAcceso.modificarEsAdmin(false);
+			barra_2.remove(btnMantenimiento);
+		}
 	}
 }

@@ -58,7 +58,6 @@ public class Acceso extends JFrame {
 			public void run() {
 				try {
 					Acceso frame = new Acceso();
-					frame.setLocationRelativeTo(null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -119,6 +118,16 @@ public class Acceso extends JFrame {
 	public void agregarUsuario2(String correo, String contrasenia) {
 		this.correoUsuario2 = correo;
 		this.contraseniaUsuario2 = contrasenia;
+	}
+	
+	public void borrarUsuario1() {
+		this.correoUsuario1 = "";
+		this.contraseniaUsuario1 = "";
+	}
+	
+	public void borrarUsuario2() {
+		this.correoUsuario2 = "";
+		this.contraseniaUsuario2 = "";
 	}
 	
 	public void modificarAcceso(boolean acceso) {

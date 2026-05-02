@@ -50,6 +50,34 @@ public class Vehiculos extends JPanel implements MouseListener {
 		this.indicador = indicador;
 	}
 	
+	public void ocultarCoche(int numeroCoche) {
+		switch(numeroCoche) {
+		case 1: lblFerrariLuce.setEnabled(false); break;
+		case 2: lbl849Testarossa.setEnabled(false); break;
+		case 3: lbl849TestarossaSpider.setEnabled(false); break;
+		case 4: lbl296GTB.setEnabled(false); break;
+		case 5: lbl296GTS.setEnabled(false); break;
+		case 6: lblFerrari12Cilindri.setEnabled(false); break;
+		case 7: lblFerrari12CilindriSpider.setEnabled(false); break;
+		case 8: lblFerrariPurosangre.setEnabled(false); break;
+		case 9: lblFerrariAmalfi.setEnabled(false); break;
+		}
+	}
+	
+	public void mostrarCoche(int numeroCoche) {
+		switch(numeroCoche) {
+		case 1: lblFerrariLuce.setEnabled(true); break;
+		case 2: lbl849Testarossa.setEnabled(true); break;
+		case 3: lbl849TestarossaSpider.setEnabled(true); break;
+		case 4: lbl296GTB.setEnabled(true); break;
+		case 5: lbl296GTS.setEnabled(true); break;
+		case 6: lblFerrari12Cilindri.setEnabled(true); break;
+		case 7: lblFerrari12CilindriSpider.setEnabled(true); break;
+		case 8: lblFerrariPurosangre.setEnabled(true); break;
+		case 9: lblFerrariAmalfi.setEnabled(true); break;
+		}
+	}
+	
 	/**
 	 * Create the panel.
 	 */
@@ -139,6 +167,9 @@ public class Vehiculos extends JPanel implements MouseListener {
 		panelModelos.add(lblFerrariAmalfi);
 		
 		lblFerrariAmalfiSpider = new JLabel("Ferrari Amalfi Spider");
+		lblFerrariAmalfiSpider.setFocusable(false);
+		lblFerrariAmalfiSpider.setEnabled(false);
+		lblFerrariAmalfiSpider.setVisible(false);
 		lblFerrariAmalfiSpider.addMouseListener(this);
 		lblFerrariAmalfiSpider.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblFerrariAmalfiSpider.setForeground(new Color(162, 162, 162));
@@ -263,232 +294,245 @@ public class Vehiculos extends JPanel implements MouseListener {
 		
 		}
 	protected void mouseClickedLbl296GTB(MouseEvent e) {
-		lblFerrari12CilindriSpider.setForeground(new Color(162, 162, 162));
-		lblFerrariAmalfiSpider.setForeground(new Color(162, 162, 162));
-		lblFerrariPurosangre.setForeground(new Color(162, 162, 162));
-		lbl849TestarossaSpider.setForeground(new Color(162, 162, 162));
-		lbl849Testarossa.setForeground(new Color(162, 162, 162));
-		lbl296GTS.setForeground(new Color(162, 162, 162));
-		lblFerrari12Cilindri.setForeground(new Color(162, 162, 162));
-		lblFerrariAmalfi.setForeground(new Color(162, 162, 162));
-		lblFerrariLuce.setForeground(new Color(162, 162, 162));
 		
-		lbl296GTB.setForeground(new Color(255, 255, 255));
-		
-		if (indicador == 0) {
-			panelAuto.setVisible(true);
-			indicador = 1;
-			this.indicadorCocheSeleccionado = 4;
-		} 
-		
-		lblFerrariNombre.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_7_rend.jpg")));
-		lblFerrariImg.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_8_rend.jpg")));
+		if (lbl296GTB.isEnabled()) {
+			lblFerrari12CilindriSpider.setForeground(new Color(162, 162, 162));
+			lblFerrariAmalfiSpider.setForeground(new Color(162, 162, 162));
+			lblFerrariPurosangre.setForeground(new Color(162, 162, 162));
+			lbl849TestarossaSpider.setForeground(new Color(162, 162, 162));
+			lbl849Testarossa.setForeground(new Color(162, 162, 162));
+			lbl296GTS.setForeground(new Color(162, 162, 162));
+			lblFerrari12Cilindri.setForeground(new Color(162, 162, 162));
+			lblFerrariAmalfi.setForeground(new Color(162, 162, 162));
+			lblFerrariLuce.setForeground(new Color(162, 162, 162));
+			
+			lbl296GTB.setForeground(new Color(255, 255, 255));
+			
+			if (indicador == 0) {
+				panelAuto.setVisible(true);
+				indicador = 1;
+				this.indicadorCocheSeleccionado = 4;
+			} 
+			
+			lblFerrariNombre.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_7_rend.jpg")));
+			lblFerrariImg.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_8_rend.jpg")));
+		}
 		
 	}
 	protected void mouseClickedLblFerrari12CilindriSpider(MouseEvent e) {
-		lblFerrariAmalfiSpider.setForeground(new Color(162, 162, 162));
-		lblFerrariPurosangre.setForeground(new Color(162, 162, 162));
-		lbl849TestarossaSpider.setForeground(new Color(162, 162, 162));
-		lbl849Testarossa.setForeground(new Color(162, 162, 162));
-		lbl296GTS.setForeground(new Color(162, 162, 162));
-		lblFerrari12Cilindri.setForeground(new Color(162, 162, 162));
-		lblFerrariAmalfi.setForeground(new Color(162, 162, 162));
-		lblFerrariLuce.setForeground(new Color(162, 162, 162));
-		lbl296GTB.setForeground(new Color(162, 162, 162));
-		
-		lblFerrari12CilindriSpider.setForeground(new Color(255, 255, 255));
-		
-		if (indicador == 0) {
-			panelAuto.setVisible(true);
-			indicador = 1;
-			this.indicadorCocheSeleccionado = 7;
+		if (lblFerrari12CilindriSpider.isEnabled()) {
+			lblFerrariAmalfiSpider.setForeground(new Color(162, 162, 162));
+			lblFerrariPurosangre.setForeground(new Color(162, 162, 162));
+			lbl849TestarossaSpider.setForeground(new Color(162, 162, 162));
+			lbl849Testarossa.setForeground(new Color(162, 162, 162));
+			lbl296GTS.setForeground(new Color(162, 162, 162));
+			lblFerrari12Cilindri.setForeground(new Color(162, 162, 162));
+			lblFerrariAmalfi.setForeground(new Color(162, 162, 162));
+			lblFerrariLuce.setForeground(new Color(162, 162, 162));
+			lbl296GTB.setForeground(new Color(162, 162, 162));
+			
+			lblFerrari12CilindriSpider.setForeground(new Color(255, 255, 255));
+			
+			if (indicador == 0) {
+				panelAuto.setVisible(true);
+				indicador = 1;
+				this.indicadorCocheSeleccionado = 7;
+			}
+			
+			lblFerrariNombre.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_13_rend.jpg")));
+			lblFerrariImg.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_14_rend.jpg")));
 		}
-		
-		lblFerrariNombre.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_13_rend.jpg")));
-		lblFerrariImg.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_14_rend.jpg")));
-		
 	}
 	protected void mouseClickedLblFerrariAmalfiSpider(MouseEvent e) {
-		lblFerrari12CilindriSpider.setForeground(new Color(162, 162, 162));
-		lblFerrariPurosangre.setForeground(new Color(162, 162, 162));
-		lbl849TestarossaSpider.setForeground(new Color(162, 162, 162));
-		lbl849Testarossa.setForeground(new Color(162, 162, 162));
-		lbl296GTS.setForeground(new Color(162, 162, 162));
-		lblFerrari12Cilindri.setForeground(new Color(162, 162, 162));
-		lblFerrariAmalfi.setForeground(new Color(162, 162, 162));
-		lblFerrariLuce.setForeground(new Color(162, 162, 162));
-		lbl296GTB.setForeground(new Color(162, 162, 162));
-		
-		lblFerrariAmalfiSpider.setForeground(new Color(255, 255, 255));
-		
-		if (indicador == 0) {
-			panelAuto.setVisible(true);
-			indicador = 1;
+		if (lblFerrariAmalfiSpider.isEnabled()) {
+			lblFerrari12CilindriSpider.setForeground(new Color(162, 162, 162));
+			lblFerrariPurosangre.setForeground(new Color(162, 162, 162));
+			lbl849TestarossaSpider.setForeground(new Color(162, 162, 162));
+			lbl849Testarossa.setForeground(new Color(162, 162, 162));
+			lbl296GTS.setForeground(new Color(162, 162, 162));
+			lblFerrari12Cilindri.setForeground(new Color(162, 162, 162));
+			lblFerrariAmalfi.setForeground(new Color(162, 162, 162));
+			lblFerrariLuce.setForeground(new Color(162, 162, 162));
+			lbl296GTB.setForeground(new Color(162, 162, 162));
+			
+			lblFerrariAmalfiSpider.setForeground(new Color(255, 255, 255));
+			
+			if (indicador == 0) {
+				panelAuto.setVisible(true);
+				indicador = 1;
+			}
+			
+			lblFerrariNombre.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_19_rend.jpg")));
+			lblFerrariImg.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_20_rend.jpg")));
 		}
-		
-		lblFerrariNombre.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_19_rend.jpg")));
-		lblFerrariImg.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_20_rend.jpg")));
-		
 	}
 	protected void mouseClickedLblFerrariPurosangre(MouseEvent e) {
-		lblFerrari12CilindriSpider.setForeground(new Color(162, 162, 162));
-		lblFerrariAmalfiSpider.setForeground(new Color(162, 162, 162));
-		lbl849TestarossaSpider.setForeground(new Color(162, 162, 162));
-		lbl849Testarossa.setForeground(new Color(162, 162, 162));
-		lbl296GTS.setForeground(new Color(162, 162, 162));
-		lblFerrari12Cilindri.setForeground(new Color(162, 162, 162));
-		lblFerrariAmalfi.setForeground(new Color(162, 162, 162));
-		lblFerrariLuce.setForeground(new Color(162, 162, 162));
-		lbl296GTB.setForeground(new Color(162, 162, 162));
-		
-		lblFerrariPurosangre.setForeground(new Color(255, 255, 255));
-		
-		if (indicador == 0) {
-			panelAuto.setVisible(true);
-			indicador = 1;
-			this.indicadorCocheSeleccionado = 8;
+		if (lblFerrariPurosangre.isEnabled()) { 
+			lblFerrari12CilindriSpider.setForeground(new Color(162, 162, 162));
+			lblFerrariAmalfiSpider.setForeground(new Color(162, 162, 162));
+			lbl849TestarossaSpider.setForeground(new Color(162, 162, 162));
+			lbl849Testarossa.setForeground(new Color(162, 162, 162));
+			lbl296GTS.setForeground(new Color(162, 162, 162));
+			lblFerrari12Cilindri.setForeground(new Color(162, 162, 162));
+			lblFerrariAmalfi.setForeground(new Color(162, 162, 162));
+			lblFerrariLuce.setForeground(new Color(162, 162, 162));
+			lbl296GTB.setForeground(new Color(162, 162, 162));
+			
+			lblFerrariPurosangre.setForeground(new Color(255, 255, 255));
+			
+			if (indicador == 0) {
+				panelAuto.setVisible(true);
+				indicador = 1;
+				this.indicadorCocheSeleccionado = 8;
+			}
+			
+			lblFerrariNombre.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_15_rend.jpg")));
+			lblFerrariImg.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_16_rend.jpg")));
 		}
-		
-		lblFerrariNombre.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_15_rend.jpg")));
-		lblFerrariImg.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_16_rend.jpg")));
-		
 	}
 	protected void mouseClickedLbl849TestarossaSpider(MouseEvent e) {
-		lblFerrari12CilindriSpider.setForeground(new Color(162, 162, 162));
-		lblFerrariAmalfiSpider.setForeground(new Color(162, 162, 162));
-		lblFerrariPurosangre.setForeground(new Color(162, 162, 162));
-		lbl849Testarossa.setForeground(new Color(162, 162, 162));
-		lbl296GTS.setForeground(new Color(162, 162, 162));
-		lblFerrari12Cilindri.setForeground(new Color(162, 162, 162));
-		lblFerrariAmalfi.setForeground(new Color(162, 162, 162));
-		lblFerrariLuce.setForeground(new Color(162, 162, 162));
-		lbl296GTB.setForeground(new Color(162, 162, 162));
-		
-		lbl849TestarossaSpider.setForeground(new Color(255, 255, 255));
-		
-		if (indicador == 0) {
-			panelAuto.setVisible(true);
-			indicador = 1;
-			this.indicadorCocheSeleccionado = 3;
+		if (lbl849TestarossaSpider.isEnabled()) {
+			lblFerrari12CilindriSpider.setForeground(new Color(162, 162, 162));
+			lblFerrariAmalfiSpider.setForeground(new Color(162, 162, 162));
+			lblFerrariPurosangre.setForeground(new Color(162, 162, 162));
+			lbl849Testarossa.setForeground(new Color(162, 162, 162));
+			lbl296GTS.setForeground(new Color(162, 162, 162));
+			lblFerrari12Cilindri.setForeground(new Color(162, 162, 162));
+			lblFerrariAmalfi.setForeground(new Color(162, 162, 162));
+			lblFerrariLuce.setForeground(new Color(162, 162, 162));
+			lbl296GTB.setForeground(new Color(162, 162, 162));
+			
+			lbl849TestarossaSpider.setForeground(new Color(255, 255, 255));
+			
+			if (indicador == 0) {
+				panelAuto.setVisible(true);
+				indicador = 1;
+				this.indicadorCocheSeleccionado = 3;
+			}
+			
+			lblFerrariNombre.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_5_rend.jpg")));
+			lblFerrariImg.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_6_rend.jpg")));
 		}
-		
-		lblFerrariNombre.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_5_rend.jpg")));
-		lblFerrariImg.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_6_rend.jpg")));
-		
 	}
 	protected void mouseClickedLbl849Testarossa(MouseEvent e) {
-		lblFerrari12CilindriSpider.setForeground(new Color(162, 162, 162));
-		lblFerrariAmalfiSpider.setForeground(new Color(162, 162, 162));
-		lblFerrariPurosangre.setForeground(new Color(162, 162, 162));
-		lbl849TestarossaSpider.setForeground(new Color(162, 162, 162));
-		lbl296GTS.setForeground(new Color(162, 162, 162));
-		lblFerrari12Cilindri.setForeground(new Color(162, 162, 162));
-		lblFerrariAmalfi.setForeground(new Color(162, 162, 162));
-		lblFerrariLuce.setForeground(new Color(162, 162, 162));
-		lbl296GTB.setForeground(new Color(162, 162, 162));
-		
-		lbl849Testarossa.setForeground(new Color(255, 255, 255));
-		
-		if (indicador == 0) {
-			panelAuto.setVisible(true);
-			indicador = 1;
-			this.indicadorCocheSeleccionado = 2;
+		if (lbl849Testarossa.isEnabled()) {
+			lblFerrari12CilindriSpider.setForeground(new Color(162, 162, 162));
+			lblFerrariAmalfiSpider.setForeground(new Color(162, 162, 162));
+			lblFerrariPurosangre.setForeground(new Color(162, 162, 162));
+			lbl849TestarossaSpider.setForeground(new Color(162, 162, 162));
+			lbl296GTS.setForeground(new Color(162, 162, 162));
+			lblFerrari12Cilindri.setForeground(new Color(162, 162, 162));
+			lblFerrariAmalfi.setForeground(new Color(162, 162, 162));
+			lblFerrariLuce.setForeground(new Color(162, 162, 162));
+			lbl296GTB.setForeground(new Color(162, 162, 162));
+			
+			lbl849Testarossa.setForeground(new Color(255, 255, 255));
+			
+			if (indicador == 0) {
+				panelAuto.setVisible(true);
+				indicador = 1;
+				this.indicadorCocheSeleccionado = 2;
+			}
+			
+			lblFerrariNombre.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_3_rend.jpg")));
+			lblFerrariImg.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_4_rend.jpg")));
 		}
-		
-		lblFerrariNombre.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_3_rend.jpg")));
-		lblFerrariImg.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_4_rend.jpg")));
-		
 	}
 	protected void mouseClickedLbl296GTS(MouseEvent e) {
-		lblFerrari12CilindriSpider.setForeground(new Color(162, 162, 162));
-		lblFerrariAmalfiSpider.setForeground(new Color(162, 162, 162));
-		lblFerrariPurosangre.setForeground(new Color(162, 162, 162));
-		lbl849TestarossaSpider.setForeground(new Color(162, 162, 162));
-		lbl849Testarossa.setForeground(new Color(162, 162, 162));
-		lblFerrariAmalfi.setForeground(new Color(162, 162, 162));
-		lblFerrariLuce.setForeground(new Color(162, 162, 162));
-		lbl296GTB.setForeground(new Color(162, 162, 162));
-		lblFerrari12Cilindri.setForeground(new Color(162, 162, 162));
-		
-		lbl296GTS.setForeground(new Color(255, 255, 255));
-		
-		if (indicador == 0) {
-			panelAuto.setVisible(true);
-			indicador = 1;
-			this.indicadorCocheSeleccionado = 5;
+		if (lbl296GTS.isEnabled()) {
+			lblFerrari12CilindriSpider.setForeground(new Color(162, 162, 162));
+			lblFerrariAmalfiSpider.setForeground(new Color(162, 162, 162));
+			lblFerrariPurosangre.setForeground(new Color(162, 162, 162));
+			lbl849TestarossaSpider.setForeground(new Color(162, 162, 162));
+			lbl849Testarossa.setForeground(new Color(162, 162, 162));
+			lblFerrariAmalfi.setForeground(new Color(162, 162, 162));
+			lblFerrariLuce.setForeground(new Color(162, 162, 162));
+			lbl296GTB.setForeground(new Color(162, 162, 162));
+			lblFerrari12Cilindri.setForeground(new Color(162, 162, 162));
+			
+			lbl296GTS.setForeground(new Color(255, 255, 255));
+			
+			if (indicador == 0) {
+				panelAuto.setVisible(true);
+				indicador = 1;
+				this.indicadorCocheSeleccionado = 5;
+			}
+			
+			lblFerrariNombre.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_9_rend.jpg")));
+			lblFerrariImg.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_10_rend.jpg")));
 		}
-		
-		lblFerrariNombre.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_9_rend.jpg")));
-		lblFerrariImg.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_10_rend.jpg")));
-		
 	}
 	protected void mouseClickedLblFerrari12Cilindri(MouseEvent e) {
-		lblFerrari12CilindriSpider.setForeground(new Color(162, 162, 162));
-		lblFerrariAmalfiSpider.setForeground(new Color(162, 162, 162));
-		lblFerrariPurosangre.setForeground(new Color(162, 162, 162));
-		lbl849TestarossaSpider.setForeground(new Color(162, 162, 162));
-		lbl849Testarossa.setForeground(new Color(162, 162, 162));
-		lbl296GTS.setForeground(new Color(162, 162, 162));
-		lblFerrariAmalfi.setForeground(new Color(162, 162, 162));
-		lblFerrariLuce.setForeground(new Color(162, 162, 162));
-		lbl296GTB.setForeground(new Color(162, 162, 162));
-		
-		lblFerrari12Cilindri.setForeground(new Color(255, 255, 255));
-		
-		if (indicador == 0) {
-			panelAuto.setVisible(true);
-			indicador = 1;
-			this.indicadorCocheSeleccionado = 6;
+		if (lblFerrari12Cilindri.isEnabled()) {
+			lblFerrari12CilindriSpider.setForeground(new Color(162, 162, 162));
+			lblFerrariAmalfiSpider.setForeground(new Color(162, 162, 162));
+			lblFerrariPurosangre.setForeground(new Color(162, 162, 162));
+			lbl849TestarossaSpider.setForeground(new Color(162, 162, 162));
+			lbl849Testarossa.setForeground(new Color(162, 162, 162));
+			lbl296GTS.setForeground(new Color(162, 162, 162));
+			lblFerrariAmalfi.setForeground(new Color(162, 162, 162));
+			lblFerrariLuce.setForeground(new Color(162, 162, 162));
+			lbl296GTB.setForeground(new Color(162, 162, 162));
+			
+			lblFerrari12Cilindri.setForeground(new Color(255, 255, 255));
+			
+			if (indicador == 0) {
+				panelAuto.setVisible(true);
+				indicador = 1;
+				this.indicadorCocheSeleccionado = 6;
+			}
+			
+			lblFerrariNombre.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_11_rend.jpg")));
+			lblFerrariImg.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_12_rend.jpg")));
 		}
-		
-		lblFerrariNombre.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_11_rend.jpg")));
-		lblFerrariImg.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_12_rend.jpg")));
 	}
 	protected void mouseClickedLblFerrariAmalfi(MouseEvent e) {
-		lblFerrari12CilindriSpider.setForeground(new Color(162, 162, 162));
-		lblFerrariAmalfiSpider.setForeground(new Color(162, 162, 162));
-		lblFerrariPurosangre.setForeground(new Color(162, 162, 162));
-		lbl849TestarossaSpider.setForeground(new Color(162, 162, 162));
-		lbl849Testarossa.setForeground(new Color(162, 162, 162));
-		lbl296GTS.setForeground(new Color(162, 162, 162));
-		lblFerrari12Cilindri.setForeground(new Color(162, 162, 162));
-		lblFerrariLuce.setForeground(new Color(162, 162, 162));
-		lbl296GTB.setForeground(new Color(162, 162, 162));
-		
-		lblFerrariAmalfi.setForeground(new Color(255, 255, 255));
-		
-		if (indicador == 0) {
-			panelAuto.setVisible(true);
-			indicador = 1;
-			this.indicadorCocheSeleccionado = 9;
+		if (lblFerrariAmalfi.isEnabled()) {
+			lblFerrari12CilindriSpider.setForeground(new Color(162, 162, 162));
+			lblFerrariAmalfiSpider.setForeground(new Color(162, 162, 162));
+			lblFerrariPurosangre.setForeground(new Color(162, 162, 162));
+			lbl849TestarossaSpider.setForeground(new Color(162, 162, 162));
+			lbl849Testarossa.setForeground(new Color(162, 162, 162));
+			lbl296GTS.setForeground(new Color(162, 162, 162));
+			lblFerrari12Cilindri.setForeground(new Color(162, 162, 162));
+			lblFerrariLuce.setForeground(new Color(162, 162, 162));
+			lbl296GTB.setForeground(new Color(162, 162, 162));
+			
+			lblFerrariAmalfi.setForeground(new Color(255, 255, 255));
+			
+			if (indicador == 0) {
+				panelAuto.setVisible(true);
+				indicador = 1;
+				this.indicadorCocheSeleccionado = 9;
+			}
+			
+			lblFerrariNombre.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_17_rend.jpg")));
+			lblFerrariImg.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_18_rend.jpg")));
 		}
-		
-		lblFerrariNombre.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_17_rend.jpg")));
-		lblFerrariImg.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_18_rend.jpg")));
-		
 	}
 	protected void mouseClickedLblFerrariLuce(MouseEvent e) {
-		lblFerrari12CilindriSpider.setForeground(new Color(162, 162, 162));
-		lblFerrariAmalfiSpider.setForeground(new Color(162, 162, 162));
-		lblFerrariPurosangre.setForeground(new Color(162, 162, 162));
-		lbl849TestarossaSpider.setForeground(new Color(162, 162, 162));
-		lbl849Testarossa.setForeground(new Color(162, 162, 162));
-		lbl296GTS.setForeground(new Color(162, 162, 162));
-		lblFerrari12Cilindri.setForeground(new Color(162, 162, 162));
-		lblFerrariAmalfi.setForeground(new Color(162, 162, 162));
-		lbl296GTB.setForeground(new Color(162, 162, 162));
-		
-		lblFerrariLuce.setForeground(new Color(255, 255, 255));
-		
-		if (indicador == 0) {
-			panelAuto.setVisible(true);
-			indicador = 1;
-			this.indicadorCocheSeleccionado = 1;
+		if (lblFerrariLuce.isEnabled()) {
+			lblFerrari12CilindriSpider.setForeground(new Color(162, 162, 162));
+			lblFerrariAmalfiSpider.setForeground(new Color(162, 162, 162));
+			lblFerrariPurosangre.setForeground(new Color(162, 162, 162));
+			lbl849TestarossaSpider.setForeground(new Color(162, 162, 162));
+			lbl849Testarossa.setForeground(new Color(162, 162, 162));
+			lbl296GTS.setForeground(new Color(162, 162, 162));
+			lblFerrari12Cilindri.setForeground(new Color(162, 162, 162));
+			lblFerrariAmalfi.setForeground(new Color(162, 162, 162));
+			lbl296GTB.setForeground(new Color(162, 162, 162));
+			
+			lblFerrariLuce.setForeground(new Color(255, 255, 255));
+			
+			if (indicador == 0) {
+				panelAuto.setVisible(true);
+				indicador = 1;
+				this.indicadorCocheSeleccionado = 1;
+			}
+			
+			lblFerrariNombre.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_1_rend.jpeg")));
+			lblFerrariImg.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_2_rend.jpg")));
 		}
-		
-		lblFerrariNombre.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_1_rend.jpeg")));
-		lblFerrariImg.setIcon(new ImageIcon(Vehiculos.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_2_rend.jpg")));
-		
 	}
 	protected void mouseClickedLblDescubrirMas(MouseEvent e) {
 		botonPresionado = true;
