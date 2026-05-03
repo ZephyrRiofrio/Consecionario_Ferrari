@@ -50,7 +50,6 @@ public class Iniciar_sesion extends JPanel implements ActionListener, MouseListe
 	private Acceso ventanaAcceso;
 	
 	private boolean acceso = false;
-	private boolean registro = false;
 	
 	/**
 	 * Create the panel.
@@ -172,14 +171,6 @@ public class Iniciar_sesion extends JPanel implements ActionListener, MouseListe
 	
 	public void modificarAcceso(boolean acceso) {
 		this.acceso = acceso;
-	}
-	
-	public boolean obtenerRegistro() {
-		return registro;
-	}
-	
-	public void modificarRegistro(boolean registro) {
-		this.registro = registro;
 	}
 	
 	public Iniciar_sesion(Acceso ventanaAcceso) {
@@ -378,7 +369,9 @@ public class Iniciar_sesion extends JPanel implements ActionListener, MouseListe
 	protected void mouseClickedLblRegistrarse(MouseEvent e) {
 		if (lblRegistrarse.isEnabled()) {
 			vaciarDatos();
-			modificarRegistro(true);
+			ventanaAcceso.modificarTitulo("Registrarse");
+			ventanaAcceso.asignarImagenLabel(ventanaAcceso.lblImagen);
+			ventanaAcceso.mostrarPanel(ventanaAcceso.panelRegistrar);
 		}
 	}
 }

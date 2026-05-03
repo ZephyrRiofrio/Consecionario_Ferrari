@@ -27,10 +27,10 @@ public class Acceso extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JPanel panelSeccion;
-	private Iniciar_sesion panelIniciar = new Iniciar_sesion(this);
-	private Registrarse panelRegistrar = new Registrarse(this);
+	public Iniciar_sesion panelIniciar = new Iniciar_sesion(this);
+	public Registrarse panelRegistrar = new Registrarse(this);
 	private JPanel panelImagen;
-	private JLabel lblImagen;
+	public JLabel lblImagen;
 	private Random rand = new Random();
 	
 	// Indicador que detecta algún acceso a la plataforma
@@ -66,11 +66,11 @@ public class Acceso extends JFrame {
 		});
 	}
 	
-	private void modificarTitulo(String titulo) {
+	public void modificarTitulo(String titulo) {
 		this.setTitle(titulo);
 	}
 	
-	private void asignarImagenLabel(JLabel lblImagen) {
+	public void asignarImagenLabel(JLabel lblImagen) {
 		int numeroMax = 4;
 		int numeroMin = 1;
 		
@@ -95,7 +95,7 @@ public class Acceso extends JFrame {
 		}
 	}
 	
-	private void mostrarPanel(JPanel panel) {
+	public void mostrarPanel(JPanel panel) {
 		panel.setSize(450, 400);
 		panel.setLocation(0, 0);
 		
@@ -169,16 +169,10 @@ public class Acceso extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (panelRegistrar.obtenerAcceso()) {
-					panelRegistrar.modificarIniciarSesion(false);
 					panelRegistrar.modificarAcceso(false);
 					panelRegistrar.vaciarDatos();
 					mostrarPanel(panelIniciar);
 					modificarAcceso(true);
-				} else if (panelRegistrar.obtenerIniciarSesion()) {
-					panelRegistrar.modificarIniciarSesion(false);
-					modificarTitulo("Iniciar sesión");
-					asignarImagenLabel(lblImagen);
-					mostrarPanel(panelIniciar);
 				}
 			}
 		});
@@ -187,15 +181,9 @@ public class Acceso extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (panelIniciar.obtenerAcceso()) {
-					panelIniciar.modificarRegistro(false);
 					panelIniciar.modificarAcceso(false);
 					panelIniciar.vaciarDatos();
 					modificarAcceso(true);
-				} else if (panelIniciar.obtenerRegistro()) {
-					panelIniciar.modificarRegistro(false);
-					modificarTitulo("Registrarse");
-					asignarImagenLabel(lblImagen);
-					mostrarPanel(panelRegistrar);
 				}
 			}
 		});

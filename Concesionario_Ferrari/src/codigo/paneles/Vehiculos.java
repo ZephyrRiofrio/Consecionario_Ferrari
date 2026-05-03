@@ -217,7 +217,7 @@ public class Vehiculos extends JPanel implements MouseListener {
 		lblFerrariImg.setPreferredSize(new Dimension(400, 225));
 		panelContenidoAuto.add(lblFerrariImg);
 		
-		lblSolicitud = new JLabel("<html>\r\n<center>\r\nSOLICITAR\r\n</center>\r\n</html>");
+		lblSolicitud = new JLabel("<html>\r\nSOLICITAR\r\n</html>");
 		lblSolicitud.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -228,7 +228,7 @@ public class Vehiculos extends JPanel implements MouseListener {
 		lblSolicitud.setFont(new Font("Ferrari Sans", Font.BOLD, 11));
 		lblSolicitud.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblSolicitud.setBounds(new Rectangle(5, 5, 0, 0));
-		lblSolicitud.setBorder(new CompoundBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(255, 255, 255)), new EmptyBorder(10, 10, 10, 10)));
+		lblSolicitud.setBorder(new CompoundBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(255, 255, 255)), new EmptyBorder(10, 33, 10, 10)));
 		lblSolicitud.setBounds(224, 296, 146, 49);
 		panelContenidoAuto.add(lblSolicitud);
 		
