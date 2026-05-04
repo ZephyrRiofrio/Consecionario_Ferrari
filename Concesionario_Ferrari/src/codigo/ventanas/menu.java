@@ -50,15 +50,13 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 	private JButton btnMantenimiento;
 	private JPanel panelMenu_barra_1;
 	private JScrollPane contenido;
-	
-	private boolean esAdmin = false;
 
 	private Vehiculos panelVehiculos = new Vehiculos();
 	private Inicio panelInicio = new Inicio();
 	private VentasVehiculos panelVentas = new VentasVehiculos();
 	private Noticias panelNoticias = new Noticias();
 	private SobreNosotros panelSobreNosotros = new SobreNosotros();
-	private Mantenimiento panelMantenimiento = new Mantenimiento();
+	private Mantenimiento panelMantenimiento = new Mantenimiento(this);
 	
 	private Ferrari_Luce paginaFerrariLuce = new Ferrari_Luce();
 	private Ferrari12Cilindri paginaFerrari12Cilindri = new Ferrari12Cilindri();
@@ -106,12 +104,20 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		contenido.setViewportView(panel);
 	}
 	
-	public void modificarEsAdmin(boolean esAdmin) {
-		this.esAdmin = esAdmin;
-	}
-	
 	public void modificarVisible(boolean esVisible) {
 		this.setVisible(esVisible);
+	}
+	
+	public Vehiculos getPanelVehiculos() {
+		return this.panelVehiculos;
+	}
+	
+	public Mantenimiento getPanelMantenimiento() {
+		return this.panelMantenimiento;
+	}
+	
+	public Acceso getVentanaAcceso() {
+		return this.ventanaAcceso;
 	}
 	
 	/**
@@ -226,52 +232,6 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		btnMantenimiento.setForeground(Color.WHITE);
 		btnMantenimiento.setBorder(new EmptyBorder(5, 20, 5, 20));
 		btnMantenimiento.setFont(new Font("Ferrari Sans", Font.PLAIN, 12));
-		
-		Timer timerMantenimiento = new Timer(5, new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (panelMantenimiento.habilitar) {
-					panelMantenimiento.modificarHabilitar(false);
-					panelVehiculos.mostrarCoche(panelMantenimiento.numeroCocheSeleccionado);
-				}
-				
-				if (panelMantenimiento.ocultar) {
-					panelMantenimiento.modificarOcultar(false);
-					panelVehiculos.ocultarCoche(panelMantenimiento.numeroCocheSeleccionado);
-				}
-				
-				if (panelMantenimiento.borrar) {
-					panelMantenimiento.modificarBorrar(false);
-					
-					switch (panelMantenimiento.numeroUsuarioSeleccionado) {
-					case 1: ventanaAcceso.borrarUsuario1(); break;
-					case 2: ventanaAcceso.borrarUsuario2(); break;
-					}
-					
-					panelMantenimiento.modificarUsuarioSeleccionado(0);
-				}
-			}
-		});
-		
-		Timer timerAdmin = new Timer(5, new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (ventanaAcceso.esAdmin) {
-					timerMantenimiento.start();
-					
-					if (!(ventanaAcceso.correoUsuario1.equals(""))) {
-						panelMantenimiento.mostrarUsuario1(ventanaAcceso.correoUsuario1);
-					}
-					
-					if (!(ventanaAcceso.correoUsuario2.equals(""))) {
-						panelMantenimiento.mostrarUsuario2(ventanaAcceso.correoUsuario2);
-					}
-				}
-			}
-		});
-		
-		timerAdmin.setRepeats(true);
-		timerAdmin.start();
 		
 		contenido = new JScrollPane();
 		contenido.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);

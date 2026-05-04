@@ -86,6 +86,14 @@ public class Iniciar_sesion extends JPanel implements ActionListener, MouseListe
             		
             		if (ventanaAcceso.esAdmin) {
             			ventanaAcceso.ventanaMenu.getBarra_2().add(ventanaAcceso.ventanaMenu.getBtnMantenimiento());
+            			
+            			if (!(ventanaAcceso.correoUsuario1.equals(""))) {
+    						ventanaAcceso.ventanaMenu.getPanelMantenimiento().mostrarUsuario1(ventanaAcceso.correoUsuario1);
+    					}
+    					
+    					if (!(ventanaAcceso.correoUsuario2.equals(""))) {
+    						ventanaAcceso.ventanaMenu.getPanelMantenimiento().mostrarUsuario2(ventanaAcceso.correoUsuario2);
+    					}
             		}
             		ventanaAcceso.ventanaMenu.modificarVisible(true);
             	} 

@@ -81,6 +81,7 @@ public class Registrarse extends JPanel implements MouseListener, KeyListener, A
             	if (verificarDatos()) {
             		ventanaAcceso.panelRegistrar.vaciarDatos();
             		ventanaAcceso.setVisible(false);
+            		ventanaAcceso.mostrarPanel(ventanaAcceso.panelIniciar);
             		ventanaAcceso.ventanaMenu.modificarVisible(true);
             	}
             	
