@@ -50,11 +50,8 @@ public class Iniciar_sesion extends JPanel implements ActionListener, MouseListe
 	private Acceso ventanaAcceso;
 	
 	private boolean acceso = false;
-	private boolean registro = false;
 	
-	/**
-	 * Create the panel.
-	 */
+	public JTextField getTextFieldCorreo() { return this.textFieldCorreo; }
 	
 	public void vaciarDatos() {
 		textFieldCorreo.setText("");
@@ -82,7 +79,21 @@ public class Iniciar_sesion extends JPanel implements ActionListener, MouseListe
             @Override
             public void actionPerformed(ActionEvent evt) {
             	if (verificarDatos()) {
-            		acceso = true;
+            		ventanaAcceso.panelIniciar.vaciarDatos();
+            		ventanaAcceso.setVisible(false);
+            		
+            		if (ventanaAcceso.esAdmin) {
+            			ventanaAcceso.ventanaMenu.getBarra_2().add(ventanaAcceso.ventanaMenu.getBtnMantenimiento());
+            			
+            			if (!(ventanaAcceso.correoUsuario1.equals(""))) {
+    						ventanaAcceso.ventanaMenu.getPanelMantenimiento().mostrarUsuario1(ventanaAcceso.correoUsuario1);
+    					}
+    					
+    					if (!(ventanaAcceso.correoUsuario2.equals(""))) {
+    						ventanaAcceso.ventanaMenu.getPanelMantenimiento().mostrarUsuario2(ventanaAcceso.correoUsuario2);
+    					}
+            		}
+            		ventanaAcceso.ventanaMenu.modificarVisible(true);
             	} 
             	
             	mostrarOcultarElementosCarga(true);
@@ -174,13 +185,9 @@ public class Iniciar_sesion extends JPanel implements ActionListener, MouseListe
 		this.acceso = acceso;
 	}
 	
-	public boolean obtenerRegistro() {
-		return registro;
-	}
-	
-	public void modificarRegistro(boolean registro) {
-		this.registro = registro;
-	}
+	/**
+	 * Create the panel.
+	 */
 	
 	public Iniciar_sesion(Acceso ventanaAcceso) {
 		this.ventanaAcceso = ventanaAcceso;
@@ -378,7 +385,10 @@ public class Iniciar_sesion extends JPanel implements ActionListener, MouseListe
 	protected void mouseClickedLblRegistrarse(MouseEvent e) {
 		if (lblRegistrarse.isEnabled()) {
 			vaciarDatos();
-			modificarRegistro(true);
+			ventanaAcceso.modificarTitulo("Registrarse");
+			ventanaAcceso.asignarImagenLabel(ventanaAcceso.lblImagen);
+			ventanaAcceso.mostrarPanel(ventanaAcceso.panelRegistrar);
+			ventanaAcceso.panelRegistrar.getTextFieldCorreo().grabFocus();
 		}
 	}
 }

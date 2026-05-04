@@ -1,5 +1,7 @@
 package codigo.paneles;
 
+import codigo.ventanas.menu;
+
 import javax.swing.JPanel;
 import java.awt.GridLayout;
 import java.awt.BorderLayout;
@@ -23,6 +25,7 @@ import java.awt.event.MouseAdapter;
 public class Vehiculos extends JPanel implements MouseListener {
 
 	private static final long serialVersionUID = 1L;
+	public menu ventanaMenu;
 	private JPanel panelModelos;
 	private JPanel panelAuto;
 	private JPanel panelContenidoAuto;
@@ -43,18 +46,12 @@ public class Vehiculos extends JPanel implements MouseListener {
 	private JLabel lblDescubrirMas;
 	public int indicador=0;
 	private int indicadorPanel=0;
-	public boolean indicadorSolicitud = false;
 	
 	public int indicadorCocheSeleccionado = 0;
-	public Boolean botonPresionado = false;
 	private JLabel lblSolicitud;
 
 	public void modificarIndicador(int indicador) {
 		this.indicador = indicador;
-	}
-	
-	public void modificarSolicitud(boolean solicitud) {
-		this.indicadorSolicitud = solicitud;
 	}
 	
 	public void ocultarCoche(int numeroCoche) {
@@ -88,7 +85,8 @@ public class Vehiculos extends JPanel implements MouseListener {
 	/**
 	 * Create the panel.
 	 */
-	public Vehiculos() {
+	public Vehiculos(menu ventanaMenu) {
+		this.ventanaMenu = ventanaMenu;
 		setBackground(new Color(0, 0, 0));
 		setBorder(new EmptyBorder(10, 25, 0, 0));
 		setPreferredSize(new Dimension(718, 365));
@@ -217,11 +215,11 @@ public class Vehiculos extends JPanel implements MouseListener {
 		lblFerrariImg.setPreferredSize(new Dimension(400, 225));
 		panelContenidoAuto.add(lblFerrariImg);
 		
-		lblSolicitud = new JLabel("<html>\r\n<center>\r\nSOLICITAR\r\n</center>\r\n</html>");
+		lblSolicitud = new JLabel("<html>\r\nSOLICITAR\r\n</html>");
 		lblSolicitud.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				indicadorSolicitud = true;
+				ventanaMenu.mostrarPanel(ventanaMenu.getPanelSolicitud());
 			}
 		});
 		lblSolicitud.setForeground(Color.WHITE);
@@ -358,6 +356,7 @@ public class Vehiculos extends JPanel implements MouseListener {
 			if (indicador == 0) {
 				panelAuto.setVisible(true);
 				indicador = 1;
+				
 				this.indicadorCocheSeleccionado = 7;
 			}
 			
@@ -557,6 +556,17 @@ public class Vehiculos extends JPanel implements MouseListener {
 		}
 	}
 	protected void mouseClickedLblDescubrirMas(MouseEvent e) {
-		botonPresionado = true;
+		switch(this.indicadorCocheSeleccionado) {
+		case 1: ventanaMenu.mostrarPanel(ventanaMenu.getFerrariLuce()); modificarIndicador(0); break;
+		case 2: ventanaMenu.mostrarPanel(ventanaMenu.getFerrari849Testarossa()); modificarIndicador(0); break;
+		case 3: ventanaMenu.mostrarPanel(ventanaMenu.getFerrari849TestarossaSpider()); modificarIndicador(0); break;
+		case 4: ventanaMenu.mostrarPanel(ventanaMenu.getFerrari296GTB()); modificarIndicador(0); break;
+		case 5: ventanaMenu.mostrarPanel(ventanaMenu.getFerrari296GTS()); modificarIndicador(0); break;
+		case 6: ventanaMenu.mostrarPanel(ventanaMenu.getFerrari12Cilindri()); modificarIndicador(0); break;
+		case 7: ventanaMenu.mostrarPanel(ventanaMenu.getFerrari12CilindriSpider()); modificarIndicador(0); break;
+		case 8: ventanaMenu.mostrarPanel(ventanaMenu.getFerrariPurosangue()); modificarIndicador(0); break;
+		case 9: ventanaMenu.mostrarPanel(ventanaMenu.getFerrariAmalfi()); modificarIndicador(0); break;
+		// case 10 es el de Ferrari Amalfi Spider, que todavía no tiene el diseño de su panel.
+		}
 	}
 }

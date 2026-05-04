@@ -27,14 +27,12 @@ public class Acceso extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JPanel panelSeccion;
-	private Iniciar_sesion panelIniciar = new Iniciar_sesion(this);
-	private Registrarse panelRegistrar = new Registrarse(this);
+	public menu ventanaMenu;
+	public Iniciar_sesion panelIniciar = new Iniciar_sesion(this);
+	public Registrarse panelRegistrar = new Registrarse(this);
 	private JPanel panelImagen;
-	private JLabel lblImagen;
+	public JLabel lblImagen;
 	private Random rand = new Random();
-	
-	// Indicador que detecta algún acceso a la plataforma
-	public boolean acceso = false;
 	
 	// Indicador que detecta si se ha ingresado como administrador
 	public boolean esAdmin = false;
@@ -53,6 +51,7 @@ public class Acceso extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+	/*
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -65,12 +64,13 @@ public class Acceso extends JFrame {
 			}
 		});
 	}
+	*/
 	
-	private void modificarTitulo(String titulo) {
+	public void modificarTitulo(String titulo) {
 		this.setTitle(titulo);
 	}
 	
-	private void asignarImagenLabel(JLabel lblImagen) {
+	public void asignarImagenLabel(JLabel lblImagen) {
 		int numeroMax = 4;
 		int numeroMin = 1;
 		
@@ -95,7 +95,7 @@ public class Acceso extends JFrame {
 		}
 	}
 	
-	private void mostrarPanel(JPanel panel) {
+	public void mostrarPanel(JPanel panel) {
 		panel.setSize(450, 400);
 		panel.setLocation(0, 0);
 		
@@ -130,14 +130,11 @@ public class Acceso extends JFrame {
 		this.contraseniaUsuario2 = "";
 	}
 	
-	public void modificarAcceso(boolean acceso) {
-		this.acceso = acceso;
-	}
-	
 	/**
 	 * Create the frame.
 	 */
-	public Acceso() {
+	public Acceso(menu ventanaMenu) {
+		this.ventanaMenu = ventanaMenu;
 		setResizable(false);
 		setTitle("Iniciar sesión");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Acceso.class.getResource("/recursos/imagenes/imagenes_ventana/logo.png")));
@@ -164,47 +161,6 @@ public class Acceso extends JFrame {
 		panelImagen.add(lblImagen);
 		
 		mostrarPanel(panelIniciar);
-		
-		Timer timerRegistro = new Timer(50, new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (panelRegistrar.obtenerAcceso()) {
-					panelRegistrar.modificarIniciarSesion(false);
-					panelRegistrar.modificarAcceso(false);
-					panelRegistrar.vaciarDatos();
-					mostrarPanel(panelIniciar);
-					modificarAcceso(true);
-				} else if (panelRegistrar.obtenerIniciarSesion()) {
-					panelRegistrar.modificarIniciarSesion(false);
-					modificarTitulo("Iniciar sesión");
-					asignarImagenLabel(lblImagen);
-					mostrarPanel(panelIniciar);
-				}
-			}
-		});
-		
-		Timer timerIniciar = new Timer(50, new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (panelIniciar.obtenerAcceso()) {
-					panelIniciar.modificarRegistro(false);
-					panelIniciar.modificarAcceso(false);
-					panelIniciar.vaciarDatos();
-					modificarAcceso(true);
-				} else if (panelIniciar.obtenerRegistro()) {
-					panelIniciar.modificarRegistro(false);
-					modificarTitulo("Registrarse");
-					asignarImagenLabel(lblImagen);
-					mostrarPanel(panelRegistrar);
-				}
-			}
-		});
-		
-		timerRegistro.setRepeats(true);
-		timerIniciar.setRepeats(true);
-		
-		timerRegistro.start();
-		timerIniciar.start();
 	}
 
 }

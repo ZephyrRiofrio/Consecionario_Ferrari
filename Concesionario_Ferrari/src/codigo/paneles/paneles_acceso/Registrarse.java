@@ -47,12 +47,9 @@ public class Registrarse extends JPanel implements MouseListener, KeyListener, A
 	private Acceso ventanaAcceso;
 	
 	private boolean acceso = false;
-	private boolean iniciarSesion = false;
 	private JButton btnRegistrar;
 
-	/**
-	 * Create the panel.
-	 */
+	public JTextField getTextFieldCorreo() { return this.textFieldCorreo; }
 	
 	public void vaciarDatos() {
 		textFieldCorreo.setText("");
@@ -80,7 +77,10 @@ public class Registrarse extends JPanel implements MouseListener, KeyListener, A
             @Override
             public void actionPerformed(ActionEvent evt) {
             	if (verificarDatos()) {
-            		acceso = true;
+            		ventanaAcceso.panelRegistrar.vaciarDatos();
+            		ventanaAcceso.setVisible(false);
+            		ventanaAcceso.mostrarPanel(ventanaAcceso.panelIniciar);
+            		ventanaAcceso.ventanaMenu.modificarVisible(true);
             	}
             	
             	mostrarOcultarElementosCarga(true);
@@ -154,13 +154,9 @@ public class Registrarse extends JPanel implements MouseListener, KeyListener, A
 		this.acceso = acceso;
 	}
 	
-	public boolean obtenerIniciarSesion() {
-		return iniciarSesion;
-	}
-	
-	public void modificarIniciarSesion(boolean iniciarSesion) {
-		this.iniciarSesion = iniciarSesion;
-	}
+	/**
+	 * Create the panel.
+	 */
 	
 	public Registrarse(Acceso ventanaAcceso) {
 		this.ventanaAcceso = ventanaAcceso;
@@ -357,7 +353,10 @@ public class Registrarse extends JPanel implements MouseListener, KeyListener, A
 	protected void mouseClickedLblIniciarSesion(MouseEvent e) {
 		if (lblIniciarSesion.isEnabled()) {
 			vaciarDatos();
-			modificarIniciarSesion(true);
+			ventanaAcceso.modificarTitulo("Iniciar sesión");
+			ventanaAcceso.asignarImagenLabel(ventanaAcceso.lblImagen);
+			ventanaAcceso.mostrarPanel(ventanaAcceso.panelIniciar);
+			ventanaAcceso.panelIniciar.getTextFieldCorreo().grabFocus();
 		}
 	}
 	protected void actionPerformedBtnRegistrar(ActionEvent e) {

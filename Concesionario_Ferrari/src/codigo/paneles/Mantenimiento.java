@@ -1,5 +1,7 @@
 package codigo.paneles;
 
+import codigo.ventanas.menu;
+
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -22,6 +24,7 @@ import java.awt.event.ActionEvent;
 public class Mantenimiento extends JPanel {
 
 	private static final long serialVersionUID = 1L;
+	public menu ventanaMenu;
 	private JPanel panel;
 	private JPanel panelPresentacion;
 	private JPanel panelAdminVehiculos;
@@ -58,9 +61,6 @@ public class Mantenimiento extends JPanel {
 	private JButton btnBorrar;
 	private JLabel lblNewLabel_4;
 	
-	public boolean ocultar = false;
-	public boolean habilitar = false;
-	public boolean borrar = false;
 	public int numeroCocheSeleccionado = 0;
 	public int numeroUsuarioSeleccionado = 0;
 	
@@ -70,18 +70,6 @@ public class Mantenimiento extends JPanel {
 	
 	public void modificarUsuarioSeleccionado(int numero) {
 		this.numeroUsuarioSeleccionado = numero;
-	}
-	
-	public void modificarOcultar(boolean ocultar) {
-		this.ocultar = ocultar;
-	}
-	
-	public void modificarHabilitar(boolean habilitar) {
-		this.habilitar = habilitar;
-	}
-	
-	public void modificarBorrar(boolean borrar) {
-		this.borrar = borrar;
 	}
 	
 	public void mostrarUsuario1(String correo) {
@@ -107,8 +95,9 @@ public class Mantenimiento extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public Mantenimiento() {
-		setPreferredSize(new Dimension(790, 1095));
+	public Mantenimiento(menu ventanaMenu) {
+		this.ventanaMenu = ventanaMenu;
+    setPreferredSize(new Dimension(790, 1095));
 		setLayout(new BorderLayout(0, 0));
 		
 		panel = new JPanel();
@@ -401,6 +390,7 @@ public class Mantenimiento extends JPanel {
 		lblFerrariAmalfi.setBorder(new EmptyBorder(0, 0, 10, 0));
 		panelModelos.add(lblFerrariAmalfi);
 		
+		// EN DESAROLLO
 		lblFerrariAmalfiSpider = new JLabel("Ferrari Amalfi Spider");
 		lblFerrariAmalfiSpider.setVisible(false);
 		lblFerrariAmalfiSpider.addMouseListener(new MouseAdapter() {
@@ -428,7 +418,7 @@ public class Mantenimiento extends JPanel {
 		btnNewButton = new JButton("Habilitar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				modificarHabilitar(true);
+				ventanaMenu.getPanelVehiculos().mostrarCoche(numeroCocheSeleccionado);
 			}
 		});
 		btnNewButton.setForeground(new Color(0, 0, 0));
@@ -441,7 +431,7 @@ public class Mantenimiento extends JPanel {
 		btnOcultar = new JButton("Ocultar");
 		btnOcultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				modificarOcultar(true);
+				ventanaMenu.getPanelVehiculos().ocultarCoche(numeroCocheSeleccionado);
 			}
 		});
 		btnOcultar.setForeground(new Color(0, 0, 0));
@@ -470,16 +460,14 @@ public class Mantenimiento extends JPanel {
 				case 1:
 					if (!(lblCorreo1.getText().equals(""))) {
 						borrarUsuario1();
-						modificarBorrar(true);
-						modificarUsuarioSeleccionado(1);
+						ventanaMenu.getVentanaAcceso().borrarUsuario1();
 					}
 					break;
 					
 				case 2:
 					if (!(lblCorreo2.getText().equals(""))) {
 						borrarUsuario2();
-						modificarBorrar(true);
-						modificarUsuarioSeleccionado(2);
+						ventanaMenu.getVentanaAcceso().borrarUsuario2();
 					}
 					break;
 				}
