@@ -72,7 +72,15 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 	
 	public Acceso ventanaAcceso = new Acceso(this);
 	private JLabel lblCerrarSesion;
-
+	
+	public JToolBar getBarra_2() {
+		return this.barra_2;
+	}
+	
+	public JButton getBtnMantenimiento() {
+		return this.btnMantenimiento;
+	}
+	
 	/**
 	 * Launch the application.
 	 */
@@ -249,7 +257,6 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (ventanaAcceso.esAdmin) {
-					barra_2.add(btnMantenimiento);
 					timerMantenimiento.start();
 					
 					if (!(ventanaAcceso.correoUsuario1.equals(""))) {
