@@ -436,7 +436,7 @@ public class Ferrari_Luce extends JPanel implements MouseListener {
 		
 		atras = new JLabel("");
 		atras.addMouseListener(this);
-		atras.setIcon(new ImageIcon(Ferrari_Luce.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagenes_Ferrari_Luce/img_atras.png")));
+		atras.setIcon(new ImageIcon(Ferrari_Luce.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagenes_Ferrari_Luce/atrasF.png")));
 		atras.setBackground(new Color(255, 255, 255));
 		atras.setBounds(20, 5, 30, 30);
 		atras.setPreferredSize(new Dimension(30, 30));
@@ -444,7 +444,7 @@ public class Ferrari_Luce extends JPanel implements MouseListener {
 		
 		sig = new JLabel("");
 		sig.addMouseListener(this);
-		sig.setIcon(new ImageIcon(Ferrari_Luce.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagenes_Ferrari_Luce/img_siguiente.png")));
+		sig.setIcon(new ImageIcon(Ferrari_Luce.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagenes_Ferrari_Luce/sigF.png")));
 		sig.setBounds(60, 5, 30, 30);
 		sig.setPreferredSize(new Dimension(30, 30));
 		panel_109.add(sig);

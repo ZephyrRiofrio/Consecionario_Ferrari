@@ -103,7 +103,7 @@ public class Vehiculos extends JPanel implements MouseListener {
 		lblFerrariLuce.addMouseListener(this);
 		lblFerrariLuce.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblFerrariLuce.setForeground(new Color(162, 162, 162));
-		lblFerrariLuce.setFont(new Font("Host Grotesk SemiBold", Font.BOLD, 11));
+		lblFerrariLuce.setFont(new Font("Ferrari Sans", Font.BOLD, 9));
 		lblFerrariLuce.setBorder(new EmptyBorder(0, 0, 10, 0));
 		panelModelos.add(lblFerrariLuce);
 		
@@ -111,7 +111,7 @@ public class Vehiculos extends JPanel implements MouseListener {
 		lbl849Testarossa.addMouseListener(this);
 		lbl849Testarossa.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lbl849Testarossa.setForeground(new Color(162, 162, 162));
-		lbl849Testarossa.setFont(new Font("Host Grotesk SemiBold", Font.BOLD, 11));
+		lbl849Testarossa.setFont(new Font("Ferrari Sans", Font.BOLD, 9));
 		lbl849Testarossa.setBorder(new EmptyBorder(0, 0, 10, 0));
 		panelModelos.add(lbl849Testarossa);
 		
@@ -119,7 +119,7 @@ public class Vehiculos extends JPanel implements MouseListener {
 		lbl849TestarossaSpider.addMouseListener(this);
 		lbl849TestarossaSpider.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lbl849TestarossaSpider.setForeground(new Color(162, 162, 162));
-		lbl849TestarossaSpider.setFont(new Font("Host Grotesk SemiBold", Font.BOLD, 11));
+		lbl849TestarossaSpider.setFont(new Font("Ferrari Sans", Font.BOLD, 9));
 		lbl849TestarossaSpider.setBorder(new EmptyBorder(0, 0, 10, 0));
 		panelModelos.add(lbl849TestarossaSpider);
 		
@@ -127,7 +127,7 @@ public class Vehiculos extends JPanel implements MouseListener {
 		lbl296GTB.addMouseListener(this);
 		lbl296GTB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lbl296GTB.setForeground(new Color(162, 162, 162));
-		lbl296GTB.setFont(new Font("Host Grotesk SemiBold", Font.BOLD, 11));
+		lbl296GTB.setFont(new Font("Ferrari Sans", Font.BOLD, 9));
 		lbl296GTB.setBorder(new EmptyBorder(0, 0, 10, 0));
 		panelModelos.add(lbl296GTB);
 		
@@ -135,7 +135,7 @@ public class Vehiculos extends JPanel implements MouseListener {
 		lbl296GTS.addMouseListener(this);
 		lbl296GTS.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lbl296GTS.setForeground(new Color(162, 162, 162));
-		lbl296GTS.setFont(new Font("Host Grotesk SemiBold", Font.BOLD, 11));
+		lbl296GTS.setFont(new Font("Ferrari Sans", Font.BOLD, 9));
 		lbl296GTS.setBorder(new EmptyBorder(0, 0, 10, 0));
 		panelModelos.add(lbl296GTS);
 		
@@ -143,7 +143,7 @@ public class Vehiculos extends JPanel implements MouseListener {
 		lblFerrari12Cilindri.addMouseListener(this);
 		lblFerrari12Cilindri.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblFerrari12Cilindri.setForeground(new Color(162, 162, 162));
-		lblFerrari12Cilindri.setFont(new Font("Host Grotesk SemiBold", Font.BOLD, 11));
+		lblFerrari12Cilindri.setFont(new Font("Ferrari Sans", Font.BOLD, 9));
 		lblFerrari12Cilindri.setBorder(new EmptyBorder(0, 0, 10, 0));
 		panelModelos.add(lblFerrari12Cilindri);
 		
@@ -151,7 +151,7 @@ public class Vehiculos extends JPanel implements MouseListener {
 		lblFerrari12CilindriSpider.addMouseListener(this);
 		lblFerrari12CilindriSpider.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblFerrari12CilindriSpider.setForeground(new Color(162, 162, 162));
-		lblFerrari12CilindriSpider.setFont(new Font("Host Grotesk SemiBold", Font.BOLD, 11));
+		lblFerrari12CilindriSpider.setFont(new Font("Ferrari Sans", Font.BOLD, 9));
 		lblFerrari12CilindriSpider.setBorder(new EmptyBorder(0, 0, 10, 0));
 		panelModelos.add(lblFerrari12CilindriSpider);
 		
@@ -159,7 +159,7 @@ public class Vehiculos extends JPanel implements MouseListener {
 		lblFerrariPurosangre.addMouseListener(this);
 		lblFerrariPurosangre.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblFerrariPurosangre.setForeground(new Color(162, 162, 162));
-		lblFerrariPurosangre.setFont(new Font("Host Grotesk SemiBold", Font.BOLD, 11));
+		lblFerrariPurosangre.setFont(new Font("Ferrari Sans", Font.BOLD, 9));
 		lblFerrariPurosangre.setBorder(new EmptyBorder(0, 0, 10, 0));
 		panelModelos.add(lblFerrariPurosangre);
 		
@@ -167,7 +167,7 @@ public class Vehiculos extends JPanel implements MouseListener {
 		lblFerrariAmalfi.addMouseListener(this);
 		lblFerrariAmalfi.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblFerrariAmalfi.setForeground(new Color(162, 162, 162));
-		lblFerrariAmalfi.setFont(new Font("Host Grotesk SemiBold", Font.BOLD, 11));
+		lblFerrariAmalfi.setFont(new Font("Ferrari Sans", Font.BOLD, 9));
 		lblFerrariAmalfi.setBorder(new EmptyBorder(0, 0, 10, 0));
 		panelModelos.add(lblFerrariAmalfi);
 		
@@ -178,7 +178,7 @@ public class Vehiculos extends JPanel implements MouseListener {
 		lblFerrariAmalfiSpider.addMouseListener(this);
 		lblFerrariAmalfiSpider.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblFerrariAmalfiSpider.setForeground(new Color(162, 162, 162));
-		lblFerrariAmalfiSpider.setFont(new Font("Host Grotesk SemiBold", Font.BOLD, 11));
+		lblFerrariAmalfiSpider.setFont(new Font("Ferrari Sans", Font.BOLD, 9));
 		lblFerrariAmalfiSpider.setBorder(new EmptyBorder(0, 0, 10, 0));
 		panelModelos.add(lblFerrariAmalfiSpider);
 		
@@ -226,7 +226,7 @@ public class Vehiculos extends JPanel implements MouseListener {
 		lblSolicitud.setFont(new Font("Ferrari Sans", Font.BOLD, 11));
 		lblSolicitud.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblSolicitud.setBounds(new Rectangle(5, 5, 0, 0));
-		lblSolicitud.setBorder(new CompoundBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(255, 255, 255)), new EmptyBorder(10, 33, 10, 10)));
+		lblSolicitud.setBorder(new CompoundBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(255, 255, 255)), new EmptyBorder(10, 32, 10, 10)));
 		lblSolicitud.setBounds(224, 296, 146, 49);
 		panelContenidoAuto.add(lblSolicitud);
 		
@@ -239,7 +239,7 @@ public class Vehiculos extends JPanel implements MouseListener {
 		lblT.addMouseListener(this);
 		lblT.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblT.setForeground(new Color(255, 255, 255));
-		lblT.setFont(new Font("Host Grotesk SemiBold", Font.BOLD, 11));
+		lblT.setFont(new Font("Ferrari Sans", Font.BOLD, 9));
 		panel_2.add(lblT);
 	}
 
