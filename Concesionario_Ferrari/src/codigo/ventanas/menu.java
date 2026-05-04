@@ -70,20 +70,18 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 	private FerrariAmalfi paginaFerrariAmalfi = new FerrariAmalfi();
 	private FerrariPurosangue paginaFerrariPurosangue = new FerrariPurosangue();
 	
-	private Acceso ventanaAcceso;
+	public Acceso ventanaAcceso = new Acceso(this);
 	private JLabel lblCerrarSesion;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		Acceso ventanaAcceso = new Acceso();
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ventanaAcceso.setVisible(true);
-					ventanaAcceso.setLocationRelativeTo(null);
-					menu frame = new menu(ventanaAcceso);
+					menu frame = new menu();
 					frame.setLocationRelativeTo(null);
 					frame.setVisible(false);
 				} catch (Exception e) {
@@ -111,9 +109,10 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 	/**
 	 * Create the frame.
 	 */
-	public menu(Acceso acceso) {
+	public menu() {
 		setPreferredSize(new Dimension(790, 500));
-		this.ventanaAcceso = acceso;
+		ventanaAcceso.setVisible(true);
+		ventanaAcceso.setLocationRelativeTo(null);
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(menu.class.getResource("/recursos/imagenes/imagenes_ventana/logo.png")));
 		setTitle("Ferrari");
@@ -276,19 +275,6 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		contentPane.add(contenido, BorderLayout.CENTER);
 		
 		mostrarPanel(panelInicio);
-		
-		Timer timerAcceso = new Timer(10, new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (ventanaAcceso.acceso) {
-					modificarVisible(true);
-					ventanaAcceso.setVisible(false);
-				}
-			}
-		});
-		
-		timerAcceso.setRepeats(true);
-		timerAcceso.start();
 	}
 
 	public void mouseClicked(MouseEvent e) {
@@ -386,7 +372,6 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		mostrarPanel(panelInicio);
 		this.setVisible(false);
 		ventanaAcceso.setVisible(true);
-		ventanaAcceso.modificarAcceso(false);
 		if (ventanaAcceso.esAdmin) {
 			ventanaAcceso.modificarEsAdmin(false);
 			barra_2.remove(btnMantenimiento);

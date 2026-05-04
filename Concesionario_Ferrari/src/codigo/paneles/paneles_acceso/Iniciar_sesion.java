@@ -81,7 +81,9 @@ public class Iniciar_sesion extends JPanel implements ActionListener, MouseListe
             @Override
             public void actionPerformed(ActionEvent evt) {
             	if (verificarDatos()) {
-            		acceso = true;
+            		ventanaAcceso.panelIniciar.vaciarDatos();
+            		ventanaAcceso.setVisible(false);
+            		ventanaAcceso.ventanaMenu.modificarVisible(true);
             	} 
             	
             	mostrarOcultarElementosCarga(true);
