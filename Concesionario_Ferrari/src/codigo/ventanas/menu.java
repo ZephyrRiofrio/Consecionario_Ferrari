@@ -31,6 +31,8 @@ import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Component;
+import java.awt.Rectangle;
 
 public class menu extends JFrame implements MouseListener, ActionListener {
 
@@ -142,10 +144,13 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		menu_barra_1.setLayout(new BorderLayout(0, 0));
 		
 		panelMenu_barra_1 = new JPanel();
+		panelMenu_barra_1.setAlignmentX(Component.LEFT_ALIGNMENT);
 		panelMenu_barra_1.setBackground(Color.BLACK);
 		menu_barra_1.add(panelMenu_barra_1, BorderLayout.CENTER);
+		panelMenu_barra_1.setLayout(null);
 		
 		barra_1 = new JToolBar();
+		barra_1.setBounds(320, 5, 105, 34);
 		panelMenu_barra_1.add(barra_1);
 		barra_1.setBorder(new EmptyBorder(2, 0, 2, 75));
 		barra_1.setFloatable(false);

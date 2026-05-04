@@ -108,10 +108,11 @@ public class Mantenimiento extends JPanel {
 	 * Create the panel.
 	 */
 	public Mantenimiento() {
-		setMinimumSize(new Dimension(790, 1095));
+		setPreferredSize(new Dimension(790, 1095));
 		setLayout(new BorderLayout(0, 0));
 		
 		panel = new JPanel();
+		panel.setPreferredSize(new Dimension(790, 1095));
 		panel.setMinimumSize(new Dimension(790, 1095));
 		add(panel, BorderLayout.CENTER);
 		panel.setLayout(new GridLayout(3, 1, 0, 0));
@@ -139,16 +140,16 @@ public class Mantenimiento extends JPanel {
 		panelAdminVehiculos.add(panelInformacion_1);
 		panelInformacion_1.setLayout(null);
 		
-		lblNewLabel = new JLabel("<html>\r\nHabilite u oculte <br>\r\nmodelos\r\n</html>");
+		lblNewLabel = new JLabel("<html><center>\r\nHabilite u oculte <br>\r\nmodelos\r\n</center></html>");
 		lblNewLabel.setFont(new Font("Ferrari Sans Medium", Font.BOLD, 23));
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setBounds(10, 26, 243, 79);
 		panelInformacion_1.add(lblNewLabel);
 		
-		lblNewLabel_1 = new JLabel("<html>\r\nEn este apartado puede modificar la visibilidad <br>\r\nde los modelos de la marca, eligiendo que <br>\r\nmodelos pueden o no ser vistos por el usuario\r\n</html>");
+		lblNewLabel_1 = new JLabel("<html><center>\r\nEn este apartado puede modificar la<br>\r\nvisibilidad de los modelos de la marca, <br>\r\neligiendo que modelos pueden o no<br>\r\nser vistos por el usuario\r\n</html></center>");
 		lblNewLabel_1.setFont(new Font("Ferrari Sans", Font.PLAIN, 10));
 		lblNewLabel_1.setForeground(new Color(255, 255, 255));
-		lblNewLabel_1.setBounds(10, 103, 243, 99);
+		lblNewLabel_1.setBounds(10, 103, 253, 99);
 		panelInformacion_1.add(lblNewLabel_1);
 		
 		panelModelos = new JPanel();
@@ -421,7 +422,7 @@ public class Mantenimiento extends JPanel {
 		lblFerrariNombre = new JLabel("");
 		lblFerrariNombre.setPreferredSize(new Dimension(200, 49));
 		lblFerrariNombre.setIcon(new ImageIcon(Mantenimiento.class.getResource("/recursos/imagenes/imagenes_vehiculos/imagen_1_rend.jpeg")));
-		lblFerrariNombre.setBounds(34, 90, 200, 35);
+		lblFerrariNombre.setBounds(34, 42, 200, 35);
 		panelVistaAccion.add(lblFerrariNombre);
 		
 		btnNewButton = new JButton("Habilitar");
@@ -432,9 +433,9 @@ public class Mantenimiento extends JPanel {
 		});
 		btnNewButton.setForeground(new Color(0, 0, 0));
 		btnNewButton.setBorder(null);
-		btnNewButton.setBackground(new Color(226, 232, 26));
+		btnNewButton.setBackground(new Color(249, 189, 0));
 		btnNewButton.setFont(new Font("Ferrari Sans", Font.PLAIN, 15));
-		btnNewButton.setBounds(64, 155, 146, 35);
+		btnNewButton.setBounds(64, 140, 146, 35);
 		panelVistaAccion.add(btnNewButton);
 		
 		btnOcultar = new JButton("Ocultar");
@@ -443,9 +444,9 @@ public class Mantenimiento extends JPanel {
 				modificarOcultar(true);
 			}
 		});
-		btnOcultar.setForeground(new Color(255, 255, 255));
+		btnOcultar.setForeground(new Color(0, 0, 0));
 		btnOcultar.setBorder(null);
-		btnOcultar.setBackground(new Color(228, 29, 34));
+		btnOcultar.setBackground(new Color(204, 22, 22));
 		btnOcultar.setFont(new Font("Ferrari Sans", Font.PLAIN, 15));
 		btnOcultar.setBounds(64, 209, 146, 35);
 		panelVistaAccion.add(btnOcultar);
@@ -484,17 +485,17 @@ public class Mantenimiento extends JPanel {
 				}
 			}
 		});
-		btnBorrar.setForeground(Color.WHITE);
+		btnBorrar.setForeground(new Color(0, 0, 0));
 		btnBorrar.setFont(new Font("Ferrari Sans", Font.PLAIN, 15));
 		btnBorrar.setBorder(null);
-		btnBorrar.setBackground(new Color(228, 29, 34));
+		btnBorrar.setBackground(new Color(204, 22, 22));
 		btnBorrar.setBounds(64, 44, 146, 35);
 		panelAccion.add(btnBorrar);
 		
-		lblNewLabel_4 = new JLabel("<html>\r\n¡Advertencia! Al borrar una cuenta<br>\r\nes imposible recuperarla <br>\r\n</html>");
-		lblNewLabel_4.setForeground(new Color(255, 0, 0));
+		lblNewLabel_4 = new JLabel("<html><center>\r\n¡Advertencia! Al borrar una cuenta\r\n       es imposible recuperarla \r\n</center></html>\r\n");
+		lblNewLabel_4.setForeground(new Color(204, 22, 22));
 		lblNewLabel_4.setFont(new Font("Ferrari Sans", Font.PLAIN, 10));
-		lblNewLabel_4.setBounds(10, 80, 243, 61);
+		lblNewLabel_4.setBounds(10, 80, 243, 94);
 		panelAccion.add(lblNewLabel_4);
 		
 		panelUsuarios = new JPanel();
@@ -519,7 +520,7 @@ public class Mantenimiento extends JPanel {
 		
 		lblUsuario1 = new JLabel("Usuario 1");
 		lblUsuario1.setFont(new Font("Ferrari Sans", Font.PLAIN, 17));
-		lblUsuario1.setBounds(10, 10, 103, 24);
+		lblUsuario1.setBounds(52, 11, 103, 24);
 		panelUsuario1.add(lblUsuario1);
 		
 		lblCorreo1 = new JLabel("");
@@ -542,9 +543,9 @@ public class Mantenimiento extends JPanel {
 		panelUsuario2.setBounds(26, 167, 210, 73);
 		panelUsuarios.add(panelUsuario2);
 		
-		lblUsuario2 = new JLabel("Usuario 1");
+		lblUsuario2 = new JLabel("Usuario 2");
 		lblUsuario2.setFont(new Font("Ferrari Sans", Font.PLAIN, 17));
-		lblUsuario2.setBounds(10, 10, 103, 24);
+		lblUsuario2.setBounds(52, 11, 103, 24);
 		panelUsuario2.add(lblUsuario2);
 		
 		lblCorreo2 = new JLabel("");
@@ -557,13 +558,14 @@ public class Mantenimiento extends JPanel {
 		panelAdminUsuarios.add(panelInformacion_2);
 		panelInformacion_2.setLayout(null);
 		
-		lblNewLabel_2 = new JLabel("<html>\r\nEn este apartado puede modificar la visibilidad <br>\r\nde los modelos de la marca, eligiendo que <br>\r\nmodelos pueden o no ser vistos por el usuario\r\n</html>");
+		lblNewLabel_2 = new JLabel("<html><center>\r\nEn este apartado puede eliminar<br>\r\na usuarios de la base de datos\r\n</center></html>");
+		lblNewLabel_2.setPreferredSize(new Dimension(155, 34));
 		lblNewLabel_2.setForeground(Color.WHITE);
 		lblNewLabel_2.setFont(new Font("Ferrari Sans", Font.PLAIN, 10));
-		lblNewLabel_2.setBounds(10, 103, 243, 99);
+		lblNewLabel_2.setBounds(34, 86, 198, 100);
 		panelInformacion_2.add(lblNewLabel_2);
 		
-		lblNewLabel_3 = new JLabel("<html>\r\nAdministre usuarios\r\n</html>");
+		lblNewLabel_3 = new JLabel("<html><center>\r\nAdministre usuarios\r\n</center></html>");
 		lblNewLabel_3.setForeground(Color.WHITE);
 		lblNewLabel_3.setFont(new Font("Ferrari Sans Medium", Font.BOLD, 23));
 		lblNewLabel_3.setBounds(10, 26, 243, 79);

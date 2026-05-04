@@ -69,7 +69,7 @@ public class SobreNosotros extends JPanel {
 		Portada.setLayout(null);
 		
 		lblNewLabel = new JLabel("<html>\r\nConoce a nuestro <br>\r\nequipo\r\n</html>");
-		lblNewLabel.setForeground(new Color(247, 247, 247));
+		lblNewLabel.setForeground(new Color(240, 240, 240));
 		lblNewLabel.setBackground(new Color(248, 248, 248));
 		lblNewLabel.setFont(new Font("Ferrari Sans", Font.BOLD, 33));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -83,7 +83,7 @@ public class SobreNosotros extends JPanel {
 		
 		lblNewLabel_1 = new JLabel("<html><center>Nacido del espíritu de las carreras, Ferrari personifica el poder de una pasión de toda la vida y la belleza de los logros humanos ilimitados, creando iconos atemporales para un mundo cambiante\r\n</center></html>");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setFont(new Font("Yu Gothic UI Light", Font.BOLD, 14));
+		lblNewLabel_1.setFont(new Font("Ferrari Sans", Font.BOLD, 14));
 		lblNewLabel_1.setBounds(177, 81, 412, 95);
 		InfoValores.add(lblNewLabel_1);
 		
@@ -104,7 +104,7 @@ public class SobreNosotros extends JPanel {
 		Image imgEscalada12= imgIcon12.getImage().getScaledInstance(240, 190, Image.SCALE_SMOOTH);
 		lblNewLabel_3.setIcon(new ImageIcon(imgEscalada12));
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3.setBounds(294, 10, 190, 175);
+		lblNewLabel_3.setBounds(295, 10, 190, 175);
 		TiposValores.add(lblNewLabel_3);
 		
 		lblNewLabel_4 = new JLabel("New label");
@@ -113,7 +113,7 @@ public class SobreNosotros extends JPanel {
 		Image imgEscalada11= imgIcon11.getImage().getScaledInstance(240, 190, Image.SCALE_SMOOTH);
 		lblNewLabel_4.setIcon(new ImageIcon(imgEscalada11));	
 		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_4.setBounds(57, 10, 190, 175);
+		lblNewLabel_4.setBounds(53, 10, 190, 175);
 		TiposValores.add(lblNewLabel_4);
 		
 		lblNewLabel_5 = new JLabel("New label");
@@ -122,40 +122,40 @@ public class SobreNosotros extends JPanel {
 		Image imgEscalada13= imgIcon13.getImage().getScaledInstance(240, 190, Image.SCALE_SMOOTH);
 		lblNewLabel_5.setIcon(new ImageIcon(imgEscalada13));
 		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_5.setBounds(534, 10, 190, 175);
+		lblNewLabel_5.setBounds(538, 10, 190, 175);
 		TiposValores.add(lblNewLabel_5);
 		
 		lblNewLabel_6 = new JLabel("<html><center>INDIVIDUAL Y EN EQUIPO</center></html>");
 		lblNewLabel_6.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_6.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblNewLabel_6.setBounds(57, 164, 190, 95);
+		lblNewLabel_6.setFont(new Font("Ferrari Sans", Font.BOLD, 14));
+		lblNewLabel_6.setBounds(33, 159, 228, 74);
 		TiposValores.add(lblNewLabel_6);
 		
 		lblNewLabel_7 = new JLabel("<html><center>Nuestros talentosos individuos son nuestro mayor recurso. Sin embargo, solo pueden perseguir lo extraordinario trabajando juntos como un equipo. Fomentando la integridad, la excelencia y la generosidad</center><html>");
-		lblNewLabel_7.setFont(new Font("Yu Gothic UI", Font.PLAIN, 10));
-		lblNewLabel_7.setBounds(57, 195, 190, 140);
+		lblNewLabel_7.setFont(new Font("Ferrari Sans", Font.PLAIN, 11));
+		lblNewLabel_7.setBounds(52, 208, 190, 126);
 		TiposValores.add(lblNewLabel_7);
 		
 		lblNewLabel_8 = new JLabel("<html><center>TRADICION E INNOVACION</center></html>");
 		lblNewLabel_8.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_8.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblNewLabel_8.setBounds(294, 164, 190, 95);
+		lblNewLabel_8.setFont(new Font("Ferrari Sans", Font.BOLD, 14));
+		lblNewLabel_8.setBounds(234, 159, 325, 74);
 		TiposValores.add(lblNewLabel_8);
 		
 		lblNewLabel_9 = new JLabel("<html><center>La tradición y la innovación van de la mano en Ferrari. Su constante búsqueda de crear algo nuevo, junto con tecnología avanzada y artesanía de alta calidad, le permite diseñar autos icónicos y atemporales.</center><html>");
-		lblNewLabel_9.setFont(new Font("Yu Gothic UI", Font.PLAIN, 10));
-		lblNewLabel_9.setBounds(294, 195, 190, 140);
+		lblNewLabel_9.setFont(new Font("Ferrari Sans", Font.PLAIN, 11));
+		lblNewLabel_9.setBounds(295, 201, 190, 126);
 		TiposValores.add(lblNewLabel_9);
 		
 		lblNewLabel_10 = new JLabel("<html><center>PASION Y LOGRO</center></html>");
 		lblNewLabel_10.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_10.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblNewLabel_10.setBounds(534, 164, 190, 95);
+		lblNewLabel_10.setFont(new Font("Ferrari Sans", Font.BOLD, 14));
+		lblNewLabel_10.setBounds(510, 149, 235, 95);
 		TiposValores.add(lblNewLabel_10);
 		
 		lblNewLabel_11 = new JLabel("<html><center>El espíritu de carreras de Ferrari inspira emociones más allá de la pista, reflejándose en una actitud de vida basada en la pasión, metas ambiciosas y en superar límites para convertir el esfuerzo en logros.</center><html>");
-		lblNewLabel_11.setFont(new Font("Yu Gothic UI", Font.PLAIN, 10));
-		lblNewLabel_11.setBounds(534, 196, 190, 140);
+		lblNewLabel_11.setFont(new Font("Ferrari Sans", Font.PLAIN, 11));
+		lblNewLabel_11.setBounds(534, 210, 190, 126);
 		TiposValores.add(lblNewLabel_11);
 		
 		ImageIcon imgIcon = new ImageIcon(getClass().getResource("/recursos/imagenes/imagenes_sobreNosotros/imagen1.jpg"));
@@ -177,7 +177,7 @@ public class SobreNosotros extends JPanel {
 		InfoIntegrantes.add(lblNewLabel_12);
 		
 		lblNewLabel_13 = new JLabel("<html><center>Conoce a nuestro apasionado y único equipo que respalda Ferrari, un grupo de profesionales dedicados a brindar una experiencia excepcional que captura la esencia de la marca del Cavallino Rampante. Cada uno de nuestros especialistas contribuirá con su experiencia y dedicación para convertir en realidad el sueño de experimentar la esencia de Ferrari.</center><html>");
-		lblNewLabel_13.setFont(new Font("Ferrari Sans", Font.PLAIN, 11));
+		lblNewLabel_13.setFont(new Font("Ferrari Sans", Font.PLAIN, 12));
 		lblNewLabel_13.setBounds(136, 161, 513, 129);
 		InfoIntegrantes.add(lblNewLabel_13);
 		
@@ -224,16 +224,16 @@ public class SobreNosotros extends JPanel {
 		lblNewLabel_17.setBounds(289, 244, 203, 42);
 		Integrantes1.add(lblNewLabel_17);
 		
-		lblNewLabel_18 = new JLabel("<html>\r\nMathias Garcia <br>\r\nRiofrio\r\n</html>");
+		lblNewLabel_18 = new JLabel("<html><center>\r\nMathias Garcia <br>\r\nRiofrio\r\n</center></html>");
 		lblNewLabel_18.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_18.setFont(new Font("Ferrari Sans Medium", Font.BOLD, 16));
-		lblNewLabel_18.setBounds(36, 244, 203, 42);
+		lblNewLabel_18.setBounds(57, 245, 203, 42);
 		Integrantes1.add(lblNewLabel_18);
 		
-		lblNewLabel_19 = new JLabel("<html>\r\nGabriela Ramos <br>\r\nMarin\r\n</html>");
+		lblNewLabel_19 = new JLabel("<html><center>\r\nGabriela Ramos <br>\r\nMarin\r\n</center></html>");
 		lblNewLabel_19.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_19.setFont(new Font("Ferrari Sans Medium", Font.BOLD, 16));
-		lblNewLabel_19.setBounds(502, 244, 203, 42);
+		lblNewLabel_19.setBounds(521, 245, 203, 42);
 		Integrantes1.add(lblNewLabel_19);
 		
 		Integrantes2 = new JPanel();
@@ -259,16 +259,16 @@ public class SobreNosotros extends JPanel {
 		lblNewLabel_21.setBounds(162, 23, 203, 193);
 		Integrantes2.add(lblNewLabel_21);
 		
-		lblNewLabel_22 = new JLabel("<html>\r\nLeonardo Gavancho <br> \r\nTenorio\r\n</html>");
+		lblNewLabel_22 = new JLabel("<html><center>\r\nLeonardo Gavancho <br> \r\nTenorio\r\n</center></html>");
 		lblNewLabel_22.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_22.setFont(new Font("Ferrari Sans Medium", Font.BOLD, 16));
-		lblNewLabel_22.setBounds(162, 224, 213, 55);
+		lblNewLabel_22.setBounds(147, 219, 237, 55);
 		Integrantes2.add(lblNewLabel_22);
 		
-		lblNewLabel_23 = new JLabel("<html>\r\nMathias Talavera<br>\r\nTorres\r\n</html>");
+		lblNewLabel_23 = new JLabel("<html><center>\r\nMathias Talavera<br>\r\nTorres\r\n</center></html>");
 		lblNewLabel_23.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_23.setFont(new Font("Ferrari Sans Medium", Font.BOLD, 16));
-		lblNewLabel_23.setBounds(415, 224, 203, 42);
+		lblNewLabel_23.setBounds(427, 225, 203, 42);
 		Integrantes2.add(lblNewLabel_23);
 
 	}

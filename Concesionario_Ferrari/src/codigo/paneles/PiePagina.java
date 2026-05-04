@@ -10,6 +10,7 @@ import java.awt.FlowLayout;
 import javax.swing.BoxLayout;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.Font;
 
 public class PiePagina extends JPanel {
 
@@ -55,6 +56,7 @@ public class PiePagina extends JPanel {
 		add(tercera_fila);
 		
 		lblCopyright = new JLabel("Copyright 2026 - Todos los derechos reservados");
+		lblCopyright.setFont(new Font("Ferrari Sans", Font.PLAIN, 11));
 		lblCopyright.setForeground(new Color(255, 255, 255));
 		tercera_fila.add(lblCopyright);
 
