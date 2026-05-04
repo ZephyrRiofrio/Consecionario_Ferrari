@@ -49,9 +49,7 @@ public class Registrarse extends JPanel implements MouseListener, KeyListener, A
 	private boolean acceso = false;
 	private JButton btnRegistrar;
 
-	/**
-	 * Create the panel.
-	 */
+	public JTextField getTextFieldCorreo() { return this.textFieldCorreo; }
 	
 	public void vaciarDatos() {
 		textFieldCorreo.setText("");
@@ -155,6 +153,10 @@ public class Registrarse extends JPanel implements MouseListener, KeyListener, A
 	public void modificarAcceso(boolean acceso) {
 		this.acceso = acceso;
 	}
+	
+	/**
+	 * Create the panel.
+	 */
 	
 	public Registrarse(Acceso ventanaAcceso) {
 		this.ventanaAcceso = ventanaAcceso;
@@ -354,6 +356,7 @@ public class Registrarse extends JPanel implements MouseListener, KeyListener, A
 			ventanaAcceso.modificarTitulo("Iniciar sesión");
 			ventanaAcceso.asignarImagenLabel(ventanaAcceso.lblImagen);
 			ventanaAcceso.mostrarPanel(ventanaAcceso.panelIniciar);
+			ventanaAcceso.panelIniciar.getTextFieldCorreo().grabFocus();
 		}
 	}
 	protected void actionPerformedBtnRegistrar(ActionEvent e) {

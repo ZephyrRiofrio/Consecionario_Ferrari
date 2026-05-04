@@ -75,7 +75,6 @@ public class VentasVehiculos extends JPanel implements MouseListener, ActionList
 	 */
 	public VentasVehiculos() {
 		boleta.setLocationRelativeTo(null);
-		boleta.setAlwaysOnTop(true);
 		setPreferredSize(new Dimension(790, 800));
 		setLayout(null);
 		

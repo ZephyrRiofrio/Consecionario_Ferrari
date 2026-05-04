@@ -51,9 +51,7 @@ public class Iniciar_sesion extends JPanel implements ActionListener, MouseListe
 	
 	private boolean acceso = false;
 	
-	/**
-	 * Create the panel.
-	 */
+	public JTextField getTextFieldCorreo() { return this.textFieldCorreo; }
 	
 	public void vaciarDatos() {
 		textFieldCorreo.setText("");
@@ -186,6 +184,10 @@ public class Iniciar_sesion extends JPanel implements ActionListener, MouseListe
 	public void modificarAcceso(boolean acceso) {
 		this.acceso = acceso;
 	}
+	
+	/**
+	 * Create the panel.
+	 */
 	
 	public Iniciar_sesion(Acceso ventanaAcceso) {
 		this.ventanaAcceso = ventanaAcceso;
@@ -386,6 +388,7 @@ public class Iniciar_sesion extends JPanel implements ActionListener, MouseListe
 			ventanaAcceso.modificarTitulo("Registrarse");
 			ventanaAcceso.asignarImagenLabel(ventanaAcceso.lblImagen);
 			ventanaAcceso.mostrarPanel(ventanaAcceso.panelRegistrar);
+			ventanaAcceso.panelRegistrar.getTextFieldCorreo().grabFocus();
 		}
 	}
 }

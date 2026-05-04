@@ -51,7 +51,7 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 	private JPanel panelMenu_barra_1;
 	private JScrollPane contenido;
 
-	private Vehiculos panelVehiculos = new Vehiculos();
+	private Vehiculos panelVehiculos = new Vehiculos(this);
 	private Inicio panelInicio = new Inicio();
 	private VentasVehiculos panelVentas = new VentasVehiculos();
 	private Noticias panelNoticias = new Noticias();
@@ -79,6 +79,17 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		return this.btnMantenimiento;
 	}
 	
+	public Ferrari_Luce getFerrariLuce() { return this.paginaFerrariLuce; }
+	public Ferrari12Cilindri getFerrari12Cilindri() { return this.paginaFerrari12Cilindri; }
+	public Ferrari12CilindriSpider getFerrari12CilindriSpider() { return this.paginaFerrari12CilindriSpider; }
+	public Ferrari296GTB getFerrari296GTB() { return this.paginaFerrari296GTB; }
+	public Ferrari296GTS getFerrari296GTS() { return this.paginaFerrari296GTS; }
+	public Ferrari849Testarossa getFerrari849Testarossa() { return this.paginaFerrari849Testarrosa; }
+	public Ferrari849TestarossaSpider getFerrari849TestarossaSpider() { return this.paginaFerrari849TestarrosaSpider; }
+	public FerrariAmalfi getFerrariAmalfi() { return this.paginaFerrariAmalfi; }
+	public FerrariPurosangue getFerrariPurosangue() { return this.paginaFerrariPurosangue; }
+	
+	
 	/**
 	 * Launch the application.
 	 */
@@ -97,7 +108,7 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		});
 	}
 	
-	private void mostrarPanel(JPanel panel) {
+	public void mostrarPanel(JPanel panel) {
 		panel.setSize(790, 460);
 		panel.setLocation(0, 0);
 		
@@ -114,6 +125,10 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 	
 	public Mantenimiento getPanelMantenimiento() {
 		return this.panelMantenimiento;
+	}
+	
+	public VentasVehiculos getPanelSolicitud() {
+		return this.panelVentas;
 	}
 	
 	public Acceso getVentanaAcceso() {
@@ -284,47 +299,6 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 	}
 	protected void actionPerformedBtnVehiculos(ActionEvent e) {
 		mostrarPanel(panelVehiculos);
-		
-		Timer timerSaber = new Timer(50, new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (panelVehiculos.botonPresionado == true) {
-					switch(panelVehiculos.indicadorCocheSeleccionado) {
-					case 1: mostrarPanel(paginaFerrariLuce); panelVehiculos.modificarIndicador(0); break;
-					case 2: mostrarPanel(paginaFerrari849Testarrosa); panelVehiculos.modificarIndicador(0); break;
-					case 3: mostrarPanel(paginaFerrari849TestarrosaSpider); panelVehiculos.modificarIndicador(0); break;
-					case 4: mostrarPanel(paginaFerrari296GTB); panelVehiculos.modificarIndicador(0); break;
-					case 5: mostrarPanel(paginaFerrari296GTS); panelVehiculos.modificarIndicador(0); break; 
-					case 6: mostrarPanel(paginaFerrari12Cilindri); panelVehiculos.modificarIndicador(0); break;
-					case 7: mostrarPanel(paginaFerrari12CilindriSpider); panelVehiculos.modificarIndicador(0); break;
-					case 8: mostrarPanel(paginaFerrariPurosangue); panelVehiculos.modificarIndicador(0); break;
-					case 9: mostrarPanel(paginaFerrariAmalfi); panelVehiculos.modificarIndicador(0); break;
-					case 10: mostrarPanel(paginaFerrari849Testarrosa); panelVehiculos.modificarIndicador(0); break;
-					}
-					
-					panelVehiculos.botonPresionado = false;
-					((Timer) e.getSource()).stop();
-					
-				}
-			}
-		});
-		
-		timerSaber.setRepeats(true);
-		timerSaber.start();
-		
-		Timer timerSolicitud = new Timer(50, new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (panelVehiculos.indicadorSolicitud) {
-					panelVehiculos.modificarSolicitud(false);
-					mostrarPanel(panelVentas);
-					((Timer) e.getSource()).stop();
-				}
-			}
-		});
-		
-		timerSolicitud.setRepeats(true);
-		timerSolicitud.start();
 	}
 	protected void actionPerformedBtnNoticias(ActionEvent e) {
 		mostrarPanel(panelNoticias);
