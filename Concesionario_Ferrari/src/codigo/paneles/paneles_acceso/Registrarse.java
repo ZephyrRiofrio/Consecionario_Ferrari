@@ -1,20 +1,10 @@
 package codigo.paneles.paneles_acceso;
 
-import javax.swing.JPanel;
 import java.awt.Dimension;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.ImageIcon;
 import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.Timer;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JSeparator;
 import java.awt.Cursor;
-import javax.swing.JPasswordField;
-import javax.swing.JButton;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,6 +12,16 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
+import javax.swing.JTextField;
+import javax.swing.Timer;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JSeparator;
+import javax.swing.JPasswordField;
+import javax.swing.JButton;
 
 import codigo.ventanas.Acceso;
 
@@ -43,14 +43,18 @@ public class Registrarse extends JPanel implements MouseListener, KeyListener, A
 	private JLabel lblErrorDatos;
 	private JLabel lblPregIniciarSesion;
 	private JLabel lblIniciarSesion;
+	private JButton btnRegistrar;
 	
+	// Variable encargada de establecer una conexión con la ventana que va a mostrar su contenido
 	private Acceso ventanaAcceso;
 	
-	private boolean acceso = false;
-	private JButton btnRegistrar;
-
+	// Método get de "textFieldCorreo" para que se pueda usar en otras clases
 	public JTextField getTextFieldCorreo() { return this.textFieldCorreo; }
 	
+	/* Método encargado de vaciar los datos que hay en los TextField del panel (en caso
+	 * se haya ingresado). Además, se encarga de reiniciar el valor del label
+	 * "lblErrorDatos" a "", y de ocultarlo
+	 */
 	public void vaciarDatos() {
 		textFieldCorreo.setText("");
 		passwordFieldContrasenia.setText("");
@@ -58,7 +62,23 @@ public class Registrarse extends JPanel implements MouseListener, KeyListener, A
 		lblErrorDatos.setVisible(false);
 	}
 	
+	/* Método encargado de modificar el comportamiento de los TextField, PasswordField, Buttons 
+	 * y Labels al momento de procesar los datos del usuario, mostrando dos Labels que tienen de 
+	 * fondo un gif de carga. Para ello, lo primero que hace es inhabilitar los componentes 
+	 * mencionados al inicio, para que el usuario no pueda hacer nada hasta que la carga de datos 
+	 * haya terminado. Por último, habilita la visibilidad de los dos Labels mencionados anteriormente, 
+	 * para mostrar los gifs de carga. Cabe mencionar que este método puede ejecutar todo lo 
+	 * mencionado anteriormente a la inversa, ya que los componentes mencionados al inicio tienen
+	 * que volver a habilitarse y los dos Labels que muestran los gifs tienen que ocultarse cuando 
+	 * termine la carga de datos.
+	 * 
+	 * Este método requiere de una variable booliana que va a, o bien, inhabilitar los componentes 
+	 * interactivos del panel y habilitar la visibilidad de los dos Labels que contienen un gif de 
+	 * carga como fondo (false), o habilitar los componentes interactivos del panel y ocultar los dos Labels
+	 * mencionados anteriormente (true)
+	 * */
 	private void mostrarOcultarElementosCarga(boolean valor) {
+		// Líneas donde se habilitan o inhabilitan los componentes interactivos del panel
 		textFieldCorreo.setEnabled(valor);
 		passwordFieldContrasenia.setEnabled(valor);
 		btnRegistrar.setEnabled(valor);
@@ -66,16 +86,34 @@ public class Registrarse extends JPanel implements MouseListener, KeyListener, A
 		lblVista.setEnabled(valor);
 		lblVista.setFocusable(valor);
 		
+		// Líneas donde se habilita o inhabilita la visibilidad de los Labels con gif de carga
 		lblCargaCorreo.setVisible(!valor);
 		lblCargaContrasenia.setVisible(!valor);
 	}
 	
+	/* Método que va a ejecutarse al momento de darle click al boton "Registrar". En este método
+	 * se crea un timer que por 3 segundos (3000 milisegundos), va a mantener los botones dinámicos
+	 * del panel inhabilitados y los dos Labels con los gifs de carga de fondo con la visibilidad
+	 * habilitada. Para que luego de esos 3 segundos haga lo mencionado anteriormente pero a la 
+	 * inversa (Esta dinámica lo logra por medio del método "mostrarOcultarElementosCarga"
+	 * */
 	private void accionBotonRegistrar() {
+		// Se ejecuta el método "mostrarOcultarElementosCarga" pero con false como booliano
 		mostrarOcultarElementosCarga(false);
 		
+		// Creación del timer
 		Timer timer = new Timer(3000, new ActionListener() {
             @Override
+            /* Método que se ejecuta justo después de que terminaran los 3 segundos (3000 
+             * milisegundos)
+             * */
             public void actionPerformed(ActionEvent evt) {
+            	/* Condicional que en caso el resultado del método "verificarDatos" haya sido
+            	 * verdadero, va a ejecutar el método "vaciarDatos", va a ocultar la visibilidad 
+            	 * del panel, va a cambiar el panel que se muestra en la ventana donde se encuentra
+            	 * al de "Iniciar_sesion", y va a mostrar la visibilidad de la ventana "menu" que 
+            	 * contiene a la ventana que lo está mostrando (Acceso)
+            	 * */
             	if (verificarDatos()) {
             		ventanaAcceso.panelRegistrar.vaciarDatos();
             		ventanaAcceso.setVisible(false);
@@ -83,75 +121,122 @@ public class Registrarse extends JPanel implements MouseListener, KeyListener, A
             		ventanaAcceso.ventanaMenu.modificarVisible(true);
             	}
             	
+            	// Se ejecuta el método "mostrarOcultarElementosCarga" pero con true como booliano
             	mostrarOcultarElementosCarga(true);
         		
+            	/* Se detiene el timer por medio de la siguiente línea, donde primero, por medio de
+            	 * la variable evt, se obtiene el componente que ejecuto ese método, que fue el mismo
+            	 * timer, por medio del método "getSource()". Sin embargo, este método retorna 
+            	 * cualquier componente como una variable de tipo "Object". Por lo tanto, se usa 
+            	 * "(Timer)" para convertir el componente de tipo "Object" a tipo "Timer", para que
+            	 * se pueda ejecutar el método "stop()" y así detener el timer
+            	 * */
                 ((Timer) evt.getSource()).stop();
             }
         });
 		
+		// Se inhabilitan las repeticiones del timer, para que solo se ejecute una vez
 		timer.setRepeats(false);
+		// Se inicia el timer.
 		timer.start();
 	}
 	
+	/* Método encargado de registrar el usuario a la pequeña base de datos que contiene
+	 * la ventana que está mostrando el panel ("Acceso"). Para ello, se necesitan dos variables de
+	 * cadena, que son las que almacenan el correo del usuario ("correoIngre") y su contraseña
+	 * ("contraseniaIngre"). Dentro del método, primero se crea una variable llamada "registroHecho"
+	 * , que va a indicar si se realizo el registro o no. Luego, se verifica si hay al menos un 
+	 * espacio de los dos que cuenta la base de datos. En caso no haya, se habilita la visibilidad
+	 * del label "lblErrorDatos" y se cambia el texto de este label a uno que indica que la base
+	 * de datos está llena. Caso contrario, se busca el espacio disponible y se ejecuta el método
+	 * "agregarUsuario" de parte de la ventana que muestra el panel ("Acceso")
+	 * */
 	private boolean registrarUsuario(String correoIngre, String contraseniaIngre) {
 		boolean registroHecho = false;
 		
+		// Condicional que verifica si hay al menos un espacio en la base de datos o sistema
 		if (ventanaAcceso.correoUsuario1.equals("") || ventanaAcceso.correoUsuario2.equals("")) {
+			// Condicional que verifica si el espacio disponible detectado es en el espacio 1
 			if (ventanaAcceso.correoUsuario1.equals("")) {
+				// Se agrega el usuario al espacio 1 a la base de datos
 				ventanaAcceso.agregarUsuario1(correoIngre, contraseniaIngre);
+				// Se cambia el valor de la variable "registroHecho" para confirmar el registro
 				registroHecho = true;
 			} else {
+				// Condicional que verifica si el espacio disponible detectado es en el espacio 2
 				if (ventanaAcceso.correoUsuario2.equals("")){
+					// Se agrega el usuario al espacio 1 a la base de datos
 					ventanaAcceso.agregarUsuario2(correoIngre, contraseniaIngre);
+					// Se cambia el valor de la variable "registroHecho" para confirmar el registro
 					registroHecho = true;
 				}
 			}
 			
 		} else {
+			// Se muestra el Label de "lblErrorDatos"
 			lblErrorDatos.setVisible(true);
+			// Se cambia el texto del Label de "lblErrorDatos" 
 			lblErrorDatos.setText("Servidor lleno. Intente de nuevo más tarde.");
 		}
 		
+		/* Se retorna el valor de la variable "registroHecho", donde puede ser true si se realizó
+		 * con exito, o false si fue el caso contrario
+		 * */
 		return registroHecho;
 	}
 	
+	/* Método encargado de la validación de los datos ingresados por el usuario. Para eso, se 
+	 * almacenan los datos ingresados por el usuario en dos variables llamadas "correoIngre" y 
+	 * "contraseniaIngre", las cuales van a ser verificadas por medio de unas condicionales 
+	 * que van a buscar si hay algún error en estos. Además, hay una variable booliana llamada
+	 * "datosCorrectos" que se va a encargar de confirmar si los datos ingresados han sido
+	 * correctos y registrados
+	 * */
 	private boolean verificarDatos() {
+		// Variables que almacenan los datos ingresados por el usuario
 		String correoIngre, contraseniaIngre;
+		// Variable booliana encargada de indicar si los datos son correctos o no
 		boolean datosCorrectos = false;
 		
+		/* Bloque try and catch que se va a asegurar de detectar y captar algún error de parte del 
+		 * aplicativo al momento de recibir los datos
+		 * */
 		try {
+			// Se reciben los datos ingresados en las dos variables creadas anteriormente
 			correoIngre = textFieldCorreo.getText();
 			contraseniaIngre = new String(passwordFieldContrasenia.getPassword());
 			
+			// Condicional que verifica si no se han ingresado datos
 			if (correoIngre.isEmpty() || contraseniaIngre.isEmpty()) {
 				lblErrorDatos.setVisible(true);
 				lblErrorDatos.setText("No se han ingresado los datos");
 				datosCorrectos = false;
+				
+			  // Condicional que verifica si el correo ingresado no tiene el "@gmail.com"
 			} else if (!(correoIngre.contains("@gmail.com"))) {
 				lblErrorDatos.setVisible(true);
 				lblErrorDatos.setText("El correo es incorrecto");
 				datosCorrectos = false;
+			  // Condicional que verifica si el tamaño de la contraseña es mayor a 8
 			} else if (!(contraseniaIngre.length() > 8)) {
 				lblErrorDatos.setVisible(true);
 				lblErrorDatos.setText("La contraseña es muy corta");
 				datosCorrectos = false;
 			} else {
+				/* Se llama el método "registrarUsuario" para proceder con el registro en caso
+				 * no se hayan detectado errores en los datos ingresados. El resultado de ese
+				 * método par a ser almacenado por "datosCorrectos".
+				 * */
 				datosCorrectos = registrarUsuario(correoIngre, contraseniaIngre);
 			}
 			
 		} catch(Exception e) {
+			// Muestra del error (o excepción) ocurrido dentro del bloque try
 			JOptionPane.showMessageDialog(this, "Exception - " + e, "Exception", JOptionPane.ERROR_MESSAGE);
 		}
 		
+		// Retorno del valor "datosCorrectos"
 		return datosCorrectos;
-	}
-	
-	public boolean obtenerAcceso() {
-		return acceso;
-	}
-	
-	public void modificarAcceso(boolean acceso) {
-		this.acceso = acceso;
 	}
 	
 	/**
@@ -277,8 +362,6 @@ public class Registrarse extends JPanel implements MouseListener, KeyListener, A
 			actionPerformedBtnRegistrar(e);
 		}
 	}
-	
-
 	public void mouseEntered(MouseEvent e) {
 	}
 	public void mouseExited(MouseEvent e) {
@@ -288,18 +371,36 @@ public class Registrarse extends JPanel implements MouseListener, KeyListener, A
 			mousePressedLblVista(e);
 		}
 	}
+	
+	/* Método encargado de ocultar el contenido del PasswordField del panel al soltar 
+	 * el click del mouse sobre el Label "lblVista", que tiene como fondo un ícono
+	 * de un ojo cerrado
+	 * */
 	public void mouseReleased(MouseEvent e) {
+		// Se verifica si el label que se etá presionando está habilitado
 		if (lblVista.isEnabled() == true) {
+			// Se cambia el ícono del ojo cerrado al ojo abierto
 			lblVista.setIcon(new ImageIcon(Iniciar_sesion.class.getResource("/recursos/imagenes/imagenes_login/ojo_abierto_rend.png")));
 			
+			// Se oculta el contenido del PasswordField del panel con "*"
 			passwordFieldContrasenia.setEchoChar('*');
 		}
 	}
 	
+	/* Método encargado de mostrar el contenido del PasswordField del panel al mantener 
+	 * presionado el click del mouse sobre el Label "lblVista", que tiene como fondo un ícono
+	 * de un ojo abierto
+	 * */
 	protected void mousePressedLblVista(MouseEvent e) {
+		// Se verifica si el label que se etá presionando está habilitado
 		if (lblVista.isEnabled() == true) {
+			// Se cambia el ícono del ojo cerrado al ojo cerrado
 			lblVista.setIcon(new ImageIcon(Iniciar_sesion.class.getResource("/recursos/imagenes/imagenes_login/ojo_cerrado_rend.png")));
 			
+			/* Se muestra el contenido del PasswordField del panel con "((char)0)", que indica
+			 * al PasswordField que no tiene que ocultar ningún carácter, permitiendo ver el
+			 * texto que contiene
+			 * */
 			passwordFieldContrasenia.setEchoChar((char)0);
 		}
 	}
@@ -316,19 +417,41 @@ public class Registrarse extends JPanel implements MouseListener, KeyListener, A
 	}
 	public void keyTyped(KeyEvent e) {
 	}
+	/* Método que se ejecuta al detectar la pulsación de teclas cuando el usuario se encuentra en
+	 * el TexField "textFieldCorreo" 
+	 */
 	protected void keyPressedTextFieldCorreo(KeyEvent e) {
+		// Si el usuario le ha dado click a ENTER
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+			/* Si en caso el PasswordField "passwordFieldContrasenia" ya contiene texto, se supone
+			 * que el usuario solo tenía problemas con el correo, procediendo con el registro. Caso
+			 * contrario, este PasswordField agarra la posición del cursor
+			 * */
 			if (new String(passwordFieldContrasenia.getPassword()).isEmpty()) {
 				passwordFieldContrasenia.grabFocus();
 			} else {
 				accionBotonRegistrar();
 			}
+		  /* Si el usuario le ha dado click a la flecha de abajo, el PasswordField
+		   * "passwordFieldContrasenia" agarra la posición del cursor
+		   */
 		} else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 			passwordFieldContrasenia.grabFocus();
 		}
 	}
+	/* Método que se ejecuta al detectar la pulsación de teclas cuando el usuario se encuentra en
+	 * el TexField "textFieldCorreo" 
+	 */
 	protected void keyPressedPasswordFieldContrasenia(KeyEvent e) {
+		// Si el usuario le ha dado click a ENTER
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+			/* Si se detecta que el PasswordField "passwordFieldContrasenia" no está ocultando
+			 * el texto que contiene, se procede a cambiar el ícono del Label "lblVista" al de un
+			 * ojo abierto, se oculta el texto del PasswordField y se procede con el registro. La
+			 * razón por la que se da esto, se debe a que se ha detectado que el usuario le ha dado
+			 * click a enter mientras tenia el Label "lblVista" presionado. Caso contrario, solo se
+			 * procede con el registro.
+			 * */
 			if (passwordFieldContrasenia.getEchoChar() != '*') {
 				lblVista.setIcon(new ImageIcon(Iniciar_sesion.class.getResource("/recursos/imagenes/imagenes_login/ojo_abierto_rend.png")));
 				
@@ -338,7 +461,9 @@ public class Registrarse extends JPanel implements MouseListener, KeyListener, A
 			} else {
 				accionBotonRegistrar();
 			}
-			
+		  /* Si el usuario le ha dado click a la flecha de arriba, el TextField
+		   * "textFieldCorreo" agarra la posición del cursor
+		   */
 		} else if (e.getKeyCode() == KeyEvent.VK_UP) {
 			textFieldCorreo.grabFocus();
 		}
@@ -350,12 +475,26 @@ public class Registrarse extends JPanel implements MouseListener, KeyListener, A
 		}
 	}
 	
+	/* Método encargado de cambiar del panel de registro al de inicio de sesión desde el mismo 
+	 * panel de registro
+	 * */
 	protected void mouseClickedLblIniciarSesion(MouseEvent e) {
+		// Condicional que verifica si el boton presionado está habilitado
 		if (lblIniciarSesion.isEnabled()) {
+			// Se vacían los datos del panel
 			vaciarDatos();
+			/* Se cambia el título de la ventana para indicar ahora que está en el panel de 
+			 * inicio de sesión
+			 * */
 			ventanaAcceso.modificarTitulo("Iniciar sesión");
+			// Se cambia la imagen decorativa de la ventana que muestra el panel
 			ventanaAcceso.asignarImagenLabel(ventanaAcceso.lblImagen);
+			// Se cambia el panel registro al panel de inicio de sesión
 			ventanaAcceso.mostrarPanel(ventanaAcceso.panelIniciar);
+			/* El TextField de correo del panel de inicio de sesión agarra el foco de atención
+			 * para que el usuario ya sepa desde donde tiene que empezar a poner sus datos en 
+			 * la ventana de inicio de sesión.
+			 * */
 			ventanaAcceso.panelIniciar.getTextFieldCorreo().grabFocus();
 		}
 	}

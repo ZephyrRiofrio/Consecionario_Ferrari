@@ -49,8 +49,6 @@ public class Iniciar_sesion extends JPanel implements ActionListener, MouseListe
 	
 	private Acceso ventanaAcceso;
 	
-	private boolean acceso = false;
-	
 	public JTextField getTextFieldCorreo() { return this.textFieldCorreo; }
 	
 	public void vaciarDatos() {
@@ -175,14 +173,6 @@ public class Iniciar_sesion extends JPanel implements ActionListener, MouseListe
 		}
 		
 		return datosValidos;
-	}
-	
-	public boolean obtenerAcceso() {
-		return acceso;
-	}
-	
-	public void modificarAcceso(boolean acceso) {
-		this.acceso = acceso;
 	}
 	
 	/**
