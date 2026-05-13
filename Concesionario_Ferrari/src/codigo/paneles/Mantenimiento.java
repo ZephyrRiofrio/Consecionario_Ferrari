@@ -3,27 +3,27 @@ package codigo.paneles;
 import codigo.ventanas.Menu;
 
 import javax.swing.JPanel;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Graphics;
-import javax.swing.ImageIcon;
 import java.awt.Color;
-import javax.swing.JLabel;
-import javax.swing.border.EmptyBorder;
 import java.awt.Cursor;
 import java.awt.Font;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import java.util.ArrayList;
 
 public class Mantenimiento extends JPanel {
-
 	private static final long serialVersionUID = 1L;
 	public Menu ventanaMenu;
 	private JPanel panel;

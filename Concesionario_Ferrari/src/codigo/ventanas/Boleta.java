@@ -1,19 +1,16 @@
 package codigo.ventanas;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
+
 import java.awt.Toolkit;
-import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
-import javax.swing.JTextField;
 import java.awt.Rectangle;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
 
 public class Boleta extends JFrame {
-
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JLabel lblNewLabel;
@@ -35,7 +32,7 @@ public class Boleta extends JFrame {
 	
 	/**
 	 * Launch the application.
-	 */
+	 *
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -48,7 +45,8 @@ public class Boleta extends JFrame {
 			}
 		});
 	}
-
+	*/
+	
 	/**
 	 * Create the frame.
 	 */
