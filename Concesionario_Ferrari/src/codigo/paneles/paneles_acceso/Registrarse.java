@@ -1,20 +1,12 @@
 package codigo.paneles.paneles_acceso;
 
 import javax.swing.JPanel;
+
 import java.awt.Dimension;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.ImageIcon;
 import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.Timer;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JSeparator;
 import java.awt.Cursor;
-import javax.swing.JPasswordField;
-import javax.swing.JButton;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,11 +14,19 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
+import javax.swing.JTextField;
+import javax.swing.Timer;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JSeparator;
+import javax.swing.JPasswordField;
+import javax.swing.JButton;
 
 import codigo.ventanas.Acceso;
 
 public class Registrarse extends JPanel implements MouseListener, KeyListener, ActionListener {
-
 	private static final long serialVersionUID = 1L;
 	private JPanel formularioRegistro;
 	private JLabel lblTitulo;
@@ -43,11 +43,9 @@ public class Registrarse extends JPanel implements MouseListener, KeyListener, A
 	private JLabel lblErrorDatos;
 	private JLabel lblPregIniciarSesion;
 	private JLabel lblIniciarSesion;
+	private JButton btnRegistrar;
 	
 	private Acceso ventanaAcceso;
-	
-	private boolean acceso = false;
-	private JButton btnRegistrar;
 
 	public JTextField getTextFieldCorreo() { return this.textFieldCorreo; }
 	
@@ -144,14 +142,6 @@ public class Registrarse extends JPanel implements MouseListener, KeyListener, A
 		}
 		
 		return datosCorrectos;
-	}
-	
-	public boolean obtenerAcceso() {
-		return acceso;
-	}
-	
-	public void modificarAcceso(boolean acceso) {
-		this.acceso = acceso;
 	}
 	
 	/**
@@ -353,7 +343,7 @@ public class Registrarse extends JPanel implements MouseListener, KeyListener, A
 	protected void mouseClickedLblIniciarSesion(MouseEvent e) {
 		if (lblIniciarSesion.isEnabled()) {
 			vaciarDatos();
-			ventanaAcceso.modificarTitulo("Iniciar sesión");
+			ventanaAcceso.setTitulo("Iniciar sesión");
 			ventanaAcceso.asignarImagenLabel(ventanaAcceso.lblImagen);
 			ventanaAcceso.mostrarPanel(ventanaAcceso.panelIniciar);
 			ventanaAcceso.panelIniciar.getTextFieldCorreo().grabFocus();

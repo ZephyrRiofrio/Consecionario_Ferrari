@@ -1,29 +1,19 @@
 package codigo.ventanas;
 
-import java.awt.EventQueue;
-
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import codigo.paneles.paneles_acceso.*;
 
 import java.awt.Toolkit;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Color;
-import java.awt.SystemColor;
-import java.awt.Cursor;
-import javax.swing.Timer;
-import java.awt.event.*;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
 import java.util.Random;
 
-import javax.swing.JLabel;
+import codigo.paneles.paneles_acceso.*;
 
 public class Acceso extends JFrame {
-
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JPanel panelSeccion;
@@ -66,7 +56,7 @@ public class Acceso extends JFrame {
 	}
 	*/
 	
-	public void modificarTitulo(String titulo) {
+	public void setTitulo(String titulo) {
 		this.setTitle(titulo);
 	}
 	
