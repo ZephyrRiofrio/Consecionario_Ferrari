@@ -1,18 +1,18 @@
 package codigo.paneles.paneles_inicio_bloques_paginas;
 
 import javax.swing.JPanel;
+
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.Color;
-import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Graphics;
-import javax.swing.ImageIcon;
 import java.awt.Dimension;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
 public class Bloques_paginas extends JPanel {
-
 	private static final long serialVersionUID = 1L;
 	private JPanel contenido;
 	private JPanel bloque_scudFerra;

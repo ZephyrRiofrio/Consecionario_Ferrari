@@ -1,17 +1,16 @@
 package codigo.paneles.paneles_inicio_noticias;
 
 import javax.swing.JPanel;
+
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
-import javax.swing.JLabel;
-import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Dimension;
+import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
-import java.awt.Dimension;
 
 public class Noticia_4 extends JPanel {
-
 	private static final long serialVersionUID = 1L;
 	private JPanel contenido;
 	private JPanel articulo;

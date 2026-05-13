@@ -3,16 +3,15 @@ package codigo.paneles.paneles_inicio_presentacion;
 import javax.swing.JPanel;
 
 import java.awt.Image;
-import javax.swing.ImageIcon;
 import java.awt.Graphics;
 import java.awt.Dimension;
 import java.awt.BorderLayout;
-import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 public class Presentacion_1 extends JPanel {
-
 	private static final long serialVersionUID = 1L;
 	private JPanel contenido;
 	private JLabel lblTituloPagina;
