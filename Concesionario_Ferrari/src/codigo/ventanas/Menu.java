@@ -1,40 +1,33 @@
 package codigo.ventanas;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
+
+import java.awt.EventQueue;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.Dimension;
-import javax.swing.JToolBar;
 import java.awt.FlowLayout;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
 import java.awt.Color;
-import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.Cursor;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
-import javax.swing.Timer;
-
-import codigo.paneles.*;
-import codigo.paneles.paneles_vehiculos.*;
-
-import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
-import javax.swing.JScrollBar;
-import javax.swing.JScrollPane;
-import javax.swing.ScrollPaneConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Component;
-import java.awt.Rectangle;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JToolBar;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 
-public class menu extends JFrame implements MouseListener, ActionListener {
+import codigo.paneles.*;
+
+public class Menu extends JFrame implements MouseListener, ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	public boolean esVisible = true;
@@ -54,21 +47,7 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 	private JScrollPane contenido;
 
 	private Vehiculos panelVehiculos = new Vehiculos(this);
-	private Inicio panelInicio = new Inicio();
-	private VentasVehiculos panelVentas = new VentasVehiculos();
-	private Noticias panelNoticias = new Noticias();
-	private SobreNosotros panelSobreNosotros = new SobreNosotros();
 	private Mantenimiento panelMantenimiento = new Mantenimiento(this);
-	
-	private Ferrari_Luce paginaFerrariLuce = new Ferrari_Luce();
-	private Ferrari12Cilindri paginaFerrari12Cilindri = new Ferrari12Cilindri();
-	private Ferrari12CilindriSpider paginaFerrari12CilindriSpider = new Ferrari12CilindriSpider();
-	private Ferrari296GTB paginaFerrari296GTB = new Ferrari296GTB();
-	private Ferrari296GTS paginaFerrari296GTS = new Ferrari296GTS();
-	private Ferrari849Testarossa paginaFerrari849Testarrosa = new Ferrari849Testarossa();
-	private Ferrari849TestarossaSpider paginaFerrari849TestarrosaSpider = new Ferrari849TestarossaSpider();
-	private FerrariAmalfi paginaFerrariAmalfi = new FerrariAmalfi();
-	private FerrariPurosangue paginaFerrariPurosangue = new FerrariPurosangue();
 	
 	public Acceso ventanaAcceso = new Acceso(this);
 	private JLabel lblCerrarSesion;
@@ -81,17 +60,6 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		return this.btnMantenimiento;
 	}
 	
-	public Ferrari_Luce getFerrariLuce() { return this.paginaFerrariLuce; }
-	public Ferrari12Cilindri getFerrari12Cilindri() { return this.paginaFerrari12Cilindri; }
-	public Ferrari12CilindriSpider getFerrari12CilindriSpider() { return this.paginaFerrari12CilindriSpider; }
-	public Ferrari296GTB getFerrari296GTB() { return this.paginaFerrari296GTB; }
-	public Ferrari296GTS getFerrari296GTS() { return this.paginaFerrari296GTS; }
-	public Ferrari849Testarossa getFerrari849Testarossa() { return this.paginaFerrari849Testarrosa; }
-	public Ferrari849TestarossaSpider getFerrari849TestarossaSpider() { return this.paginaFerrari849TestarrosaSpider; }
-	public FerrariAmalfi getFerrariAmalfi() { return this.paginaFerrariAmalfi; }
-	public FerrariPurosangue getFerrariPurosangue() { return this.paginaFerrariPurosangue; }
-	
-	
 	/**
 	 * Launch the application.
 	 */
@@ -100,7 +68,7 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					menu frame = new menu();
+					Menu frame = new Menu();
 					frame.setLocationRelativeTo(null);
 					frame.setVisible(false);
 				} catch (Exception e) {
@@ -129,10 +97,6 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		return this.panelMantenimiento;
 	}
 	
-	public VentasVehiculos getPanelSolicitud() {
-		return this.panelVentas;
-	}
-	
 	public Acceso getVentanaAcceso() {
 		return this.ventanaAcceso;
 	}
@@ -140,12 +104,12 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 	/**
 	 * Create the frame.
 	 */
-	public menu() {
+	public Menu() {
 		setPreferredSize(new Dimension(790, 500));
 		ventanaAcceso.setVisible(true);
 		ventanaAcceso.setLocationRelativeTo(null);
 		setResizable(false);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(menu.class.getResource("/recursos/imagenes/imagenes_ventana/logo.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Menu.class.getResource("/recursos/imagenes/imagenes_ventana/logo.png")));
 		setTitle("Ferrari");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 790, 500);
@@ -187,14 +151,14 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		lblLogoMenu = new JLabel("");
 		lblLogoMenu.addMouseListener(this);
 		lblLogoMenu.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		lblLogoMenu.setIcon(new ImageIcon(menu.class.getResource("/recursos/imagenes/imagenes_menu/menu_logo.jpg")));
+		lblLogoMenu.setIcon(new ImageIcon(Menu.class.getResource("/recursos/imagenes/imagenes_menu/menu_logo.jpg")));
 		lblLogoMenu.setPreferredSize(new Dimension(30, 30));
 		barra_1.add(lblLogoMenu);
 		
 		lblCerrarSesion = new JLabel("New label");
 		lblCerrarSesion.addMouseListener(this);
 		lblCerrarSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		lblCerrarSesion.setIcon(new ImageIcon(menu.class.getResource("/recursos/imagenes/imagenes_menu/flecha_presentacion_2.png")));
+		lblCerrarSesion.setIcon(new ImageIcon(Menu.class.getResource("/recursos/imagenes/imagenes_menu/flecha_presentacion_2.png")));
 		lblCerrarSesion.setPreferredSize(new Dimension(30, 30));
 		menu_barra_1.add(lblCerrarSesion, BorderLayout.WEST);
 		
@@ -261,7 +225,7 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		contenido.setPreferredSize(new Dimension(810, 361));
 		contentPane.add(contenido, BorderLayout.CENTER);
 		
-		mostrarPanel(panelInicio);
+		mostrarPanel(new Inicio());
 	}
 
 	public void mouseClicked(MouseEvent e) {
@@ -284,7 +248,7 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 	public void mouseReleased(MouseEvent e) {
 	}
 	protected void mouseClickedLblLogoMenu(MouseEvent e) {
-		mostrarPanel(panelInicio);
+		mostrarPanel(new Inicio());
 	}
 	protected void mouseClickedBtnVehiculos(MouseEvent e) {
 	}
@@ -306,16 +270,16 @@ public class menu extends JFrame implements MouseListener, ActionListener {
 		mostrarPanel(panelVehiculos);
 	}
 	protected void actionPerformedBtnNoticias(ActionEvent e) {
-		mostrarPanel(panelNoticias);
+		mostrarPanel(new Noticias());
 	}
 	protected void actionPerformedBtnSobreNosotros(ActionEvent e) {
-		mostrarPanel(panelSobreNosotros);
+		mostrarPanel(new SobreNosotros());
 	}
 	protected void actionPerformedBtnMantenimiento(ActionEvent e) {
 		mostrarPanel(panelMantenimiento);
 	}
 	protected void mouseClickedLblCerrarSesion(MouseEvent e) {
-		mostrarPanel(panelInicio);
+		mostrarPanel(new Inicio());
 		this.setVisible(false);
 		ventanaAcceso.setVisible(true);
 		if (ventanaAcceso.esAdmin) {

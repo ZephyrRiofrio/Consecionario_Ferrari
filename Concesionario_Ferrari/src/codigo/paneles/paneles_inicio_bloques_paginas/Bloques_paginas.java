@@ -1,18 +1,18 @@
 package codigo.paneles.paneles_inicio_bloques_paginas;
 
 import javax.swing.JPanel;
+
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.Color;
-import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Graphics;
-import javax.swing.ImageIcon;
 import java.awt.Dimension;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
-public class panel_bloques_paginas extends JPanel {
-
+public class Bloques_paginas extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private JPanel contenido;
 	private JPanel bloque_scudFerra;
@@ -29,7 +29,7 @@ public class panel_bloques_paginas extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public panel_bloques_paginas() {
+	public Bloques_paginas() {
 		setPreferredSize(new Dimension(790, 252));
 		setBackground(new Color(252, 252, 252));
 		setLayout(new BorderLayout(0, 0));
@@ -72,7 +72,7 @@ public class panel_bloques_paginas extends JPanel {
 		bloque_scudFerra.add(lblDescubrir);
 		
 		lblFlecha = new JLabel("");
-		lblFlecha.setIcon(new ImageIcon(panel_bloques_paginas.class.getResource("/recursos/imagenes/imagenes_inicio/flecha_presentacion_rend.png")));
+		lblFlecha.setIcon(new ImageIcon(Bloques_paginas.class.getResource("/recursos/imagenes/imagenes_inicio/flecha_presentacion_rend.png")));
 		lblFlecha.setBounds(230, 197, 31, 31);
 		bloque_scudFerra.add(lblFlecha);
 		
@@ -110,7 +110,7 @@ public class panel_bloques_paginas extends JPanel {
 		bloque_Deportivos.add(lblDescubrir_1);
 		
 		lblFlecha_1 = new JLabel("");
-		lblFlecha_1.setIcon(new ImageIcon(panel_bloques_paginas.class.getResource("/recursos/imagenes/imagenes_inicio/flecha_presentacion_rend.png")));
+		lblFlecha_1.setIcon(new ImageIcon(Bloques_paginas.class.getResource("/recursos/imagenes/imagenes_inicio/flecha_presentacion_rend.png")));
 		lblFlecha_1.setBounds(229, 195, 31, 31);
 		bloque_Deportivos.add(lblFlecha_1);
 

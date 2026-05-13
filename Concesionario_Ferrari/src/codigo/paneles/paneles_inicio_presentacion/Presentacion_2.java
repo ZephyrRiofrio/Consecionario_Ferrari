@@ -3,16 +3,15 @@ package codigo.paneles.paneles_inicio_presentacion;
 import javax.swing.JPanel;
 
 import java.awt.Image;
-import javax.swing.ImageIcon;
 import java.awt.Graphics;
 import java.awt.Dimension;
 import java.awt.BorderLayout;
-import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
-public class panel_presentacion_2 extends JPanel {
-
+public class Presentacion_2 extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private JPanel contenido;
 	private JLabel lblTituloPagina;
@@ -23,7 +22,7 @@ public class panel_presentacion_2 extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public panel_presentacion_2() {
+	public Presentacion_2() {
 		setPreferredSize(new Dimension(782, 252));
 		setLayout(new BorderLayout(0, 0));
 		
@@ -63,7 +62,7 @@ public class panel_presentacion_2 extends JPanel {
 		contenido.add(lblDescubrir);
 		
 		lblFlecha = new JLabel("");
-		lblFlecha.setIcon(new ImageIcon(panel_presentacion_2.class.getResource("/recursos/imagenes/imagenes_inicio/flecha_presentacion_rend.png")));
+		lblFlecha.setIcon(new ImageIcon(Presentacion_2.class.getResource("/recursos/imagenes/imagenes_inicio/flecha_presentacion_rend.png")));
 		lblFlecha.setBounds(484, 196, 31, 31);
 		contenido.add(lblFlecha);
 	}

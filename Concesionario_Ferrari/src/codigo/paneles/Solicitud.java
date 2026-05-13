@@ -1,38 +1,32 @@
 package codigo.paneles;
 
 import javax.swing.JPanel;
+
 import java.awt.Dimension;
-import javax.swing.JScrollPane;
-import javax.swing.ScrollPaneConstants;
-import java.awt.BorderLayout;
-import javax.swing.JLabel;
-import javax.swing.JCheckBox;
-import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.Cursor;
-import javax.swing.border.LineBorder;
 import java.awt.Color;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.EtchedBorder;
-import javax.swing.JComboBox;
-import javax.swing.JTextField;
 import java.awt.Rectangle;
-import javax.swing.border.EmptyBorder;
-import javax.swing.DefaultComboBoxModel;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
 import java.awt.FlowLayout;
-import javax.swing.JSeparator;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import javax.swing.JLabel;
+import javax.swing.JCheckBox;
+import javax.swing.JButton;
+import javax.swing.border.LineBorder;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JSeparator;
 
 import codigo.ventanas.Boleta;
 
-public class VentasVehiculos extends JPanel implements MouseListener, ActionListener {
-
+public class Solicitud extends JPanel implements MouseListener, ActionListener {
 	private static final long serialVersionUID = 1L;
 	private JPanel panel;
 	private JPanel panel_1;
@@ -43,7 +37,7 @@ public class VentasVehiculos extends JPanel implements MouseListener, ActionList
 	private JTextField txtNombre;
 	private JTextField txtApellido;
 	private JLabel lblNewLabel_2;
-	private JComboBox cbxP;
+	private JComboBox<String> cbxP;
 	private JLabel lblNewLabel_3;
 	private JCheckBox chckbxNewCheckBox;
 	private JCheckBox chckbxNewCheckBox_1;
@@ -52,7 +46,7 @@ public class VentasVehiculos extends JPanel implements MouseListener, ActionList
 	private JLabel errorA;
 	private JLabel errorCE;
 	private JLabel lblNewLabel_8;
-	private JComboBox cbxC;
+	private JComboBox<String> cbxC;
 	private JLabel errorCi;
 	private JLabel errorO;
 	private JButton btnEnviar;
@@ -60,19 +54,19 @@ public class VentasVehiculos extends JPanel implements MouseListener, ActionList
 	private JSeparator separator_1;
 	private JSeparator separator_3;
 	
-	String nombre, apellido, correo, telf;
-	String pais, ciudad;
+	private String nombre, apellido, correo;
+	private String pais, ciudad;
 	private JLabel errorN2;
 	private JLabel errorA2;
 	private JLabel errorCE2;
 	
 	Boleta boleta = new Boleta();
 	
-
+	
 	/**
 	 * Create the panel.
 	 */
-	public VentasVehiculos() {
+	public Solicitud() {
 		boleta.setLocationRelativeTo(null);
 		setPreferredSize(new Dimension(790, 800));
 		setLayout(null);
@@ -153,9 +147,9 @@ public class VentasVehiculos extends JPanel implements MouseListener, ActionList
 		lblNewLabel_2.setBounds(50, 72, 32, 16);
 		PC.add(lblNewLabel_2);
 		
-		cbxP = new JComboBox();
+		cbxP = new JComboBox<String>();
 		cbxP.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		cbxP.setModel(new DefaultComboBoxModel(new String[] {"", "Perú", "Ecuador", "Colombia", "Bolivia", "Chile"}));
+		cbxP.setModel(new DefaultComboBoxModel<String>(new String[] {"", "Perú", "Ecuador", "Colombia", "Bolivia", "Chile"}));
 		cbxP.setSelectedIndex(0);
 		cbxP.setBorder(new EmptyBorder(0, 0, 0, 0));
 		cbxP.setFont(new Font("Ferrari Sans", Font.PLAIN, 12));
@@ -218,9 +212,9 @@ public class VentasVehiculos extends JPanel implements MouseListener, ActionList
 		lblNewLabel_8.setBounds(50, 229, 45, 14);
 		PC.add(lblNewLabel_8);
 		
-		cbxC = new JComboBox();
+		cbxC = new JComboBox<String>();
 		cbxC.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		cbxC.setModel(new DefaultComboBoxModel(new String[] {"", "Lima", "Quito", "Bogotá", "La paz", "Santiago"}));
+		cbxC.setModel(new DefaultComboBoxModel<String>(new String[] {"", "Lima", "Quito", "Bogotá", "La paz", "Santiago"}));
 		cbxC.setSelectedIndex(0);
 		cbxC.setFont(new Font("Ferrari Sans", Font.PLAIN, 12));
 		cbxC.setBorder(null);
