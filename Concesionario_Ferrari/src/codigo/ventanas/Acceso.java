@@ -27,7 +27,7 @@ public class Acceso extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JPanel panelSeccion;
-	public menu ventanaMenu;
+	public Menu ventanaMenu;
 	public Iniciar_sesion panelIniciar = new Iniciar_sesion(this);
 	public Registrarse panelRegistrar = new Registrarse(this);
 	private JPanel panelImagen;
@@ -133,7 +133,7 @@ public class Acceso extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Acceso(menu ventanaMenu) {
+	public Acceso(Menu ventanaMenu) {
 		this.ventanaMenu = ventanaMenu;
 		setResizable(false);
 		setTitle("Iniciar sesión");

@@ -1,6 +1,6 @@
 package codigo.paneles;
 
-import codigo.ventanas.menu;
+import codigo.ventanas.Menu;
 
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
@@ -25,7 +25,7 @@ import java.awt.event.ActionEvent;
 public class Mantenimiento extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	public menu ventanaMenu;
+	public Menu ventanaMenu;
 	private JPanel panel;
 	private JPanel panelPresentacion;
 	private JPanel panelAdminVehiculos;
@@ -172,7 +172,7 @@ public class Mantenimiento extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public Mantenimiento(menu ventanaMenu) {
+	public Mantenimiento(Menu ventanaMenu) {
 		this.ventanaMenu = ventanaMenu;
     setPreferredSize(new Dimension(790, 1095));
 		setLayout(new BorderLayout(0, 0));
