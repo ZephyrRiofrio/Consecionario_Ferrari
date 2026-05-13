@@ -1,5 +1,7 @@
 package codigo.paneles;
 
+import javax.swing.JPanel;
+
 import codigo.ventanas.Menu;
 
 import java.awt.BorderLayout;
@@ -11,7 +13,6 @@ import java.awt.Rectangle;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
-import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.BoxLayout;
@@ -23,7 +24,6 @@ import java.util.ArrayList;
 import codigo.paneles.paneles_vehiculos.*;
 
 public class Vehiculos extends JPanel implements MouseListener {
-
 	private static final long serialVersionUID = 1L;
 	public Menu ventanaMenu;
 	private JPanel panelModelos;

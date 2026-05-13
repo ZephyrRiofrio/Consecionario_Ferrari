@@ -1,21 +1,20 @@
 package codigo.paneles;
 
 import javax.swing.JPanel;
+
 import java.awt.Dimension;
-import javax.swing.JTextField;
 import java.awt.GridLayout;
 import java.awt.BorderLayout;
 import java.awt.Image;
 import java.awt.Graphics;
-import javax.swing.ImageIcon;
 import java.awt.Color;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.FlowLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
 public class Noticias extends JPanel {
-
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -41,7 +40,7 @@ public class Noticias extends JPanel {
 		panel_10.add(lblnews);
 		
 		JPanel panel_11 = new JPanel(){
-private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro2.jpeg")).getImage();
+			private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro2.jpeg")).getImage();
 			
 			@Override
 			protected void paintComponent(Graphics g) {
@@ -55,7 +54,7 @@ private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imag
 		panel.add(panel_11, BorderLayout.WEST);
 		
 		JPanel panel_12 = new JPanel(){
-private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro1.jpeg")).getImage();
+			private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro1.jpeg")).getImage();
 			
 			@Override
 			protected void paintComponent(Graphics g) {
@@ -77,7 +76,7 @@ private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imag
 		panel_1.add(panel_13, BorderLayout.NORTH);
 		
 		JPanel panel_14 = new JPanel(){
-private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro3.jpeg")).getImage();
+			private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro3.jpeg")).getImage();
 			
 			@Override
 			protected void paintComponent(Graphics g) {
@@ -91,7 +90,7 @@ private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imag
 		panel_1.add(panel_14, BorderLayout.WEST);
 		
 		JPanel panel_15 = new JPanel(){
-private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro4.jpeg")).getImage();
+			private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro4.jpeg")).getImage();
 			
 			@Override
 			protected void paintComponent(Graphics g) {
@@ -109,7 +108,7 @@ private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imag
 		panel_2.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel_16 = new JPanel(){
-private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/persona.jpeg")).getImage();
+			private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/persona.jpeg")).getImage();
 			
 			@Override
 			protected void paintComponent(Graphics g) {
@@ -126,7 +125,7 @@ private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imag
 		panel_3.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel_17 = new JPanel(){
-private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro5.jpeg")).getImage();
+			private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro5.jpeg")).getImage();
 			
 			@Override
 			protected void paintComponent(Graphics g) {
@@ -140,7 +139,7 @@ private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imag
 		panel_3.add(panel_17, BorderLayout.WEST);
 		
 		JPanel panel_18 = new JPanel(){
-private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro6.jpeg")).getImage();
+			private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro6.jpeg")).getImage();
 			
 			@Override
 			protected void paintComponent(Graphics g) {
@@ -158,7 +157,7 @@ private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imag
 		panel_4.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel_19 = new JPanel(){
-private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro7.jpeg")).getImage();
+			private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro7.jpeg")).getImage();
 			
 			@Override
 			protected void paintComponent(Graphics g) {
@@ -172,7 +171,7 @@ private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imag
 		panel_4.add(panel_19, BorderLayout.WEST);
 		
 		JPanel panel_20 = new JPanel(){
-private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro8.jpeg")).getImage();
+			private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro8.jpeg")).getImage();
 			
 			@Override
 			protected void paintComponent(Graphics g) {
@@ -190,7 +189,7 @@ private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imag
 		panel_5.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel_21 = new JPanel(){
-private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro9.jpeg")).getImage();
+			private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro9.jpeg")).getImage();
 			
 			@Override
 			protected void paintComponent(Graphics g) {
@@ -204,7 +203,7 @@ private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imag
 		panel_5.add(panel_21, BorderLayout.WEST);
 		
 		JPanel panel_22 = new JPanel(){
-private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro10.jpeg")).getImage();
+			private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro10.jpeg")).getImage();
 			
 			@Override
 			protected void paintComponent(Graphics g) {
@@ -222,7 +221,7 @@ private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imag
 		panel_6.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel_23 = new JPanel(){
-private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro12.jpeg")).getImage();
+			private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro12.jpeg")).getImage();
 			
 			@Override
 			protected void paintComponent(Graphics g) {
@@ -236,7 +235,7 @@ private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imag
 		panel_6.add(panel_23, BorderLayout.EAST);
 		
 		JPanel panel_24 = new JPanel(){
-private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro11.jpeg")).getImage();
+			private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro11.jpeg")).getImage();
 			
 			@Override
 			protected void paintComponent(Graphics g) {
@@ -254,7 +253,7 @@ private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imag
 		panel_7.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel_25 = new JPanel(){
-private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro13.jpeg")).getImage();
+			private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro13.jpeg")).getImage();
 			
 			@Override
 			protected void paintComponent(Graphics g) {
@@ -268,7 +267,7 @@ private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imag
 		panel_7.add(panel_25, BorderLayout.WEST);
 		
 		JPanel panel_26 = new JPanel(){
-private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro14.jpeg")).getImage();
+			private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro14.jpeg")).getImage();
 			
 			@Override
 			protected void paintComponent(Graphics g) {
@@ -286,7 +285,7 @@ private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imag
 		panel_8.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel_27 = new JPanel(){
-private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro15.jpeg")).getImage();
+			private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro15.jpeg")).getImage();
 			
 			@Override
 			protected void paintComponent(Graphics g) {
@@ -300,7 +299,7 @@ private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imag
 		panel_8.add(panel_27, BorderLayout.WEST);
 		
 		JPanel panel_28 = new JPanel(){
-private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro16.jpeg")).getImage();
+			private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro16.jpeg")).getImage();
 			
 			@Override
 			protected void paintComponent(Graphics g) {
@@ -318,7 +317,7 @@ private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imag
 		panel_9.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel_30 = new JPanel(){
-private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro17.jpeg")).getImage();
+			private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro17.jpeg")).getImage();
 			
 			@Override
 			protected void paintComponent(Graphics g) {
@@ -332,7 +331,7 @@ private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imag
 		panel_9.add(panel_30, BorderLayout.WEST);
 		
 		JPanel panel_31 = new JPanel(){
-private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro18.jpeg")).getImage();
+			private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro18.jpeg")).getImage();
 			
 			@Override
 			protected void paintComponent(Graphics g) {
@@ -350,7 +349,7 @@ private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imag
 		panel_29.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel_32 = new JPanel(){
-private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro19.jpeg")).getImage();
+			private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro19.jpeg")).getImage();
 			
 			@Override
 			protected void paintComponent(Graphics g) {
@@ -364,7 +363,7 @@ private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imag
 		panel_29.add(panel_32, BorderLayout.WEST);
 		
 		JPanel panel_33 = new JPanel(){
-private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro20.jpeg")).getImage();
+			private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_noticias/carro20.jpeg")).getImage();
 			
 			@Override
 			protected void paintComponent(Graphics g) {

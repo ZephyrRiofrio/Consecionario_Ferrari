@@ -1,61 +1,76 @@
 package codigo.paneles;
 
 import javax.swing.JPanel;
+
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.GridLayout;
-
-import java.awt.Image; // MPORTANTE
-import java.awt.Graphics;// IMPORTANTE
+import java.awt.Font;
+import java.awt.Color;
+import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
-import java.awt.Font;
-import java.awt.Color; // IMPORTANTE
 
 public class SobreNosotros extends JPanel {
-
 	private static final long serialVersionUID = 1L;
-	private JPanel Portada;
-	private JPanel InfoValores;
-	private JPanel TiposValores;
-	private JPanel InfoIntegrantes;
-	private JLabel lblNewLabel;
-	private JPanel Integrantes1;
-	private JPanel Integrantes2;
-	private JLabel lblNewLabel_20;
-	private JLabel lblNewLabel_21;
-	private JLabel lblNewLabel_22;
-	private JLabel lblNewLabel_23;
-	private JLabel lblNewLabel_14;
-	private JLabel lblNewLabel_15;
-	private JLabel lblNewLabel_16;
-	private JLabel lblNewLabel_17;
-	private JLabel lblNewLabel_18;
-	private JLabel lblNewLabel_19;
-	private JLabel lblNewLabel_12;
-	private JLabel lblNewLabel_13;
-	private JLabel lblNewLabel_3;
-	private JLabel lblNewLabel_4;
-	private JLabel lblNewLabel_5;
-	private JLabel lblNewLabel_1;
-	private JLabel lblNewLabel_2;
-	private JLabel lblNewLabel_6;
-	private JLabel lblNewLabel_7;
-	private JLabel lblNewLabel_8;
-	private JLabel lblNewLabel_9;
-	private JLabel lblNewLabel_10;
-	private JLabel lblNewLabel_11;
+	private JPanel portada;
+	private JPanel presentacionValores;
+	private JPanel tiposValores;
+	private JPanel presentacionIntegrantes;
+	private JLabel titulo1;
+	private JPanel integrantes1;
+	private JPanel integrantes2;
+	private JLabel imagen8;
+	private JLabel imagen7;
+	private JLabel textoImg7;
+	private JLabel textoImg8;
+	private JLabel imagen4;
+	private JLabel imagen5;
+	private JLabel imagen6;
+	private JLabel textoImg5;
+	private JLabel textoImg4;
+	private JLabel textoImg6;
+	private JLabel titulo3;
+	private JLabel presentacion2;
+	private JLabel imagen2;
+	private JLabel imagen1;
+	private JLabel imagen3;
+	private JLabel presentacion1;
+	private JLabel titulo2;
+	private JLabel subtitulo1;
+	private JLabel textoSub1;
+	private JLabel subtitulo2;
+	private JLabel textoSub2;
+	private JLabel subtitulo3;
+	private JLabel textoSub3;
 
 	/**
 	 * Create the panel.
 	 */
 	public SobreNosotros() {
+		ImageIcon imgIcon1 = new ImageIcon(getClass().getResource("/recursos/imagenes/imagenes_sobreNosotros/imagenSN1.jpg"));
+		Image imgEscalada1= imgIcon1.getImage().getScaledInstance(240, 190, Image.SCALE_SMOOTH);
+		ImageIcon imgIcon2 = new ImageIcon(getClass().getResource("/recursos/imagenes/imagenes_sobreNosotros/imagenSN2.jpg"));
+		Image imgEscalada2= imgIcon2.getImage().getScaledInstance(240, 190, Image.SCALE_SMOOTH);
+		ImageIcon imgIcon3 = new ImageIcon(getClass().getResource("/recursos/imagenes/imagenes_sobreNosotros/imagenSN3.jpg"));
+		Image imgEscalada3= imgIcon3.getImage().getScaledInstance(240, 190, Image.SCALE_SMOOTH);
+		ImageIcon imgIcon4 = new ImageIcon(getClass().getResource("/recursos/imagenes/imagenes_sobreNosotros/imagenSN4.jpg"));
+		Image imgEscalada4 = imgIcon4.getImage().getScaledInstance(240, 190, Image.SCALE_SMOOTH);
+		ImageIcon imgIcon5 = new ImageIcon(getClass().getResource("/recursos/imagenes/imagenes_sobreNosotros/imagenSN5.png"));
+		Image imgEscalada5= imgIcon5.getImage().getScaledInstance(240, 190, Image.SCALE_SMOOTH);
+		ImageIcon imgIcon6 = new ImageIcon(getClass().getResource("/recursos/imagenes/imagenes_sobreNosotros/imagenSN6.jpg"));
+		Image imgEscalada6= imgIcon6.getImage().getScaledInstance(240, 190, Image.SCALE_SMOOTH);
+		ImageIcon imgIcon7 = new ImageIcon(getClass().getResource("/recursos/imagenes/imagenes_sobreNosotros/imagenSN7.png"));
+		Image imgEscalada7= imgIcon7.getImage().getScaledInstance(240, 190, Image.SCALE_SMOOTH);
+		ImageIcon imgIcon8 = new ImageIcon(getClass().getResource("/recursos/imagenes/imagenes_sobreNosotros/imagenSN8.png"));
+		Image imgEscalada8 = imgIcon8.getImage().getScaledInstance(240, 190, Image.SCALE_SMOOTH);
+		
 		setPreferredSize(new Dimension(790, 2100));
 		setLayout(new GridLayout(6, 1, 0, 0));
 		
-		Portada = new JPanel() {
-			private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_sobreNosotros/autito.jpg")).getImage();
+		portada = new JPanel() {
+			private Image imagen = new ImageIcon(this.getClass().getResource("/recursos/imagenes/imagenes_sobreNosotros/portada.jpg")).getImage();
 			
 			@Override
 			protected void paintComponent(Graphics g) {
@@ -65,211 +80,173 @@ public class SobreNosotros extends JPanel {
 				
 			}
 		};
-		add(Portada);
-		Portada.setLayout(null);
+		add(portada);
+		portada.setLayout(null);
 		
-		lblNewLabel = new JLabel("<html>\r\nConoce a nuestro <br>\r\nequipo\r\n</html>");
-		lblNewLabel.setForeground(new Color(240, 240, 240));
-		lblNewLabel.setBackground(new Color(248, 248, 248));
-		lblNewLabel.setFont(new Font("Ferrari Sans", Font.BOLD, 33));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(30, 108, 405, 141);
-		Portada.add(lblNewLabel);
+		titulo1 = new JLabel("<html>\r\nConoce a nuestro <br>\r\nequipo\r\n</html>");
+		titulo1.setForeground(new Color(240, 240, 240));
+		titulo1.setBackground(new Color(248, 248, 248));
+		titulo1.setFont(new Font("Ferrari Sans", Font.BOLD, 33));
+		titulo1.setHorizontalAlignment(SwingConstants.CENTER);
+		titulo1.setBounds(30, 108, 405, 141);
+		portada.add(titulo1);
 		
-		InfoValores = new JPanel();
-		InfoValores.setBackground(new Color(245, 245, 245));
-		add(InfoValores);
-		InfoValores.setLayout(null);
+		presentacionValores = new JPanel();
+		presentacionValores.setBackground(new Color(255, 255, 255));
+		add(presentacionValores);
+		presentacionValores.setLayout(null);
 		
-		lblNewLabel_1 = new JLabel("<html><center>Nacido del espíritu de las carreras, Ferrari personifica el poder de una pasión de toda la vida y la belleza de los logros humanos ilimitados, creando iconos atemporales para un mundo cambiante\r\n</center></html>");
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setFont(new Font("Ferrari Sans", Font.BOLD, 14));
-		lblNewLabel_1.setBounds(177, 81, 412, 95);
-		InfoValores.add(lblNewLabel_1);
+		presentacion1 = new JLabel("<html><center>Nacido del espíritu de las carreras, Ferrari personifica el poder de una pasión de toda la vida y la belleza de los logros humanos ilimitados, creando iconos atemporales para un mundo cambiante\r\n</center></html>");
+		presentacion1.setFont(new Font("Ferrari Sans", Font.PLAIN, 12));
+		presentacion1.setBounds(186, 81, 412, 95);
+		presentacionValores.add(presentacion1);
 		
-		lblNewLabel_2 = new JLabel("NUESTROS VALORES");
-		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2.setFont(new Font("Ferrari Sans Medium", Font.BOLD, 20));
-		lblNewLabel_2.setBounds(177, 245, 412, 95);
-		InfoValores.add(lblNewLabel_2);
+		titulo2 = new JLabel("NUESTROS VALORES");
+		titulo2.setHorizontalAlignment(SwingConstants.CENTER);
+		titulo2.setFont(new Font("Ferrari Sans Medium", Font.BOLD, 20));
+		titulo2.setBounds(190, 245, 412, 95);
+		presentacionValores.add(titulo2);
 		
-		TiposValores = new JPanel();
-		TiposValores.setBackground(new Color(255, 255, 255));
-		add(TiposValores);
-		TiposValores.setLayout(null);
+		tiposValores = new JPanel();
+		tiposValores.setBackground(new Color(255, 255, 255));
+		add(tiposValores);
+		tiposValores.setLayout(null);
 		
-		lblNewLabel_3 = new JLabel("New label");
-		lblNewLabel_3.setIcon(new ImageIcon(SobreNosotros.class.getResource("/recursos/imagenes/imagenes_sobreNosotros/foto_03.jpg")));
-		ImageIcon imgIcon12 = new ImageIcon(getClass().getResource("/recursos/imagenes/imagenes_sobreNosotros/foto_03.jpg"));
-		Image imgEscalada12= imgIcon12.getImage().getScaledInstance(240, 190, Image.SCALE_SMOOTH);
-		lblNewLabel_3.setIcon(new ImageIcon(imgEscalada12));
-		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3.setBounds(295, 10, 190, 175);
-		TiposValores.add(lblNewLabel_3);
+		imagen1 = new JLabel("");
+		imagen1.setIcon(new ImageIcon(imgEscalada1));	
+		imagen1.setHorizontalAlignment(SwingConstants.CENTER);
+		imagen1.setBounds(41, 10, 190, 175);
+		tiposValores.add(imagen1);
 		
-		lblNewLabel_4 = new JLabel("New label");
-		lblNewLabel_4.setIcon(new ImageIcon(SobreNosotros.class.getResource("/recursos/imagenes/imagenes_sobreNosotros/foto_02.jpg")));
-		ImageIcon imgIcon11 = new ImageIcon(getClass().getResource("/recursos/imagenes/imagenes_sobreNosotros/foto_02.jpg"));
-		Image imgEscalada11= imgIcon11.getImage().getScaledInstance(240, 190, Image.SCALE_SMOOTH);
-		lblNewLabel_4.setIcon(new ImageIcon(imgEscalada11));	
-		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_4.setBounds(53, 10, 190, 175);
-		TiposValores.add(lblNewLabel_4);
+		imagen2 = new JLabel("");
+		imagen2.setIcon(new ImageIcon(imgEscalada2));
+		imagen2.setHorizontalAlignment(SwingConstants.CENTER);
+		imagen2.setBounds(301, 10, 190, 175);
+		tiposValores.add(imagen2);
 		
-		lblNewLabel_5 = new JLabel("New label");
-		lblNewLabel_5.setIcon(new ImageIcon(SobreNosotros.class.getResource("/recursos/imagenes/imagenes_sobreNosotros/foto_04.jpg")));
-		ImageIcon imgIcon13 = new ImageIcon(getClass().getResource("/recursos/imagenes/imagenes_sobreNosotros/foto_04.jpg"));
-		Image imgEscalada13= imgIcon13.getImage().getScaledInstance(240, 190, Image.SCALE_SMOOTH);
-		lblNewLabel_5.setIcon(new ImageIcon(imgEscalada13));
-		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_5.setBounds(538, 10, 190, 175);
-		TiposValores.add(lblNewLabel_5);
+		imagen3 = new JLabel("");
+		imagen3.setIcon(new ImageIcon(imgEscalada3));
+		imagen3.setHorizontalAlignment(SwingConstants.CENTER);
+		imagen3.setBounds(559, 10, 190, 175);
+		tiposValores.add(imagen3);
 		
-		lblNewLabel_6 = new JLabel("<html><center>INDIVIDUAL Y EN EQUIPO</center></html>");
-		lblNewLabel_6.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_6.setFont(new Font("Ferrari Sans", Font.BOLD, 14));
-		lblNewLabel_6.setBounds(33, 159, 228, 74);
-		TiposValores.add(lblNewLabel_6);
+		subtitulo1 = new JLabel("<html><center>INDIVIDUAL Y EN EQUIPO</center></html>");
+		subtitulo1.setHorizontalAlignment(SwingConstants.CENTER);
+		subtitulo1.setFont(new Font("Ferrari Sans", Font.BOLD, 14));
+		subtitulo1.setBounds(10, 195, 252, 31);
+		tiposValores.add(subtitulo1);
 		
-		lblNewLabel_7 = new JLabel("<html><center>Nuestros talentosos individuos son nuestro mayor recurso. Sin embargo, solo pueden perseguir lo extraordinario trabajando juntos como un equipo. Fomentando la integridad, la excelencia y la generosidad</center><html>");
-		lblNewLabel_7.setFont(new Font("Ferrari Sans", Font.PLAIN, 11));
-		lblNewLabel_7.setBounds(52, 208, 190, 126);
-		TiposValores.add(lblNewLabel_7);
+		subtitulo2 = new JLabel("<html><center>TRADICION E INNOVACION</center></html>");
+		subtitulo2.setHorizontalAlignment(SwingConstants.CENTER);
+		subtitulo2.setFont(new Font("Ferrari Sans", Font.BOLD, 14));
+		subtitulo2.setBounds(272, 195, 252, 31);
+		tiposValores.add(subtitulo2);
 		
-		lblNewLabel_8 = new JLabel("<html><center>TRADICION E INNOVACION</center></html>");
-		lblNewLabel_8.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_8.setFont(new Font("Ferrari Sans", Font.BOLD, 14));
-		lblNewLabel_8.setBounds(234, 159, 325, 74);
-		TiposValores.add(lblNewLabel_8);
+		subtitulo3 = new JLabel("<html><center>PASION Y LOGRO</center></html>");
+		subtitulo3.setHorizontalAlignment(SwingConstants.CENTER);
+		subtitulo3.setFont(new Font("Ferrari Sans", Font.BOLD, 14));
+		subtitulo3.setBounds(528, 195, 252, 31);
+		tiposValores.add(subtitulo3);
 		
-		lblNewLabel_9 = new JLabel("<html><center>La tradición y la innovación van de la mano en Ferrari. Su constante búsqueda de crear algo nuevo, junto con tecnología avanzada y artesanía de alta calidad, le permite diseñar autos icónicos y atemporales.</center><html>");
-		lblNewLabel_9.setFont(new Font("Ferrari Sans", Font.PLAIN, 11));
-		lblNewLabel_9.setBounds(295, 201, 190, 126);
-		TiposValores.add(lblNewLabel_9);
+		textoSub1 = new JLabel("<html><center>Nuestros talentosos individuos son nuestro mayor recurso. Sin embargo, solo pueden perseguir lo extraordinario trabajando juntos como un equipo. Fomentando la integridad, la excelencia y la generosidad</center><html>");
+		textoSub1.setFont(new Font("Ferrari Sans", Font.PLAIN, 11));
+		textoSub1.setBounds(20, 222, 232, 114);
+		tiposValores.add(textoSub1);
 		
-		lblNewLabel_10 = new JLabel("<html><center>PASION Y LOGRO</center></html>");
-		lblNewLabel_10.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_10.setFont(new Font("Ferrari Sans", Font.BOLD, 14));
-		lblNewLabel_10.setBounds(510, 149, 235, 95);
-		TiposValores.add(lblNewLabel_10);
+		textoSub2 = new JLabel("<html><center>La tradición y la innovación van de la mano en Ferrari. Su constante búsqueda de crear algo nuevo, junto con tecnología avanzada y artesanía de alta calidad, le permite diseñar autos icónicos y atemporales.</center><html>");
+		textoSub2.setFont(new Font("Ferrari Sans", Font.PLAIN, 11));
+		textoSub2.setBounds(284, 222, 232, 114);
+		tiposValores.add(textoSub2);
 		
-		lblNewLabel_11 = new JLabel("<html><center>El espíritu de carreras de Ferrari inspira emociones más allá de la pista, reflejándose en una actitud de vida basada en la pasión, metas ambiciosas y en superar límites para convertir el esfuerzo en logros.</center><html>");
-		lblNewLabel_11.setFont(new Font("Ferrari Sans", Font.PLAIN, 11));
-		lblNewLabel_11.setBounds(534, 210, 190, 126);
-		TiposValores.add(lblNewLabel_11);
-		
-		ImageIcon imgIcon = new ImageIcon(getClass().getResource("/recursos/imagenes/imagenes_sobreNosotros/imagen1.jpg"));
-		Image imgEscalada = imgIcon.getImage().getScaledInstance(240, 190, Image.SCALE_SMOOTH);
-		ImageIcon imgIcon2 = new ImageIcon(getClass().getResource("/recursos/imagenes/imagenes_sobreNosotros/imagen4.png"));
-		Image imgEscalada2 = imgIcon2.getImage().getScaledInstance(240, 190, Image.SCALE_SMOOTH);
-		ImageIcon imgIcon3 = new ImageIcon(getClass().getResource("/recursos/imagenes/imagenes_sobreNosotros/imagen3.jpg"));
-		Image imgEscalada3 = imgIcon3.getImage().getScaledInstance(240, 190, Image.SCALE_SMOOTH);
-		
-		InfoIntegrantes = new JPanel();
-		InfoIntegrantes.setBackground(new Color(255, 255, 255));
-		add(InfoIntegrantes);
-		InfoIntegrantes.setLayout(null);
-		
-		lblNewLabel_12 = new JLabel("<html><center>NUESTRO EQUIPO DE ESPECIALISTAS DE FERRARI</center></html>");
-		lblNewLabel_12.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_12.setFont(new Font("Ferrari Sans Medium", Font.BOLD, 18));
-		lblNewLabel_12.setBounds(180, 100, 412, 80);
-		InfoIntegrantes.add(lblNewLabel_12);
-		
-		lblNewLabel_13 = new JLabel("<html><center>Conoce a nuestro apasionado y único equipo que respalda Ferrari, un grupo de profesionales dedicados a brindar una experiencia excepcional que captura la esencia de la marca del Cavallino Rampante. Cada uno de nuestros especialistas contribuirá con su experiencia y dedicación para convertir en realidad el sueño de experimentar la esencia de Ferrari.</center><html>");
-		lblNewLabel_13.setFont(new Font("Ferrari Sans", Font.PLAIN, 12));
-		lblNewLabel_13.setBounds(136, 161, 513, 129);
-		InfoIntegrantes.add(lblNewLabel_13);
-		
-		ImageIcon imgIcon4 = new ImageIcon(getClass().getResource("/recursos/imagenes/imagenes_sobreNosotros/imagen5.png"));
-		Image imgEscalada4 = imgIcon4.getImage().getScaledInstance(240, 190, Image.SCALE_SMOOTH);
-		ImageIcon imgIcon5 = new ImageIcon(getClass().getResource("/recursos/imagenes/imagenes_sobreNosotros/imagen2.png"));
-		Image imgEscalada5 = imgIcon5.getImage().getScaledInstance(240, 190, Image.SCALE_SMOOTH);
-		
-		Integrantes1 = new JPanel();
-		Integrantes1.setBackground(new Color(255, 255, 255));
-		add(Integrantes1);
-		Integrantes1.setLayout(null);
-		
-		lblNewLabel_14 = new JLabel("New label");
-		lblNewLabel_14.setIcon(new ImageIcon(SobreNosotros.class.getResource("/recursos/imagenes/imagenes_sobreNosotros/imagen1.jpg")));
-		ImageIcon imgIcon6 = new ImageIcon(getClass().getResource("/recursos/imagenes/imagenes_sobreNosotros/imagen1.jpg"));
-		Image imgEscalada6 = imgIcon6.getImage().getScaledInstance(240, 190, Image.SCALE_SMOOTH);
-		lblNewLabel_14.setIcon(new ImageIcon(imgEscalada6));		
-		lblNewLabel_14.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_14.setBounds(57, 41, 203, 193);
-		Integrantes1.add(lblNewLabel_14);
-		
-		lblNewLabel_15 = new JLabel("New label");
-		lblNewLabel_15.setIcon(new ImageIcon(SobreNosotros.class.getResource("/recursos/imagenes/imagenes_sobreNosotros/imagen4.png")));
-		ImageIcon imgIcon7 = new ImageIcon(getClass().getResource("/recursos/imagenes/imagenes_sobreNosotros/imagen4.png"));
-		Image imgEscalada7= imgIcon7.getImage().getScaledInstance(240, 190, Image.SCALE_SMOOTH);
-		lblNewLabel_15.setIcon(new ImageIcon(imgEscalada7));	
-		lblNewLabel_15.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_15.setBounds(289, 41, 203, 193);
-		Integrantes1.add(lblNewLabel_15);
-		
-		lblNewLabel_16 = new JLabel("New label");
-		lblNewLabel_16.setIcon(new ImageIcon(SobreNosotros.class.getResource("/recursos/imagenes/imagenes_sobreNosotros/imagen3.jpg")));
-		ImageIcon imgIcon8 = new ImageIcon(getClass().getResource("/recursos/imagenes/imagenes_sobreNosotros/imagen3.jpg"));
-		Image imgEscalada8= imgIcon8.getImage().getScaledInstance(240, 190, Image.SCALE_SMOOTH);
-		lblNewLabel_16.setIcon(new ImageIcon(imgEscalada8));	
-		lblNewLabel_16.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_16.setBounds(521, 41, 203, 193);
-		Integrantes1.add(lblNewLabel_16);
-		
-		lblNewLabel_17 = new JLabel("<html><center>Alexander Hernández León</center><html>");
-		lblNewLabel_17.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_17.setFont(new Font("Ferrari Sans Medium", Font.BOLD, 16));
-		lblNewLabel_17.setBounds(289, 244, 203, 42);
-		Integrantes1.add(lblNewLabel_17);
-		
-		lblNewLabel_18 = new JLabel("<html><center>\r\nMathias Garcia <br>\r\nRiofrio\r\n</center></html>");
-		lblNewLabel_18.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_18.setFont(new Font("Ferrari Sans Medium", Font.BOLD, 16));
-		lblNewLabel_18.setBounds(57, 245, 203, 42);
-		Integrantes1.add(lblNewLabel_18);
-		
-		lblNewLabel_19 = new JLabel("<html><center>\r\nGabriela Ramos <br>\r\nMarin\r\n</center></html>");
-		lblNewLabel_19.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_19.setFont(new Font("Ferrari Sans Medium", Font.BOLD, 16));
-		lblNewLabel_19.setBounds(521, 245, 203, 42);
-		Integrantes1.add(lblNewLabel_19);
-		
-		Integrantes2 = new JPanel();
-		Integrantes2.setBackground(new Color(255, 255, 255));
-		add(Integrantes2);
-		Integrantes2.setLayout(null);
-		
-		lblNewLabel_20 =  new JLabel("New label");
-		lblNewLabel_20.setIcon(new ImageIcon(SobreNosotros.class.getResource("/recursos/imagenes/imagenes_sobreNosotros/imagen2.png")));
-		ImageIcon imgIcon10 = new ImageIcon(getClass().getResource("/recursos/imagenes/imagenes_sobreNosotros/imagen2.png"));
-		Image imgEscalada10= imgIcon10.getImage().getScaledInstance(240, 190, Image.SCALE_SMOOTH);
-		lblNewLabel_20.setIcon(new ImageIcon(imgEscalada10));	
-		lblNewLabel_20.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_20.setBounds(427, 23, 203, 193);
-		Integrantes2.add(lblNewLabel_20);
-		
-		lblNewLabel_21 = new JLabel("New label");
-		lblNewLabel_21.setIcon(new ImageIcon(SobreNosotros.class.getResource("/recursos/imagenes/imagenes_sobreNosotros/imagen5.png")));
-		ImageIcon imgIcon9 = new ImageIcon(getClass().getResource("/recursos/imagenes/imagenes_sobreNosotros/imagen5.png"));
-		Image imgEscalada9= imgIcon9.getImage().getScaledInstance(240, 190, Image.SCALE_SMOOTH);
-		lblNewLabel_21.setIcon(new ImageIcon(imgEscalada9));	
-		lblNewLabel_21.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_21.setBounds(162, 23, 203, 193);
-		Integrantes2.add(lblNewLabel_21);
-		
-		lblNewLabel_22 = new JLabel("<html><center>\r\nLeonardo Gavancho <br> \r\nTenorio\r\n</center></html>");
-		lblNewLabel_22.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_22.setFont(new Font("Ferrari Sans Medium", Font.BOLD, 16));
-		lblNewLabel_22.setBounds(147, 219, 237, 55);
-		Integrantes2.add(lblNewLabel_22);
-		
-		lblNewLabel_23 = new JLabel("<html><center>\r\nMathias Talavera<br>\r\nTorres\r\n</center></html>");
-		lblNewLabel_23.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_23.setFont(new Font("Ferrari Sans Medium", Font.BOLD, 16));
-		lblNewLabel_23.setBounds(427, 225, 203, 42);
-		Integrantes2.add(lblNewLabel_23);
+		textoSub3 = new JLabel("<html><center>El espíritu de carreras de Ferrari inspira emociones más allá de la pista, reflejándose en una actitud de vida basada en la pasión, metas ambiciosas y en superar límites para convertir el esfuerzo en logros.</center><html>");
+		textoSub3.setFont(new Font("Ferrari Sans", Font.PLAIN, 11));
+		textoSub3.setBounds(537, 222, 232, 114);
+		tiposValores.add(textoSub3);	
 
+		presentacionIntegrantes = new JPanel();
+		presentacionIntegrantes.setBackground(new Color(255, 255, 255));
+		add(presentacionIntegrantes);
+		presentacionIntegrantes.setLayout(null);
+		
+		titulo3 = new JLabel("<html><center>NUESTRO EQUIPO DE ESPECIALISTAS DE FERRARI</center></html>");
+		titulo3.setHorizontalAlignment(SwingConstants.CENTER);
+		titulo3.setFont(new Font("Ferrari Sans Medium", Font.BOLD, 20));
+		titulo3.setBounds(180, 100, 412, 80);
+		presentacionIntegrantes.add(titulo3);
+		
+		presentacion2 = new JLabel("<html><center>Conoce a nuestro apasionado y único equipo que respalda Ferrari, un grupo de profesionales dedicados a brindar una experiencia excepcional que captura la esencia de la marca del Cavallino Rampante. Cada uno de nuestros especialistas contribuirá con su experiencia y dedicación para convertir en realidad el sueño de experimentar la esencia de Ferrari.</center><html>");
+		presentacion2.setFont(new Font("Ferrari Sans", Font.PLAIN, 12));
+		presentacion2.setBounds(136, 161, 513, 129);
+		presentacionIntegrantes.add(presentacion2);
+		
+		integrantes1 = new JPanel();
+		integrantes1.setBackground(new Color(255, 255, 255));
+		add(integrantes1);
+		integrantes1.setLayout(null);
+		
+		imagen4 = new JLabel("");
+		imagen4.setIcon(new ImageIcon(imgEscalada4));		
+		imagen4.setHorizontalAlignment(SwingConstants.CENTER);
+		imagen4.setBounds(57, 41, 203, 193);
+		integrantes1.add(imagen4);
+		
+		imagen5 = new JLabel("");
+		imagen5.setIcon(new ImageIcon(imgEscalada5));	
+		imagen5.setHorizontalAlignment(SwingConstants.CENTER);
+		imagen5.setBounds(289, 41, 203, 193);
+		integrantes1.add(imagen5);
+		
+		imagen6 = new JLabel("");
+		imagen6.setIcon(new ImageIcon(imgEscalada6));	
+		imagen6.setHorizontalAlignment(SwingConstants.CENTER);
+		imagen6.setBounds(521, 41, 203, 193);
+		integrantes1.add(imagen6);
+		
+		textoImg4 = new JLabel("<html><center>\r\nMathias Garcia <br>\r\nRiofrio\r\n</center></html>");
+		textoImg4.setHorizontalAlignment(SwingConstants.CENTER);
+		textoImg4.setFont(new Font("Ferrari Sans Medium", Font.BOLD, 16));
+		textoImg4.setBounds(57, 245, 203, 42);
+		integrantes1.add(textoImg4);
+		
+		textoImg5 = new JLabel("<html><center>Alexander Hernández León</center><html>");
+		textoImg5.setHorizontalAlignment(SwingConstants.CENTER);
+		textoImg5.setFont(new Font("Ferrari Sans Medium", Font.BOLD, 16));
+		textoImg5.setBounds(289, 244, 203, 42);
+		integrantes1.add(textoImg5);
+		
+		textoImg6 = new JLabel("<html><center>\r\nGabriela Ramos <br>\r\nMarin\r\n</center></html>");
+		textoImg6.setHorizontalAlignment(SwingConstants.CENTER);
+		textoImg6.setFont(new Font("Ferrari Sans Medium", Font.BOLD, 16));
+		textoImg6.setBounds(521, 245, 203, 42);
+		integrantes1.add(textoImg6);
+		
+		integrantes2 = new JPanel();
+		integrantes2.setBackground(new Color(255, 255, 255));
+		add(integrantes2);
+		integrantes2.setLayout(null);
+		
+		imagen7 = new JLabel("");
+		imagen7.setIcon(new ImageIcon(imgEscalada7));	
+		imagen7.setHorizontalAlignment(SwingConstants.CENTER);
+		imagen7.setBounds(162, 23, 203, 193);
+		integrantes2.add(imagen7);
+		
+		imagen8 =  new JLabel("");
+		imagen8.setIcon(new ImageIcon(imgEscalada8));	
+		imagen8.setHorizontalAlignment(SwingConstants.CENTER);
+		imagen8.setBounds(427, 23, 203, 193);
+		integrantes2.add(imagen8);
+		
+		textoImg7 = new JLabel("<html><center>\r\nLeonardo Gavancho <br> \r\nTenorio\r\n</center></html>");
+		textoImg7.setHorizontalAlignment(SwingConstants.CENTER);
+		textoImg7.setFont(new Font("Ferrari Sans Medium", Font.BOLD, 16));
+		textoImg7.setBounds(147, 219, 237, 55);
+		integrantes2.add(textoImg7);
+		
+		textoImg8 = new JLabel("<html><center>\r\nMathias Talavera<br>\r\nTorres\r\n</center></html>");
+		textoImg8.setHorizontalAlignment(SwingConstants.CENTER);
+		textoImg8.setFont(new Font("Ferrari Sans Medium", Font.BOLD, 16));
+		textoImg8.setBounds(427, 225, 203, 42);
+		integrantes2.add(textoImg8);
 	}
 }
