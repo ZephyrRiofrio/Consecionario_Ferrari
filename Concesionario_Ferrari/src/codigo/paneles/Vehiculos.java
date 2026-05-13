@@ -304,7 +304,7 @@ public class Vehiculos extends JPanel implements MouseListener {
 		lblSolicitud.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ventanaMenu.mostrarPanel(new VentasVehiculos());
+				ventanaMenu.mostrarPanel(new Solicitud());
 			}
 		});
 		lblSolicitud.setForeground(Color.WHITE);
