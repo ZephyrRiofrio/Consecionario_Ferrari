@@ -10,7 +10,7 @@ import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 import java.awt.Dimension;
 
-public class panel_noticia_3 extends JPanel {
+public class Noticia_1 extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contenido;
@@ -23,8 +23,8 @@ public class panel_noticia_3 extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public panel_noticia_3() {
-		setPreferredSize(new Dimension(790, 252));
+	public Noticia_1() {
+		setSize(new Dimension(790, 252));
 		setLayout(new BorderLayout(0, 0));
 		
 		contenido = new JPanel();
@@ -35,16 +35,16 @@ public class panel_noticia_3 extends JPanel {
 		contenido.add(articulo);
 		articulo.setLayout(null);
 		
-		titulo_articulo = new JLabel("<html>\r\nCHARLES CONSIGUE <br>\r\nOTRO PODIO PARA <br>\r\nLA SCUDERIA <br>\r\n</html>");
+		titulo_articulo = new JLabel("<html>\r\nFERRARI Y <br>\r\nFRECCE TRICOLORI, <br>\r\nDOS REFERENTES ITALIANOS, <br>\r\nPROTAGONIZAN UN EVENTO ESPECIAL<br>\r\n</html>");
 		titulo_articulo.setHorizontalTextPosition(SwingConstants.CENTER);
 		titulo_articulo.setToolTipText("");
 		titulo_articulo.setFont(new Font("Roboto ExtraBold", Font.PLAIN, 20));
-		titulo_articulo.setBounds(89, 62, 249, 78);
+		titulo_articulo.setBounds(64, 11, 282, 129);
 		articulo.add(titulo_articulo);
 		
-		texto_articulo = new JLabel("<html>\r\nLa Scuderia Ferrari HP se marcha de Japón con <br>\r\nsu tercer podio en otras tantas carreras, <br>\r\ngracias al tercer puesto de Charles Leclerc. <br>\r\n</html>");
+		texto_articulo = new JLabel("<html>Dos referentes italianos, Ferrari — representado <br>\r\npor los vigentes campeones del mundo del FIA WEC — <br>\r\ny el equipo acrobático nacional Frecce Tricolori, <br>\r\nse reunieron en una jornada dedicada a destacar el 499P, <br>\r\nque competirá en la temporada 2026, y el avión MB-339 <br>\r\nPan de la Fuerza Aérea Italiana. <br></html>");
 		texto_articulo.setFont(new Font("Roboto Light", Font.PLAIN, 11));
-		texto_articulo.setBounds(89, 142, 249, 54);
+		texto_articulo.setBounds(64, 142, 282, 84);
 		articulo.add(texto_articulo);
 		
 		imagen_articulo = new JPanel();
@@ -52,8 +52,8 @@ public class panel_noticia_3 extends JPanel {
 		imagen_articulo.setLayout(null);
 		
 		lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon(panel_noticia_3.class.getResource("/recursos/imagenes/imagenes_inicio/noticias_carrusel_3_rend.jpg")));
-		lblNewLabel_2.setBounds(75, 11, 204, 230);
+		lblNewLabel_2.setIcon(new ImageIcon(Noticia_1.class.getResource("/recursos/imagenes/imagenes_inicio/noticias_carrusel_1_rend.jpg")));
+		lblNewLabel_2.setBounds(103, 10, 204, 230);
 		imagen_articulo.add(lblNewLabel_2);
 
 	}
