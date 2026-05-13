@@ -1,7 +1,5 @@
 package codigo.paneles;
 
-import codigo.ventanas.Menu;
-
 import javax.swing.JPanel;
 
 import java.awt.BorderLayout;
@@ -22,6 +20,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import java.util.ArrayList;
+
+import codigo.ventanas.Menu;
 
 public class Mantenimiento extends JPanel {
 	private static final long serialVersionUID = 1L;

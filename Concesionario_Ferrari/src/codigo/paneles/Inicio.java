@@ -1,12 +1,13 @@
 package codigo.paneles;
 
+import javax.swing.JPanel;
+
 import java.awt.Dimension;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.*;
 import java.awt.Cursor;
 import java.awt.Color;
-import javax.swing.JPanel;
 import javax.swing.ImageIcon;
 import javax.swing.border.EmptyBorder;
 import javax.swing.Timer;

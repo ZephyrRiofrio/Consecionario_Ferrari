@@ -2,8 +2,6 @@ package codigo.paneles;
 
 import javax.swing.JPanel;
 
-import codigo.ventanas.Menu;
-
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.Color;
@@ -21,6 +19,7 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.border.CompoundBorder;
 import java.util.ArrayList;
 
+import codigo.ventanas.Menu;
 import codigo.paneles.paneles_vehiculos.*;
 
 public class Vehiculos extends JPanel implements MouseListener {
